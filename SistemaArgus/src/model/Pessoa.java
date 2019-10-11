@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 //lembrar de ser abstrata e usar outras classes
 
-public class Pessoa {
+public class Pessoa extends Entidade {
 	
 	
 	@Id
@@ -31,7 +31,7 @@ public class Pessoa {
 
 	protected static final String sequence = "pessoa_sequence";
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -48,6 +48,11 @@ public class Pessoa {
 	}
 	public void setIdade(int idade) {
 		this.idade = idade;
+	}
+	@Override
+	public String detalhesEntidade() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
