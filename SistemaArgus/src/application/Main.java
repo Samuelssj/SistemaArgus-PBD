@@ -20,16 +20,16 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		
-		PessoaDao repositorioPessoa = new PessoaDao();
-		Pessoa pessoa = new Pessoa();
-		pessoa.setNome("juba");
-		pessoa.setIdade(12);
-		repositorioPessoa.salvar(pessoa);
-		
+//		PessoaDao repositorioPessoa = new PessoaDao();
+//		Pessoa pessoa = new Pessoa();
+//		pessoa.setNome("juba");
+//		pessoa.setIdade(12);
+//		repositorioPessoa.salvar(pessoa);
+//		
 		
 		
 
-//		launch(args);
+		launch(args);
 
 	}
 
