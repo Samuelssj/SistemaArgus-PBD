@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControleTelaMenu">
+   <children>
+      <AnchorPane fx:id="AnchoPane" layoutX="500.0" layoutY="500.0" onDragDetected="#action" prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <MenuBar prefHeight="82.0" prefWidth="1060.0">
+              <menus>
+                  <Menu mnemonicParsing="false">
+                    <items>
+                      <MenuItem fx:id="menuCadastroAluno" mnemonicParsing="false" onAction="#action" text=" Cadastro Aluno" />
+                        <MenuItem fx:id="menuCadastroProfessor" mnemonicParsing="false" onAction="#action" text="Cadastro Professor" />
+                    </items>
+                     <graphic>
+                        <ImageView fx:id="menuIcoCad" fitHeight="68.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/CadIco.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+                <Menu fx:id="menuLogoff" mnemonicParsing="false" onAction="#action">
+                  <items>
+                    <MenuItem fx:id="menuAluno" mnemonicParsing="false" onAction="#action" text="Aluno" />
+                  </items>
+                     <graphic>
+                        <ImageView fx:id="menuIcoAluno" fitHeight="68.0" fitWidth="113.0" onDragDetected="#action" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/alunoIco2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                </Menu>
+                  <Menu mnemonicParsing="false">
+                    <items>
+                      <MenuItem fx:id="menuResponsavel" mnemonicParsing="false" onAction="#action" text="Pai/Responsavel" />
+                    </items>
+                     <graphic>
+                        <ImageView fx:id="menuIcoResponsavel" fitHeight="68.0" fitWidth="113.0" onDragDetected="#action" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/responsavelIco.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+                  <Menu mnemonicParsing="false">
+                    <items>
+                      <MenuItem fx:id="menuProfessor" mnemonicParsing="false" onAction="#action" text="Professor" />
+                    </items>
+                     <graphic>
+                        <ImageView fx:id="menuIcoProfessor" fitHeight="68.0" fitWidth="113.0" onDragDetected="#action" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/professorIco.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+                  <Menu mnemonicParsing="false">
+                    <items>
+                      <MenuItem fx:id="menuPedagogo" mnemonicParsing="false" onAction="#action" text="Pedagogo" />
+                    </items>
+                     <graphic>
+                        <ImageView fx:id="menuIcoPedagogo" fitHeight="68.0" fitWidth="113.0" onDragDetected="#action" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/PedagogoIco.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+                  <Menu mnemonicParsing="false">
+                    <items>
+                      <MenuItem fx:id="menuHistorico" mnemonicParsing="false" onAction="#action" text="Histórico" />
+                    </items>
+                     <graphic>
+                        <ImageView fx:id="menuIcoHist" fitHeight="68.0" fitWidth="113.0" onDragDetected="#action" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/historicoIco.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+                  <Menu mnemonicParsing="false">
+                    <items>
+                      <MenuItem fx:id="menuFinanceiro" mnemonicParsing="false" onAction="#action" text="Financeiro" />
+                    </items>
+                     <graphic>
+                        <ImageView fx:id="menuIcoFinan" fitHeight="68.0" fitWidth="113.0" onDragDetected="#action" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/financeiroIco.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+                  <Menu mnemonicParsing="false">
+                    <items>
+                      <MenuItem fx:id="menuSair" mnemonicParsing="false" onAction="#action" text="Sair" />
+                        <MenuItem fx:id="menuSobre" mnemonicParsing="false" onAction="#action" text="Sobre o Argus" />
+                        <MenuItem fx:id="menuTrocarUser" mnemonicParsing="false" onAction="#action" text="Trocar Usuário" />
+                    </items>
+                     <graphic>
+                        <ImageView fx:id="menuIcoLogoff" fitHeight="68.0" fitWidth="113.0" onDragDetected="#action" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../res/logoutIco.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <AnchorPane fx:id="pane" layoutY="81.0" onDragDetected="#action" prefHeight="520.0" prefWidth="1060.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

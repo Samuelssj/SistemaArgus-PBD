@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="394.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControleTelaLog">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="700.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="706.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/LogoFundo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="JBentrar" layoutX="487.0" layoutY="244.0" mnemonicParsing="false" onAction="#action" prefHeight="39.0" prefWidth="78.0" text="Entrar" textFill="#349deb">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="284.0" layoutY="152.0" text="Login:" textFill="#05abc9">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="282.0" layoutY="199.0" text="Senha:" textFill="#05abc9">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="TxSenha" layoutX="366.0" layoutY="205.0" onAction="#action" prefHeight="25.0" prefWidth="230.0" />
+            <TextField fx:id="TxLogin" layoutX="366.0" layoutY="158.0" onAction="#action" prefHeight="25.0" prefWidth="230.0" />
+            <Button fx:id="JBsair" layoutX="654.0" layoutY="356.0" mnemonicParsing="false" onAction="#action" text="Sair" textFill="#349deb">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="LBesquecerSenha" layoutX="576.0" layoutY="273.0" onDragDetected="#action" text="Esqueceu a Senha?" textFill="#fa4848">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
