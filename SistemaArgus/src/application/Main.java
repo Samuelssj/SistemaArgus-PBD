@@ -3,6 +3,8 @@ package application;
 import java.io.IOException;
 
 import dao.PessoaDao;
+import exception.BusinessException;
+import fachada.Fachada;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,11 +22,21 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		
-//		PessoaDao repositorioPessoa = new PessoaDao();
-//		Pessoa pessoa = new Pessoa();
-//		pessoa.setNome("juba");
-//		pessoa.setIdade(12);
-//		repositorioPessoa.salvar(pessoa);
+		PessoaDao repositorioPessoa = new PessoaDao();
+		Pessoa pessoa = new Pessoa();
+		pessoa.setNome("mael");
+		pessoa.setIdade(12);
+	
+		Fachada fachada = new Fachada();
+		
+		try {
+			fachada.createOrUpdatePessoa(pessoa);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//	repositorioPessoa.salvar(pessoa);
 //		007
 		
 		
