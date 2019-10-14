@@ -43,6 +43,8 @@ public class PessoaDao extends Dao<Pessoa> implements IdaoPessoa {
 		}
 	}
 	}
+
+
 //	EntityManagerFactory emf;
 //	EntityManager em;
 //

@@ -24,20 +24,23 @@ public class Main extends Application {
 		
 		PessoaDao repositorioPessoa = new PessoaDao();
 		Pessoa pessoa = new Pessoa();
-		pessoa.setNome("mael");
-		pessoa.setIdade(12);
+		pessoa.setNome("Samuel");
+		pessoa.setIdade(14);
+		pessoa.setId(2);
+		
 	
 		Fachada fachada = new Fachada();
 		
 		try {
-			fachada.createOrUpdatePessoa(pessoa);
+			fachada.removeSuperUsuario(5);
+			//fachada.createOrUpdatePessoa(pessoa);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		//	repositorioPessoa.salvar(pessoa);
-//		007
+
+
 		
 		
 
@@ -69,7 +72,7 @@ public class Main extends Application {
 		primaryStage.centerOnScreen();
 		primaryStage.show();
 		primaryStage.setTitle("Sistema (ARGUS-ACAD)");
-		primaryStage.setResizable(false);
+		//primaryStage.setResizable(false);
 		stage = primaryStage;
 
 	}

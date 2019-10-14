@@ -54,6 +54,8 @@ public class Fachada implements IFachada{
 	@Override
 	public void removeSuperUsuario(int id) throws BusinessException {
 		// TODO Auto-generated method stub
+			businessPessoa.remove(id);
+		
 		
 	}
 
