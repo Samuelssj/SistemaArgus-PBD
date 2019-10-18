@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,33 +24,32 @@ public class Usuario extends Entidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column
+	@Column(length = 50, nullable = false)
 	private String nome;
-	@Column
-	private int idade;
+	@Column(length = 30, nullable = false)
+	private Date data_nasc;
+	@Column(length = 30, nullable = false)
+	private String naturalidade;
+	@Column(length = 30, nullable = false)
+	private String tipo;
+	@Column(length = 30, nullable = false)
+	private String login;
+	@Column(length = 30, nullable = false)
+	private String senha;
+	
 	
 	private static final long serialVersionUID = 1L;
 
 	protected static final String sequence = "pessoa_sequence";
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getIdade() {
-		return idade;
-	}
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
+	
 	@Override
 	public String detalhesEntidade() {
 		// TODO Auto-generated method stub

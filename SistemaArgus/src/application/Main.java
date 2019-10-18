@@ -22,22 +22,22 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		
-		UsuarioDao repositorioPessoa = new UsuarioDao();
-		Usuario pessoa = new Usuario();
-		pessoa.setNome("Samuel");
-		pessoa.setIdade(14);
-	//	pessoa.setId(2);
-		
-	
-		Fachada fachada = new Fachada();
-		
-		try {
-			//fachada.removeSuperUsuario(5);
-			fachada.createOrUpdatePessoa(pessoa);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		UsuarioDao repositorioPessoa = new UsuarioDao();
+//		Usuario pessoa = new Usuario();
+//		pessoa.setNome("Samuel");
+//		pessoa.setIdade(14);
+//	//	pessoa.setId(2);
+//		
+//	
+//		Fachada fachada = new Fachada();
+//		
+//		try {
+//			//fachada.removeSuperUsuario(5);
+//			fachada.createOrUpdatePessoa(pessoa);
+//		} catch (BusinessException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 
 
