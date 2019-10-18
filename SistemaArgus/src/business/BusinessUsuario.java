@@ -1,27 +1,27 @@
 package business;
 
 import javax.xml.bind.ValidationException;
-import businessInterface.IbusinessPessoa;
+import businessInterface.IbusinessUsuario;
 import dao.Dao;
-import dao.PessoaDao;
-import daoInterface.IdaoPessoa;
+import dao.UsuarioDao;
+import daoInterface.IdaoUsuario;
 import exception.BusinessException;
-import model.Pessoa;
+import model.Usuario;
 
 
-public class BusinessPessoa extends Business<Pessoa> implements IbusinessPessoa{
+public class BusinessUsuario extends Business<Usuario> implements IbusinessUsuario{
 
-	private IdaoPessoa daopessoa;
+	private IdaoUsuario daopessoa;
 	
-	public BusinessPessoa() {
+	public BusinessUsuario() {
 		// TODO Auto-generated constructor stub
-		daopessoa = new PessoaDao();
+		daopessoa = new UsuarioDao();
 		init(daopessoa);
 		
 	}
 	
 	@Override
-	public void validation(Pessoa entidade) throws ValidationException {
+	public void validation(Usuario entidade) throws ValidationException {
 
 //		if (entidade.getSenha().length() < 6 || entidade.getSenha().length() > 11)
 //			throw new ValidationException("A SENHA TEM QUE TER NO MINIMO 6 E NO MAXIMO 11 CARACTERES");
@@ -44,7 +44,7 @@ public class BusinessPessoa extends Business<Pessoa> implements IbusinessPessoa{
 	
 	
 	@Override
-	public Pessoa searchUser(String login, String senha) throws BusinessException {
+	public Usuario searchUser(String login, String senha) throws BusinessException {
 //		try {
 //
 //			senha = CriptografiaUtil.criptografar(senha.getBytes());

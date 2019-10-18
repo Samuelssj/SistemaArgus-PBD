@@ -3,20 +3,20 @@ package fachada;
 import java.util.List;
 
 import exception.BusinessException;
-import model.Pessoa;
+import model.Usuario;
 
 
 public interface IFachada {
 
 
 //  SuperUsuario	businessSuperUsuario = new BusinessSuperUsuario();
-public void createOrUpdatePessoa(Pessoa entidade) throws BusinessException;
-  public Pessoa searchSuperUsuario(int id) throws BusinessException;
+public void createOrUpdatePessoa(Usuario entidade) throws BusinessException;
+  public Usuario searchSuperUsuario(int id) throws BusinessException;
   public void removeSuperUsuario(int id) throws BusinessException;
-  public List<Pessoa> searchAllSuperUsuario() throws BusinessException;    
-  public List<Pessoa> searchAllSuperUsuario(String search) throws BusinessException;
+  public List<Usuario> searchAllSuperUsuario() throws BusinessException;    
+  public List<Usuario> searchAllSuperUsuario(String search) throws BusinessException;
 
   //Usuario
-  public Pessoa searchUser(String login, String senha) throws BusinessException;
+  public Usuario searchUser(String login, String senha) throws BusinessException;
   
 }

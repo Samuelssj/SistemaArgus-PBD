@@ -10,12 +10,12 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="pessoa")
-@SequenceGenerator(name = Entidade.sequence, sequenceName = Pessoa.sequence, initialValue = 1, allocationSize = 1)
+@Table(name="usuario")
+@SequenceGenerator(name = Entidade.sequence, sequenceName = Usuario.sequence, initialValue = 1, allocationSize = 1)
 
 //lembrar de ser abstrata e usar outras classes
 
-public class Pessoa extends Entidade {
+public class Usuario extends Entidade {
 	
 	
 	@Id

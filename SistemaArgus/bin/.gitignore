@@ -3,3 +3,7 @@
 /business/
 /dao/
 /fachada/
+/businessInterface/
+/daoInterface/
+/model/
+/EntidadeEnum/

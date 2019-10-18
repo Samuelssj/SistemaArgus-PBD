@@ -10,25 +10,25 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import daoInterface.IdaoPessoa;
+import daoInterface.IdaoUsuario;
 import exception.DaoException;
-import model.Pessoa;
+import model.Usuario;
 import util.SqlUtil;
 
-public class PessoaDao extends Dao<Pessoa> implements IdaoPessoa {
+public class UsuarioDao extends Dao<Usuario> implements IdaoUsuario {
 
 	
-	public PessoaDao() {
+	public UsuarioDao() {
 		// TODO Auto-generated constructor stub
-		super(Pessoa.class);
+		super(Usuario.class);
 	}
 	
 	
 	@Override
-	public Pessoa searchUser(String login, String senha) throws DaoException {
+	public Usuario searchUser(String login, String senha) throws DaoException {
 		try {
 
-			TypedQuery<Pessoa> query = entityManager.createQuery(SqlUtil.USUARIO_LOGIN + "", classe);
+			TypedQuery<Usuario> query = entityManager.createQuery(SqlUtil.USUARIO_LOGIN + "", classe);
 			query.setParameter("login", login);
 			query.setParameter("senha", senha);
 

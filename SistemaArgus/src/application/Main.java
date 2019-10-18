@@ -2,7 +2,7 @@ package application;
 
 import java.io.IOException;
 
-import dao.PessoaDao;
+import dao.UsuarioDao;
 import exception.BusinessException;
 import fachada.Fachada;
 import javafx.application.Application;
@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.Pessoa;
+import model.Usuario;
 import model.Tela;
 
 public class Main extends Application {
@@ -22,18 +22,18 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		
-		PessoaDao repositorioPessoa = new PessoaDao();
-		Pessoa pessoa = new Pessoa();
+		UsuarioDao repositorioPessoa = new UsuarioDao();
+		Usuario pessoa = new Usuario();
 		pessoa.setNome("Samuel");
 		pessoa.setIdade(14);
-		pessoa.setId(2);
+	//	pessoa.setId(2);
 		
 	
 		Fachada fachada = new Fachada();
 		
 		try {
-			fachada.removeSuperUsuario(5);
-			//fachada.createOrUpdatePessoa(pessoa);
+			//fachada.removeSuperUsuario(5);
+			fachada.createOrUpdatePessoa(pessoa);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,7 +44,7 @@ public class Main extends Application {
 		
 		
 
-//		launch(args);
+	launch(args);
 
 	}
 
