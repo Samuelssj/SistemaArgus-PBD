@@ -50,18 +50,18 @@ public class Main extends Application {
 //		
 	//	pessoa.setId(2);
 		
-	
-		Fachada fachada = new Fachada();
-		
-		try {
-			//fachada.removeSuperUsuario(5);
-			fachada.createOrUpdateEndereco(end);
-			fachada.createOrUpdatePessoa(pessoa);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+//	
+//		Fachada fachada = new Fachada();
+//		
+//		try {
+//			//fachada.removeSuperUsuario(5);
+//			fachada.createOrUpdateEndereco(end);
+//			fachada.createOrUpdatePessoa(pessoa);
+//		} catch (BusinessException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
 
 
 		

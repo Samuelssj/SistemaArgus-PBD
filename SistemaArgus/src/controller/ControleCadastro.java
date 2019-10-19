@@ -3,7 +3,9 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -15,7 +17,8 @@ import javafx.scene.layout.AnchorPane;
 
 public class ControleCadastro {
 
-	@FXML
+
+    @FXML
     private AnchorPane AnchoPane;
 
     @FXML
@@ -55,81 +58,120 @@ public class ControleCadastro {
     private TableColumn<?, ?> SituacaoTabFuncionario;
 
     @FXML
-    private Button JBeditarCadastro;
+    private Button JBeditar;
 
     @FXML
-    private Button JBdesativarCadastro;
+    private Button JBdeletar;
 
     @FXML
-    private Tab TabNovoFuncionario;
+    private Tab TabNovoFuncionario1;
 
     @FXML
-    private TextField TXnomeFuncionario;
+    private TextField TXusuarioNome1;
 
     @FXML
-    private TextField TXcpfFuncionario;
+    private TextField TXusuarioLogin1;
 
     @FXML
-    private TextField TXloginFuncionario;
+    private TextField TXusuarioCidade1;
 
     @FXML
-    private TextField TXsenhaFuncionario;
+    private TextField TXusuarioEstado1;
 
     @FXML
-    private TextField TXconfirmarsenhaFuncionario;
+    private TextField TXusuarioCEP1;
 
     @FXML
-    private TextField TXcidadeFuncionario;
+    private TextField TXusuarioRua1;
 
     @FXML
-    private TextField TXestadoFuncionario;
+    private TextField TXusuarioBairro1;
 
     @FXML
-    private TextField TXcepFuncionario;
+    private TextField TXusuarioNumero1;
 
     @FXML
-    private TextField TXruaFuncionario;
+    private Button BTcadastrarPessoa1;
 
     @FXML
-    private TextField TXBairroFuncionario;
+    private RadioButton Radiomãe1;
 
     @FXML
-    private TextField TXnumeroFuncionario;
+    private ToggleGroup genero1;
 
     @FXML
-    private Button BTcadastrarPessoa;
+    private RadioButton RadioPai1;
 
     @FXML
-    private RadioButton RadioSecretaria;
+    private TextField TXusuarioPaiCPF1;
 
     @FXML
-    private ToggleGroup genero;
+    private DatePicker TXusuarioPaiNasc1;
 
     @FXML
-    private RadioButton RadioPedagogo;
+    private DatePicker TXusuarioMaeNasc1;
 
     @FXML
-    private RadioButton RadioAdm;
+    private TextField TXusuarioMaeNome1;
 
     @FXML
-    private RadioButton RadioDirecao;
+    private TextField TXusuarioMaeCPF1;
 
     @FXML
-    private RadioButton RadioProfessor;
+    private TextField TXcpfResponsavel1;
 
     @FXML
-    private RadioButton RadioPaiResp;
+    private TextField TXusuarioPaiNome1;
 
     @FXML
-    private RadioButton RadioAluno;
+    private RadioButton RadioProprioresp1;
 
     @FXML
-    private Button JBvoltar;
-    
+    private ComboBox<?> TXusuarioPaiNaturalidade1;
+
+    @FXML
+    private ComboBox<?> TXusuarioMaeNAturalidade1;
+
+    @FXML
+    private ComboBox<?> TXusuarioTipo1;
+
+    @FXML
+    private ComboBox<?> TXusuarioNaturalidade1;
+
+    @FXML
+    private PasswordField TXusuarioSenha1;
+
+    @FXML
+    private PasswordField TXusuarioSenhaConfirmar1;
+
+    @FXML
+    private DatePicker TXusuarioData_nasc1;
+
+    @FXML
+    private Button BToutroResponsavel1;
+
+    @FXML
+    private Tab TabNovoFuncionario11;
+
+    @FXML
+    private TextField TXresponsavelNome;
+
+    @FXML
+    private TextField TXresponsavelCPF;
+
+    @FXML
+    private Button BTcadastrarComResponsavel;
+
+    @FXML
+    private DatePicker TXresponsavelDataNasc;
+
+    @FXML
+    private Button BTvoltar;
+
 	@FXML
 	void action(ActionEvent event) {
 
-		if (event.getSource() ==JBvoltar) {
+		if (event.getSource() ==BTvoltar) {
 			System.out.println("oi");
 		}
 

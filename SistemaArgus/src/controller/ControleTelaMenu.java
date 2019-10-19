@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
@@ -82,6 +83,9 @@ public class ControleTelaMenu implements Initializable {
     private ImageView menuIcoLogoff;
 
     @FXML
+    private Label itemMenuCargo;
+    
+    @FXML
     private AnchorPane pane;
 
 	@FXML
@@ -90,6 +94,7 @@ public class ControleTelaMenu implements Initializable {
 		if (event.getSource() == menuCadastroAluno) {
 
 			atualizarTela("pessoa");
+			
 		}
 		if(event.getSource() == menuCadastroProfessor) {
 			atualizarTela("CadProfessor");
@@ -100,7 +105,7 @@ public class ControleTelaMenu implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			CadastroPessoa = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroAluno.fxml"));
+			CadastroPessoa = FXMLLoader.load(getClass().getClassLoader().getResource("view/Cadastro.fxml"));
 			CadProfessor = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroProfessor.fxml"));
 			
 			
