@@ -1,7 +1,10 @@
 package application;
 
 import java.io.IOException;
+import java.util.Date;
 
+import EntidadeEnum.Estado;
+import EntidadeEnum.TipoUsuario;
 import dao.UsuarioDao;
 import exception.BusinessException;
 import fachada.Fachada;
@@ -11,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.Usuario;
+import model.Endereco;
 import model.Tela;
 
 public class Main extends Application {
@@ -23,21 +27,40 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		
 //		UsuarioDao repositorioPessoa = new UsuarioDao();
+//		Endereco end = new Endereco();
+//		end.setBairro("cen");
+//		end.setCep("2222");
+//		end.setCidade("juru");
+//		end.setComplemento("cAsa");
+//		end.setEstado(Estado.PARA);
+//		end.setNumero("30");
+//		end.setPais("br");
+//		end.setRua("riobranco");
+//		
+//		
 //		Usuario pessoa = new Usuario();
 //		pessoa.setNome("Samuel");
-//		pessoa.setIdade(14);
-//	//	pessoa.setId(2);
+//		pessoa.setData_nasc(new Date());
+//		pessoa.setLogin("dadada");
+//		pessoa.setNaturalidade("PARA");
+//		pessoa.setSenha("123");
+//		//pessoa.setTipo(TipoUsuario.ALUNO));
 //		
-//	
-//		Fachada fachada = new Fachada();
 //		
-//		try {
-//			//fachada.removeSuperUsuario(5);
-//			fachada.createOrUpdatePessoa(pessoa);
-//		} catch (BusinessException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+//		
+	//	pessoa.setId(2);
+		
+	
+		Fachada fachada = new Fachada();
+		
+		try {
+			//fachada.removeSuperUsuario(5);
+			fachada.createOrUpdateEndereco(end);
+			fachada.createOrUpdatePessoa(pessoa);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 
 

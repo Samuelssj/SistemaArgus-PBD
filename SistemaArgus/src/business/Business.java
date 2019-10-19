@@ -8,6 +8,7 @@ import businessInterface.Ibusiness;
 import daoInterface.IDao;
 import exception.BusinessException;
 import exception.DaoException;
+import exception.ValidacaoException;
 import model.Entidade;
 
 public class Business<Tipo extends Entidade> implements Ibusiness<Tipo> {
@@ -29,7 +30,7 @@ public class Business<Tipo extends Entidade> implements Ibusiness<Tipo> {
 				dao.create(entidade);
 			else
 				dao.update(entidade);
-		} catch (DaoException | ValidationException e) {
+		} catch (DaoException | ValidacaoException e) {
 			e.printStackTrace();
 			throw new BusinessException(e.getMessage());
 		}
@@ -73,9 +74,12 @@ public class Business<Tipo extends Entidade> implements Ibusiness<Tipo> {
 	}
 
 	@Override
-	public void validation(Tipo entidade) throws ValidationException {
+	public void validation(Tipo entidade) throws ValidacaoException {
 		// TODO Auto-generated method stub
+		
 	}
+
+	
 	
 
 }

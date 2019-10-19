@@ -6,6 +6,7 @@ import dao.Dao;
 import dao.UsuarioDao;
 import daoInterface.IdaoUsuario;
 import exception.BusinessException;
+import exception.ValidacaoException;
 import model.Usuario;
 
 
@@ -21,7 +22,7 @@ public class BusinessUsuario extends Business<Usuario> implements IbusinessUsuar
 	}
 	
 	@Override
-	public void validation(Usuario entidade) throws ValidationException {
+	public void validation(Usuario entidade) throws ValidacaoException {
 
 //		if (entidade.getSenha().length() < 6 || entidade.getSenha().length() > 11)
 //			throw new ValidationException("A SENHA TEM QUE TER NO MINIMO 6 E NO MAXIMO 11 CARACTERES");
