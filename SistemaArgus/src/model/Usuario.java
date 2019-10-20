@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,6 +17,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import EntidadeEnum.TipoUsuario;
+
 @Entity
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "usuario")
@@ -27,12 +30,12 @@ public class  Usuario extends Entidade {
 	@Column(length = 50, nullable = false)
 	private String nome;
 	@Column(length = 30, nullable = false)
-	private Date data_nasc;
+	private LocalDate data_nasc;
 	@Column(length = 30, nullable = false)
 	private String naturalidade;
-//	@Column(length = 30, nullable = false)
-//	@Enumerated(EnumType.STRING)
-//	private String tipo;
+	@Column(length = 30, nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoUsuario tipo;
 	@Column(length = 30, nullable = false)
 	private String login;
 	@Column(length = 30, nullable = false)
@@ -56,12 +59,12 @@ public class  Usuario extends Entidade {
 	protected static final String sequence = "usuario_sequence";
 	
 
-	public Date getData_nasc() {
+	public LocalDate getData_nasc() {
 		return data_nasc;
 	}
 
-	public void setData_nasc(Date data_nasc) {
-		this.data_nasc = data_nasc;
+	public void setData_nasc(LocalDate localDate) {
+		this.data_nasc = localDate;
 	}
 
 	public String getNaturalidade() {
@@ -112,11 +115,20 @@ public class  Usuario extends Entidade {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+
+	public TipoUsuario getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
+	}
 
 	@Override
 	public String detalhesEntidade() {
 		// TODO Auto-generated method stub
-		return "Cargo: " + nome + "\nNome: " + nome;
+		return "Cargo: " + nome + "\ntipo: " + nome;
 	}
 
 }

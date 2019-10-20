@@ -8,6 +8,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import EntidadeEnum.Estado;
+import EntidadeEnum.SiglasEstados;
 
 @Entity
 @Table(name = "endereco")
@@ -27,7 +28,7 @@ public class Endereco extends Entidade {
 	private String cidade; // cidade VARCHAR (50) NOT NULL,
 	@Column(length = 60)
 	@Enumerated(EnumType.STRING)
-	private Estado estado; // estado VARCHAR (50),
+	private SiglasEstados estado; // estado VARCHAR (50),
 	@Column(length = 60)
 	private String pais; // pais VARCHAR (50),
 	@Column(length = 60)
@@ -77,12 +78,14 @@ public class Endereco extends Entidade {
 		this.cidade = cidade;
 	}
 
-	public Estado getEstado() {
+	
+
+	public SiglasEstados getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setEstado(SiglasEstados siglasEstados) {
+		this.estado = siglasEstados;
 	}
 
 	public String getPais() {
