@@ -29,11 +29,7 @@ public class Endereco extends Entidade {
 	@Column(length = 60)
 	@Enumerated(EnumType.STRING)
 	private SiglasEstados estado; // estado VARCHAR (50),
-	@Column(length = 60)
-	private String pais; // pais VARCHAR (50),
-	@Column(length = 60)
-	private String complemento; // complemento VARCHAR(50)
-
+	
 	private static final long serialVersionUID = 1L;
 
 	protected static final String sequence = "endereco_sequence";
@@ -86,22 +82,6 @@ public class Endereco extends Entidade {
 
 	public void setEstado(SiglasEstados siglasEstados) {
 		this.estado = siglasEstados;
-	}
-
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
 	}
 
 	public static long getSerialversionuid() {

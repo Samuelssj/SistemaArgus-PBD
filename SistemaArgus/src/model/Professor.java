@@ -20,15 +20,15 @@ public abstract class Professor extends Usuario {
 	@Column(length = 11, nullable = false)
 	private String cpf; // codigo VARCHAR (50) NOT NULL,
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "endereco")
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "endereco")
 	private Endereco endereco; // id_endereco INTEGER REFERENCES ENDERECO(id)
 
 	// fazer referencia com turma
 	
 	private static final long serialVersionUID = 1L;
 	
-	protected static final String sequence = "cliente_sequence";
+	protected static final String sequence = "professor_sequence";
 	
 	
 	

@@ -31,8 +31,6 @@ public class BusinessEndereco extends Business<Endereco> implements IbusinessEnd
 			throw new ValidacaoException("INFORME O ESTADO");
 		if(entidade.getNumero().trim().isEmpty())
 			throw new ValidacaoException("INFORME O NUMERO");
-		if(entidade.getPais().trim().isEmpty())
-			throw new ValidacaoException("INFORME O PAIS");
 		if(entidade.getRua().trim().isEmpty())
 			throw new ValidacaoException("INFORME  A RUA");
 	}
