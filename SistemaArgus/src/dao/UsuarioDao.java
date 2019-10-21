@@ -33,7 +33,7 @@ public class UsuarioDao extends Dao<Usuario> implements IdaoUsuario {
 			query.setParameter("senha", senha);
 
 			return query.getSingleResult();
-
+			
 		} catch (NoResultException n) {
 			n.printStackTrace();
 			throw new DaoException("Nenhum Usuário Encontrado");

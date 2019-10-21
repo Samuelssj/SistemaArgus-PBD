@@ -9,8 +9,9 @@ import model.Entidade;
 
 public enum SqlUtil {
 
-	USUARIO_LOGIN("select a from Usuario a where a.login = :login and a.senha = :senha");
-
+	USUARIO_LOGIN("select a from Usuario a where a.login = :login and a.senha = :senha"),
+	LOG("Select a From Log a WHERE a.data = :data AND a.alteracao LIKE :alteracao");
+	
 	
 	private String sql;
 

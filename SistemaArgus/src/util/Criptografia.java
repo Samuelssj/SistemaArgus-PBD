@@ -4,7 +4,6 @@ import java.util.Base64;
 
 public class Criptografia {
 	
-	
 	public static String criptografar(byte[] bs) {
 		return Base64.getEncoder().encodeToString(bs);
 	}
@@ -34,7 +33,6 @@ public class Criptografia {
 		
 		String senha = "IVR2dTBYWDBPMmpBNlQzNF9BYkJtRjcxTVI4Wm5LQ1NXZ0xfR0o4cC1wd1k=";
 		
-		//testes
 		System.out.println(isCriptografado(senha));
 		System.out.println(isCriptografado(criptografar(senha.getBytes())));
 		System.out.println(descriptografar(senha));

@@ -1,25 +1,33 @@
 package fachada;
 
+import java.time.LocalDate;
 import java.util.List;
 
+import org.hibernate.annotations.common.util.impl.Log;
+
+import EntidadeEnum.HistoricoTipo;
 import business.BusinessEndereco;
 import business.BusinessUsuario;
+import business.BusinessUtil;
 import businessInterface.IbusinessEndereco;
 import businessInterface.IbusinessUsuario;
+import businessInterface.IbusinessUtil;
 import exception.BusinessException;
 import model.Endereco;
+import model.Entidade;
 import model.Usuario;
 
 public class Fachada implements IFachada {
 
 	private IbusinessUsuario businessUsuario;
 	private IbusinessEndereco businessEndereco;
-
+	private IbusinessUtil businessUtil;
 	private static Fachada instance;
 
 	public Fachada() {
 		businessUsuario = new BusinessUsuario();
 		businessEndereco = new BusinessEndereco();
+		businessUtil = new BusinessUtil();
 	}
 
 	public static Fachada getInstance() {
@@ -40,7 +48,7 @@ public class Fachada implements IFachada {
 	}
 
 	@Override
-	public Usuario searchSuperUsuario(int id) throws BusinessException {
+	public Usuario searchUsuario(int id) throws BusinessException {
 		// TODO Auto-generated method stub
 		return businessUsuario.search(id);
 	}
@@ -95,6 +103,24 @@ public class Fachada implements IFachada {
 	public List<Endereco> searchAllEndereco(String search) throws BusinessException {
 		// TODO Auto-generated method stub
 		return businessEndereco.searchAll(search);
+	}
+
+	@Override
+	public Long searchCont(Class<? extends Entidade> classe) throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessUtil.searchCont(classe);
+	}
+
+	@Override
+	public List<Log> searchLog(LocalDate date, HistoricoTipo tipoHistorico) throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessUtil.searchLog(date, tipoHistorico);
+	}
+
+	@Override
+	public Long searchContSelect(Class<? extends Entidade> classe, String sql) throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessUtil.searchContSelect(classe, sql);
 	}
 
 }
