@@ -69,6 +69,12 @@ public class ControleTelaLog extends Controle {
 			System.out.println("mudar a senha");
 		}
 
+		if(e.getSource() ==JBsair) {
+//			if(Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sair", "sair do sistema ", "Deseja sair do Sistema?")) {
+//				System.exit(0);
+//			}
+			System.exit(0);
+		}
 	}
 
 	@Override
