@@ -16,6 +16,8 @@ import EntidadeEnum.SiglasEstados;
 
 public class Endereco extends Entidade {
 
+	
+	
 	@Column(length = 60, nullable = false)
 	private String rua; // rua VARCHAR (50) NOT NULL,
 	@Column(length = 60, nullable = false)

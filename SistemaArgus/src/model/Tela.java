@@ -2,7 +2,7 @@ package model;
 
 public enum Tela {
 
-		CADPROFESSOR("cadProfessor"),CADRESPONSAVEL("cadResponsavel");
+CADPROFESSOR("cadProfessor"),CADRESPONSAVEL("cadResponsavel");
 	
 	
 	private String tela, caminho;
@@ -23,6 +23,4 @@ public enum Tela {
 	public String toString() {
 		return tela;
 	}
-	
-
 }

@@ -17,6 +17,25 @@ public class Disciplina extends Entidade {
 	private String cargaHoraria;
 	@Column(nullable = false)
 	private boolean status;
+	
+	
+private static final long serialVersionUID = 1L;
+	
+	protected static final String sequence = "disciplina_sequence";
+	
+
+	@Override
+	public String toString() {
+		return "Disciplina [nome=" + nome + ", cargaHoraria=" + cargaHoraria + ", status=" + status + "]";
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public static String getSequence() {
+		return sequence;
+	}
 
 	public String getNome() {
 		return nome;

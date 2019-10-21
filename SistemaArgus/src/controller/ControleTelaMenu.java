@@ -94,6 +94,7 @@ public class ControleTelaMenu implements Initializable {
 		if (event.getSource() == menuCadastroAluno) {
 
 			atualizarTela("pessoa");
+			itemMenuCargo.setText("Pessoa");
 			
 		}
 		if(event.getSource() == menuCadastroProfessor) {

@@ -31,9 +31,11 @@ import model.Usuario;
 
 public class ControleCadastro extends Controle {
 
-	//private Endereco endereço;
+	private Endereco endereço;
 	private Usuario usuario;
-
+	
+	
+	
 	@FXML
 	private AnchorPane AnchoPane;
 
@@ -189,33 +191,54 @@ public class ControleCadastro extends Controle {
 	public void action(ActionEvent event) {
 
 		Object obj = event.getSource();
-
-		if (obj == COMBOusuarioTipo) {
-
-			if (COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
-				TXusuarioMaeNasc.setVisible(false);
-				
-
-			} else if (COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
-				TXusuarioMaeNasc.setVisible(true);
-				TXusuarioMaeNasc.setDisable(false);
-			}
-
-		}
+//
+//		if (obj == COMBOusuarioTipo) {
+//
+//			if (COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
+//				
+//				
+//
+//			} else if (COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
+//				
+//			}
+//
+//		}
+		
 		if (obj == BTcadastrarUsuario) {
-			try {
-				
 			
+	
+//			
+//			Endereco endereco = new Endereco();
+//			endereco.setCidade("a");
+//			endereco.setCep("11");
+//			endereco.setEstado(SiglasEstados.AC);
+//			endereco.setRua("d");
+//			endereco.setBairro("ss");
+//			endereco.setNumero("12");
+//
+//			usuario.setNome("sw");
+//			usuario.setEndereco(endereco);
+//			usuario.setData_nasc(TXusuarioData_nasc.getValue());
+//			usuario.setNaturalidade("acre");
+//			usuario.setTipo(TipoUsuario.Direção);
+//			usuario.setLogin("s");
+//			usuario.setSenha("123");
+//
+//			System.out.println(usuario.toString());
+			
+						try {
+//				
+//			
+//				
 				
-				
-				Cadastrar(usuario);
-				//carregar(usuario);
+				//Cadastrar(usuario);
+				carregar();
 				fachada.createOrUpdatePessoa(usuario);
-				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
-						"O Usuário foi salvo com sucesso!");
+				//Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+					//	"O Usuário foi salvo com sucesso!");
 			} catch (BusinessException e) {
-				Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro ao salvar", "Erro ao salvar o Usuário",
-						e.getMessage());
+				//Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro ao salvar", "Erro ao salvar o Usuário",
+				//		e.getMessage());
 				e.printStackTrace();
 			}
 
@@ -377,30 +400,42 @@ public class ControleCadastro extends Controle {
 
 	}
 
-	private void carregar(Usuario user) {
+	private void carregar() {
 		Endereco endereco = null;
 
-		if (user != null)
-			endereco = user.getEndereco();
+		if (usuario != null)
+			endereco = usuario.getEndereco();
 		else if (endereco == null)
 			endereco = new Endereco();
 
 		endereco.setCidade(TXusuarioCidade.getText().trim());
 		endereco.setCep(TXusuarioCEP.getText().trim());
-		endereco.setEstado(
-				SiglasEstados.valueOf((COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString())));
+//		endereco.setEstado(SiglasEstados.
+				if(COMBOestadoUsuario.getValue() != null) {
+					switch (COMBOestadoUsuario.getValue()) {
+					case CE:
+						endereco.setEstado(SiglasEstados.CE);
+						break;
+
+					default:
+						break;
+					}
+				}
+				
+				
+				
 		endereco.setRua(TXusuarioRua.getText().trim());
 		endereco.setBairro(TXusuarioBairro.getText().trim());
 		endereco.setNumero(TXusuarioNumero.getText().trim());
 
-		user.setNome(TXusuarioNome.getText().trim());
-		user.setEndereco(endereco);
-		user.setData_nasc(TXusuarioData_nasc.getValue());
-		user.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
-		user.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
-		user.setLogin(TXusuarioLogin.getText().trim());
-		user.setSenha(TXusuarioSenha.getText().trim());
-
+		usuario.setNome(TXusuarioNome.getText().trim());
+		usuario.setEndereco(endereco);
+		usuario.setData_nasc(TXusuarioData_nasc.getValue());
+		usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
+		usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
+		usuario.setLogin(TXusuarioLogin.getText().trim());
+		usuario.setSenha(TXusuarioSenha.getText().trim());
+	//	System.out.println(user.detalhesEntidade());
 //			if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
 //				usuario.Set
 //				
@@ -443,21 +478,20 @@ public class ControleCadastro extends Controle {
 		
 		Endereco endereco = new Endereco();
 
-		endereco.setCidade(TXusuarioCidade.getText().trim());
-		endereco.setCep(TXusuarioCEP.getText().trim());
-		endereco.setEstado(
-				SiglasEstados.valueOf((COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString())));
-		endereco.setRua(TXusuarioRua.getText().trim());
-		endereco.setBairro(TXusuarioBairro.getText().trim());
-		endereco.setNumero(TXusuarioNumero.getText().trim());
+		endereco.setCidade("a");
+		endereco.setCep("11");
+		endereco.setEstado(SiglasEstados.AC);
+		endereco.setRua("d");
+		endereco.setBairro("ss");
+		endereco.setNumero("12");
 
-		usuario.setNome(TXusuarioNome.getText().trim());
+		usuario.setNome("sw");
 		usuario.setEndereco(endereco);
 		usuario.setData_nasc(TXusuarioData_nasc.getValue());
-		usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
-		usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
-		usuario.setLogin(TXusuarioLogin.getText().trim());
-		usuario.setSenha(TXusuarioSenha.getText().trim());
+		usuario.setNaturalidade("acre");
+		usuario.setTipo(TipoUsuario.Direção);
+		usuario.setLogin("s");
+		usuario.setSenha("123");
 	}
 
 	@Override

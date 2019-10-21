@@ -20,7 +20,7 @@ import javax.persistence.Table;
 import EntidadeEnum.TipoUsuario;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "usuario")
 @SequenceGenerator(name = Entidade.sequence, sequenceName = Usuario.sequence, initialValue = 1, allocationSize = 1)
 
@@ -45,6 +45,11 @@ public class  Usuario extends Entidade {
 	@OneToOne
 	@JoinColumn(name = "endereco")
 	private Endereco endereco; //id_endereco INTEGER REFERENCES ENDERECO(id)
+	
+	private static final long serialVersionUID = 1L;
+	
+	protected static final String sequence = "usuario_sequence";
+	
 
 	public Endereco getEndereco() {
 		return endereco;
@@ -53,11 +58,6 @@ public class  Usuario extends Entidade {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-
-	private static final long serialVersionUID = 1L;
-	
-	protected static final String sequence = "usuario_sequence";
-	
 
 	public LocalDate getData_nasc() {
 		return data_nasc;
@@ -75,13 +75,7 @@ public class  Usuario extends Entidade {
 		this.naturalidade = naturalidade;
 	}
 
-//	public String getTipo() {
-//		return tipo;
-//	}
-//
-//	public void setTipo(String tipo) {
-//		this.tipo = tipo;
-//	}
+
 
 	public String getLogin() {
 		return login;

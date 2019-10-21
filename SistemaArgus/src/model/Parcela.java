@@ -19,6 +19,10 @@ public class Parcela extends Entidade {
 	private Double valor; 
 	@Column(nullable = false)
 	private int quantidade; 
+	
+private static final long serialVersionUID = 1L;
+	
+	protected static final String sequence = "parcela_sequence";
 
 	public String getNome() {
 		return nome;

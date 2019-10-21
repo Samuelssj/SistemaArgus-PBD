@@ -18,8 +18,7 @@
               <menus>
                   <Menu mnemonicParsing="false">
                     <items>
-                      <MenuItem fx:id="menuCadastroAluno" mnemonicParsing="false" onAction="#action" text=" Cadastro Aluno" />
-                        <MenuItem fx:id="menuCadastroProfessor" mnemonicParsing="false" onAction="#action" text="Cadastro Professor" />
+                      <MenuItem fx:id="menuCadastroAluno" mnemonicParsing="false" onAction="#action" text=" Cadastro" />
                     </items>
                      <graphic>
                         <ImageView fx:id="menuIcoCad" fitHeight="68.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
@@ -117,7 +116,7 @@
                   </Menu>
                   <Menu mnemonicParsing="false">
                      <graphic>
-                        <Label fx:id="itemMenuCargo" onDragDetected="#action" text="Label">
+                        <Label fx:id="itemMenuCargo" onDragDetected="#action" text="Cargo_usuário">
                            <font>
                               <Font size="24.0" />
                            </font>

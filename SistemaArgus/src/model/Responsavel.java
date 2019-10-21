@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,19 +21,50 @@ public class Responsavel extends Usuario{
 	@Column(length = 11, nullable = false)
 	private String cpf; // codigo VARCHAR (50) NOT NULL,
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "aluno")
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "aluno")
 	//private Aluno aluno; // id_endereco INTEGER REFERENCES ENDERECO(id)
-
-	// fazer referencia com usuario
+	
+	@OneToOne
+	@JoinColumn(name = "aluno")
+	private Aluno aluno;
 	
 	private static final long serialVersionUID = 1L;
 	
-	protected static final String sequence = "cliente_sequence";
+	protected static final String sequence = "responsavel_sequence";
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public static String getSequence() {
+		return sequence;
+	}
+
+	@Override
+	public String toString() {
+		return "Responsavel [nome=" + nome + ", cpf=" + cpf + "]";
+	}
 	
 	
 	
-	
+
 	
 	
 }
