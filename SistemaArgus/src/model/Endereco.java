@@ -93,6 +93,14 @@ public class Endereco extends Entidade {
 	public static String getSequence() {
 		return sequence;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Endereco [rua=" + rua + ", numero=" + numero + ", bairro=" + bairro + ", cep=" + cep + ", cidade="
+				+ cidade + ", estado=" + estado + "]";
+	}
 
 	@Override
 	public String detalhesEntidade() {

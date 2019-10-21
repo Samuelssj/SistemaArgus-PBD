@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -42,7 +43,13 @@ public class  Usuario extends Entidade {
 	private String senha;
 
 
-	@OneToOne
+	@Override
+	public String toString() {
+		return "Usuario [nome=" + nome + ", data_nasc=" + data_nasc + ", naturalidade=" + naturalidade + ", tipo="
+				+ tipo + ", login=" + login + ", senha=" + senha + ", endereco=" + endereco + "]";
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco")
 	private Endereco endereco; //id_endereco INTEGER REFERENCES ENDERECO(id)
 	

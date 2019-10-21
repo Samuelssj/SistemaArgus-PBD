@@ -1,5 +1,8 @@
 package controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javax.transaction.Transactional.TxType;
 
 import EntidadeEnum.Estado;
@@ -8,8 +11,10 @@ import EntidadeEnum.TipoUsuario;
 import exception.BusinessException;
 import exception.Menssagem;
 import exception.ValidacaoException;
+import fachada.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -26,232 +31,284 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import model.Endereco;
 import model.Entidade;
+import model.Professor;
 import model.Tela;
 import model.Usuario;
 
-public class ControleCadastro extends Controle {
+public class ControleCadastro implements Initializable {
 
+	private Fachada fachada;
 	private Endereco endereço;
 	private Usuario usuario;
 	
-	
-	
-	@FXML
-	private AnchorPane AnchoPane;
+    @FXML
+    private AnchorPane AnchoPane;
 
-	@FXML
-	private TabPane TabPane;
+    @FXML
+    private TabPane TabPane;
 
-	@FXML
-	private Tab TabListaCadastro;
+    @FXML
+    private Tab TabListaCadastro;
 
-	@FXML
-	private TextField TXbuscarFuncionario;
+    @FXML
+    private TextField TXbuscarFuncionario;
 
-	@FXML
-	private Button JBbuscarCadastro;
+    @FXML
+    private Button JBbuscarCadastro;
 
-	@FXML
-	private Button JBnovoCadastro;
+    @FXML
+    private Button JBnovoCadastro;
 
-	@FXML
-	private TableView<Usuario> tabelaFuncionario;
+    @FXML
+    private TableView<?> tabelaFuncionario;
 
-	@FXML
-	private TableColumn<Usuario, String> nomeTabelaFuncionario;
+    @FXML
+    private TableColumn<?, ?> nomeTabelaFuncionario;
 
-	@FXML
-	private TableColumn<Usuario, String> cpfTabelaFuncionario;
+    @FXML
+    private TableColumn<?, ?> cpfTabelaFuncionario;
 
-	@FXML
-	private TableColumn<Usuario, String> CargotabelaFuncionario;
+    @FXML
+    private TableColumn<?, ?> CargotabelaFuncionario;
 
-	@FXML
-	private TableColumn<Endereco, String> RuaTabFuncionario;
+    @FXML
+    private TableColumn<?, ?> RuaTabFuncionario;
 
-	@FXML
-	private TableColumn<Endereco, String> BairroTabFuncionario;
+    @FXML
+    private TableColumn<?, ?> BairroTabFuncionario;
 
-	@FXML
-	private TableColumn<?, ?> SituacaoTabFuncionario;
+    @FXML
+    private TableColumn<?, ?> SituacaoTabFuncionario;
 
-	@FXML
-	private Button JBeditar;
+    @FXML
+    private Button JBeditar;
 
-	@FXML
-	private Button JBdeletar;
+    @FXML
+    private Button JBdeletar;
 
-	@FXML
-	private Tab TabNovoFuncionario1;
+    @FXML
+    private Tab TabNovocadastro;
 
-	@FXML
-	private TextField TXusuarioNome;
+    @FXML
+    private TextField TXusuarioNome;
 
-	@FXML
-	private TextField TXusuarioLogin;
+    @FXML
+    private TextField TXusuarioLogin;
 
-	@FXML
-	private TextField TXusuarioCidade;
+    @FXML
+    private TextField TXusuarioCidade;
 
-	@FXML
-	private TextField TXusuarioCEP;
+    @FXML
+    private TextField TXusuarioCEP;
 
-	@FXML
-	private TextField TXusuarioRua;
+    @FXML
+    private TextField TXusuarioRua;
 
-	@FXML
-	private TextField TXusuarioBairro;
+    @FXML
+    private TextField TXusuarioBairro;
 
-	@FXML
-	private TextField TXusuarioNumero;
+    @FXML
+    private TextField TXusuarioNumero;
 
-	@FXML
-	private Button BTcadastrarUsuario;
+    @FXML
+    private Button BTcadastrarUsuario;
 
-	@FXML
-	private RadioButton Radiomãe;
+    @FXML
+    private RadioButton Radiomãe;
 
-	@FXML
-	private ToggleGroup genero1;
+    @FXML
+    private ToggleGroup genero1;
 
-	@FXML
-	private RadioButton RadioPai;
+    @FXML
+    private RadioButton RadioPai;
 
-	@FXML
-	private TextField TXusuarioPaiCPF;
+    @FXML
+    private TextField TXusuarioPaiCPF;
 
-	@FXML
-	private DatePicker TXusuarioPaiNasc;
+    @FXML
+    private DatePicker TXusuarioPaiNasc;
 
-	@FXML
-	private DatePicker TXusuarioMaeNasc;
+    @FXML
+    private DatePicker TXusuarioMaeNasc;
 
-	@FXML
-	private TextField TXusuarioMaeNome;
+    @FXML
+    private TextField TXusuarioMaeNome;
 
-	@FXML
-	private TextField TXusuarioMaeCPF;
+    @FXML
+    private TextField TXusuarioMaeCPF;
 
-	@FXML
-	private TextField TXusuarioPaiNome;
+    @FXML
+    private TextField TXusuarioPaiNome;
 
-	@FXML
-	private RadioButton RadioProprioresp;
+    @FXML
+    private RadioButton RadioProprioresp;
 
-	@FXML
-	private ComboBox<Estado> COMBOusuarioPaiNaturalidade;
+    @FXML
+    private ComboBox<Estado> COMBOusuarioPaiNaturalidade;
 
-	@FXML
-	private ComboBox<Estado> COMBOusuarioMaeNAturalidade;
+    @FXML
+    private ComboBox<Estado> COMBOusuarioMaeNAturalidade;
 
-	@FXML
-	private ComboBox<TipoUsuario> COMBOusuarioTipo;
+    @FXML
+    private ComboBox<TipoUsuario> COMBOusuarioTipo;
 
-	@FXML
-	private ComboBox<Estado> COMBOusuarioNaturalidade;
+    @FXML
+    private ComboBox<Estado> COMBOusuarioNaturalidade;
 
-	@FXML
-	private PasswordField TXusuarioSenha;
+    @FXML
+    private PasswordField TXusuarioSenha;
 
-	@FXML
-	private PasswordField TXusuarioSenhaConfirmar;
+    @FXML
+    private PasswordField TXusuarioSenhaConfirmar;
 
-	@FXML
-	private DatePicker TXusuarioData_nasc;
+    @FXML
+    private DatePicker TXusuarioData_nasc;
 
-	@FXML
-	private Button BToutroResponsavel;
+    @FXML
+    private Button BToutroResponsavel;
 
-	@FXML
-	private ComboBox<SiglasEstados> COMBOestadoUsuario;
+    @FXML
+    private ComboBox<SiglasEstados> COMBOestadoUsuario;
 
-	@FXML
-	private TextField TXcpfUsuario;
+    @FXML
+    private TextField TXcpfUsuario;
 
-	@FXML
-	private Tab TabNovoFuncionario11;
+    @FXML
+    private Tab TabNovoResponsavel;
 
-	@FXML
-	private TextField TXresponsavelNome;
+    @FXML
+    private TextField TXresponsavelNome;
 
-	@FXML
-	private TextField TXresponsavelCPF;
+    @FXML
+    private TextField TXresponsavelCPF;
 
-	@FXML
-	private Button BTcadastrarComResponsavel;
+    @FXML
+    private Button BTcadastrarComResponsavel;
 
-	@FXML
-	private DatePicker TXresponsavelDataNasc;
+    @FXML
+    private DatePicker TXresponsavelDataNasc;
 
-	@FXML
-	private Button BTvoltar;
+    @FXML
+    private Button BTvoltar;
 
 	@FXML
 
 	public void action(ActionEvent event) {
 
-		Object obj = event.getSource();
-//
-//		if (obj == COMBOusuarioTipo) {
-//
-//			if (COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
-//				
-//				
-//
-//			} else if (COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
-//				
-//			}
-//
-//		}
+		Object obj = event.getSource(); // Disseram que tinha algo a ver com Evento haa blz mayk cara brigadão Porn v tentar passsa o usuario 
+
+		
+		if(obj ==JBnovoCadastro ) {
+			
+			TabListaCadastro.getTabPane().getSelectionModel().select(TabNovocadastro);
+			//aqui funciona
+		}
+		if(obj.equals(BToutroResponsavel)) {
+//			TabNovocadastro.getTabPane().getSelectionModel().select(TabNovoResponsavel); tem que se ligar nos listiner/eventoskkk
+			//Aí ele vinha parar aki
+			TabPane.getSelectionModel().select(TabNovoResponsavel);
+		}
+		
 		
 		if (obj == BTcadastrarUsuario) {
 			
-	
-//			
-//			Endereco endereco = new Endereco();
-//			endereco.setCidade("a");
-//			endereco.setCep("11");
-//			endereco.setEstado(SiglasEstados.AC);
-//			endereco.setRua("d");
-//			endereco.setBairro("ss");
-//			endereco.setNumero("12");
-//
-//			usuario.setNome("sw");
-//			usuario.setEndereco(endereco);
-//			usuario.setData_nasc(TXusuarioData_nasc.getValue());
-//			usuario.setNaturalidade("acre");
-//			usuario.setTipo(TipoUsuario.Direção);
-//			usuario.setLogin("s");
-//			usuario.setSenha("123");
-//
-//			System.out.println(usuario.toString());
+			usuario = new Usuario();
+			endereço = new Endereco();
+//			 (usuario != null) {
+//				endereço = usuario.getEndereco();
+//			}
+//			else if (endereço == null) {
+//				endereço = new Endereco();
+//			}
 			
-						try {
-//				
-//			
-//				
-				
-				//Cadastrar(usuario);
-				carregar();
+			endereço.setCidade(TXusuarioCidade.getText().trim());
+			endereço.setCep(TXusuarioCEP.getText().trim());
+			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereço.setRua(TXusuarioRua.getText().trim());
+			endereço.setBairro(TXusuarioBairro.getText().trim());
+			endereço.setNumero(TXusuarioNumero.getText().trim());
+			usuario.setEndereco(endereço);
+			usuario.setNome(TXusuarioNome.getText().trim());
+			usuario.setNome(TXusuarioNome.getText().trim());
+			usuario.setEndereco(endereço);
+			usuario.setData_nasc(TXusuarioData_nasc.getValue());
+			usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
+			usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
+			usuario.setLogin(TXusuarioLogin.getText().trim());
+			usuario.setSenha(TXusuarioSenha.getText().trim());
+			
+			System.out.println(usuario.getLogin());
+			System.out.println(usuario.getNaturalidade());
+			System.out.println(usuario.getNome());
+			System.out.println(usuario.getSenha());
+			System.out.println(usuario.getData_nasc());
+			System.out.println(usuario.getEndereco());
+			System.out.println(usuario.getTipo());
+			System.out.println("endereço");
+			
+			System.out.println(endereço.getBairro());
+			System.out.println(endereço.getCep());
+			System.out.println(endereço.getCidade());
+			System.out.println(endereço.getNumero());
+			System.out.println(endereço.getRua());
+			System.out.println(endereço.getEstado());
+			
+			
+			
+			
+			try {
+				//fachada.createOrUpdateEndereco(endereço);
 				fachada.createOrUpdatePessoa(usuario);
-				//Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
-					//	"O Usuário foi salvo com sucesso!");
-			} catch (BusinessException e) {
-				//Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro ao salvar", "Erro ao salvar o Usuário",
-				//		e.getMessage());
-				e.printStackTrace();
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+						"O Usuário foi salvo com sucesso!");
+			} catch (Exception e) {
+				// TODO: handle exception
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
+						"O Usuário não foi salvo com sucesso!");
+				
 			}
+			
+			
+			
+
 
 		}
 	}
 
-	@Override
-	public void update(Tela tela, Entidade entidade) {
-		// TODO Auto-generated method stub
 
+
+	
+	
+	private void carregar() {
+		usuario = new Usuario();
+		Endereco endereco = null;
+
+		if (usuario != null)
+			endereco = usuario.getEndereco();
+		else if (endereco == null)
+			endereco = new Endereco();
+
+		endereco.setCidade(TXusuarioCidade.getText().trim());
+		endereco.setCep(TXusuarioCEP.getText().trim());
+		endereco.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+
+						
+		endereco.setRua(TXusuarioRua.getText().trim());
+		endereco.setBairro(TXusuarioBairro.getText().trim());
+		endereco.setNumero(TXusuarioNumero.getText().trim());
+
+		usuario.setNome(TXusuarioNome.getText().trim());
+		usuario.setEndereco(endereco);
+		usuario.setData_nasc(TXusuarioData_nasc.getValue());
+		usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
+		usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
+		usuario.setLogin(TXusuarioLogin.getText().trim());
+		usuario.setSenha(TXusuarioSenha.getText().trim());
+
+
+	
 	}
 
-	@Override
 	protected void init() {
 		// COMBOBOX TIPO DE USUARIO
 
@@ -400,104 +457,31 @@ public class ControleCadastro extends Controle {
 
 	}
 
-	private void carregar() {
-		Endereco endereco = null;
-
-		if (usuario != null)
-			endereco = usuario.getEndereco();
-		else if (endereco == null)
-			endereco = new Endereco();
-
-		endereco.setCidade(TXusuarioCidade.getText().trim());
-		endereco.setCep(TXusuarioCEP.getText().trim());
-//		endereco.setEstado(SiglasEstados.
-				if(COMBOestadoUsuario.getValue() != null) {
-					switch (COMBOestadoUsuario.getValue()) {
-					case CE:
-						endereco.setEstado(SiglasEstados.CE);
-						break;
-
-					default:
-						break;
-					}
-				}
-				
-				
-				
-		endereco.setRua(TXusuarioRua.getText().trim());
-		endereco.setBairro(TXusuarioBairro.getText().trim());
-		endereco.setNumero(TXusuarioNumero.getText().trim());
-
-		usuario.setNome(TXusuarioNome.getText().trim());
-		usuario.setEndereco(endereco);
-		usuario.setData_nasc(TXusuarioData_nasc.getValue());
-		usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
-		usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
-		usuario.setLogin(TXusuarioLogin.getText().trim());
-		usuario.setSenha(TXusuarioSenha.getText().trim());
-	//	System.out.println(user.detalhesEntidade());
-//			if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
-//				usuario.Set
-//				
-//			}
-//			
-
-//			
-//			if(TXusuarioSenha.getText() == TXusuarioSenhaConfirmar.getText()) {
-//			usuario.setSenha(TXusuarioSenha.getText());
-//			}else {
-//			new ValidacaoException("Senhas não correspondem!!");	
-//			}
-
-//			usuario.setCpf(TXusuario.getText().trim());
-
-		// usuário
-		// usuário
-//			fisica.setLogin(MaskFieldUtil.removerMascaraCpf(tfdCpf.getText().trim()));
-//			fisica.setSenha(MaskFieldUtil.removerMascaraCpf(tfdCpf.getText().trim()));
-	}
-//		else if(cbxTipo.getValue() == TipoCliente.JURIDICO)
-//		{
-//			if(juridica == null)
-//				juridica = new Juridica();
-//			juridica.setCodigo(tfdCodigo.getText().trim());
-//			juridica.setNome(tfdNome.getText().trim());
-//			juridica.setEndereco(endereco); 
-//			
-//			juridica.setCnpj(tfdCnpj.getText().trim());
-//			juridica.setInscricao_estadual(tfdInscricao.getText().trim());
-//			
-//			//usuário
-//			juridica.setLogin(MaskFieldUtil.removerMascaraCpf(tfdCodigo.getText().trim()));
-//			juridica.setSenha(MaskFieldUtil.removerMascaraCpf(tfdCodigo.getText().trim()));
-//			
-//		}
-//	}
-	
-	public void Cadastrar(Usuario usuario) {
-		
-		Endereco endereco = new Endereco();
-
-		endereco.setCidade("a");
-		endereco.setCep("11");
-		endereco.setEstado(SiglasEstados.AC);
-		endereco.setRua("d");
-		endereco.setBairro("ss");
-		endereco.setNumero("12");
-
-		usuario.setNome("sw");
-		usuario.setEndereco(endereco);
-		usuario.setData_nasc(TXusuarioData_nasc.getValue());
-		usuario.setNaturalidade("acre");
-		usuario.setTipo(TipoUsuario.Direção);
-		usuario.setLogin("s");
-		usuario.setSenha("123");
-	}
 
 	@Override
-	protected void limparCampos() {
+	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		fachada = Fachada.getInstance();
+		
+		init();
+		
+		
 
+		
 	}
+	
+	
+	//
+//	if (obj == COMBOusuarioTipo) {
+//
+//		if (COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
+//			
+//			
+//
+//		} else if (COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
+//			
+//		}
+//
+//	}
 
 }

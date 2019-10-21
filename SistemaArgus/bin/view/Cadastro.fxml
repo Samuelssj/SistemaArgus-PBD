@@ -63,7 +63,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="TXbuscarFuncionario" onAction="#action" prefHeight="25.0" prefWidth="416.0" promptText="Informe nome,cpf ou cargo" GridPane.rowIndex="2">
+                                                <TextField fx:id="TXbuscarFuncionario" prefHeight="25.0" prefWidth="416.0" promptText="Informe nome,cpf ou cargo" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -120,7 +120,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab fx:id="TabNovoFuncionario1" text="Novo Cadastro">
+                  <Tab fx:id="TabNovocadastro" text="Novo Cadastro">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -162,16 +162,13 @@
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label prefHeight="69.0" prefWidth="242.0" text="Novo Cadastro" textFill="#5404e8">
+                                                <Label prefHeight="52.0" prefWidth="249.0" text="Novo Cadastro" textFill="#5404e8" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font size="36.0" />
                                                    </font>
                                                    <GridPane.margin>
                                                       <Insets bottom="20.0" left="10.0" />
                                                    </GridPane.margin>
-                                                   <padding>
-                                                      <Insets top="50.0" />
-                                                   </padding>
                                                 </Label>
                                                 <Label text="Nome:" GridPane.rowIndex="2">
                                                    <font>
@@ -232,12 +229,12 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="TXusuarioNome" onAction="#action" GridPane.rowIndex="3">
+                                                <TextField fx:id="TXusuarioNome" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXusuarioLogin" onAction="#action" GridPane.rowIndex="5">
+                                                <TextField fx:id="TXusuarioLogin" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -247,17 +244,17 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXusuarioCEP" onAction="#action" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                <TextField fx:id="TXusuarioCEP" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXusuarioRua" onAction="#action" GridPane.rowIndex="9">
+                                                <TextField fx:id="TXusuarioRua" GridPane.rowIndex="9">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXusuarioBairro" onAction="#action" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                <TextField fx:id="TXusuarioBairro" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -270,7 +267,7 @@
                                                       <Insets top="45.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="TXusuarioNumero" onAction="#action" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                                <TextField fx:id="TXusuarioNumero" GridPane.columnIndex="2" GridPane.rowIndex="9">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="125.0" />
                                                    </GridPane.margin>
@@ -335,7 +332,7 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="TXusuarioPaiCPF" onAction="#action" prefHeight="25.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                                <TextField fx:id="TXusuarioPaiCPF" prefHeight="25.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -366,12 +363,12 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="TXusuarioMaeNome" onAction="#action" GridPane.rowIndex="13">
+                                                <TextField fx:id="TXusuarioMaeNome" GridPane.rowIndex="13">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXusuarioMaeCPF" onAction="#action" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                                <TextField fx:id="TXusuarioMaeCPF" GridPane.columnIndex="1" GridPane.rowIndex="13">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -410,12 +407,12 @@
                                                       <Insets right="140.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <PasswordField fx:id="TXusuarioSenha" onAction="#action" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <PasswordField fx:id="TXusuarioSenha" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </PasswordField>
-                                                <PasswordField fx:id="TXusuarioSenhaConfirmar" onAction="#action" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                                <PasswordField fx:id="TXusuarioSenhaConfirmar" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -446,7 +443,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <TextField fx:id="TXcpfUsuario" onAction="#action" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                                                <TextField fx:id="TXcpfUsuario" GridPane.columnIndex="1" GridPane.rowIndex="16">
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -472,7 +469,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab fx:id="TabNovoFuncionario11" text="Novo Responsável">
+                  <Tab fx:id="TabNovoResponsavel" text="Novo Responsável">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -516,11 +513,8 @@
                                                       <Font size="36.0" />
                                                    </font>
                                                    <GridPane.margin>
-                                                      <Insets bottom="20.0" left="10.0" />
+                                                      <Insets bottom="20.0" left="10.0" top="60.0" />
                                                    </GridPane.margin>
-                                                   <padding>
-                                                      <Insets top="50.0" />
-                                                   </padding>
                                                 </Label>
                                                 <Label text="Nome:" GridPane.rowIndex="3">
                                                    <font>
@@ -528,12 +522,12 @@
                                                    </font>
                                                 </Label>
                                                 <Label GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                <TextField fx:id="TXresponsavelNome" onAction="#action" GridPane.rowIndex="4">
+                                                <TextField fx:id="TXresponsavelNome" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXresponsavelCPF" onAction="#action" GridPane.rowIndex="6">
+                                                <TextField fx:id="TXresponsavelCPF" GridPane.rowIndex="6">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -551,7 +545,7 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <DatePicker fx:id="TXresponsavelDataNasc" onAction="#action" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <DatePicker fx:id="TXresponsavelDataNasc" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                    <opaqueInsets>
                                                       <Insets />
                                                    </opaqueInsets>
