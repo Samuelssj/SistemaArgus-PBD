@@ -239,11 +239,6 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXusuarioCidade" onAction="#action" GridPane.rowIndex="7">
-                                                   <GridPane.margin>
-                                                      <Insets left="10.0" right="10.0" />
-                                                   </GridPane.margin>
-                                                </TextField>
                                                 <TextField fx:id="TXusuarioCEP" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
@@ -456,6 +451,11 @@
                                                       <Insets bottom="2.0" left="-20.0" />
                                                    </GridPane.margin>
                                                 </Label>
+                                                <TextField fx:id="TXusuarioCidade" GridPane.rowIndex="7">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
                                              </children>
                                              <BorderPane.margin>
                                                 <Insets />

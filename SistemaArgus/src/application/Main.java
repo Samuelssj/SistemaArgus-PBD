@@ -25,47 +25,7 @@ public class Main extends Application {
 	private static Stage stage;
 
 	public static void main(String[] args) {
-		
-//		UsuarioDao repositorioPessoa = new UsuarioDao();
-//		Endereco end = new Endereco();
-//		end.setBairro("cen");
-//		end.setCep("2222");
-//		end.setCidade("juru");
-//		end.setComplemento("cAsa");
-//		end.setEstado(Estado.PARA);
-//		end.setNumero("30");
-//		end.setPais("br");
-//		end.setRua("riobranco");
-//		
-//		
-//		Usuario pessoa = new Usuario();
-//		pessoa.setNome("Samuel");
-//		pessoa.setData_nasc(new Date());
-//		pessoa.setLogin("dadada");
-//		pessoa.setNaturalidade("PARA");
-//		pessoa.setSenha("123");
-//		//pessoa.setTipo(TipoUsuario.ALUNO));
-//		
-//		
-//		
-	//	pessoa.setId(2);
-		
-//	
-//		Fachada fachada = new Fachada();
-//		
-//		try {
-//			//fachada.removeSuperUsuario(5);
-//			fachada.createOrUpdateEndereco(end);
-//			fachada.createOrUpdatePessoa(pessoa);
-//		} catch (BusinessException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-
-
-		
-		
+				
 
 	launch(args);
 

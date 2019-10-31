@@ -1,20 +1,18 @@
 package controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
-
-import javax.transaction.Transactional.TxType;
 
 import EntidadeEnum.Estado;
 import EntidadeEnum.SiglasEstados;
 import EntidadeEnum.TipoUsuario;
-import exception.BusinessException;
 import exception.Menssagem;
-import exception.ValidacaoException;
 import fachada.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -27,19 +25,23 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import model.Aluno;
 import model.Endereco;
-import model.Entidade;
-import model.Professor;
-import model.Tela;
+import model.MaskFieldUtil;
 import model.Usuario;
+import model.UsuarioTabAdapter;
 
 public class ControleCadastro implements Initializable {
 
-	private Fachada fachada;
+	private Fachada fachada = Fachada.getInstance();
 	private Endereco endereço;
 	private Usuario usuario;
+	private Aluno aluno;
+	private List<Usuario> usuarioTabAdapters;
+	private Endereco endereco;
+	
 	
     @FXML
     private AnchorPane AnchoPane;
@@ -60,25 +62,25 @@ public class ControleCadastro implements Initializable {
     private Button JBnovoCadastro;
 
     @FXML
-    private TableView<?> tabelaFuncionario;
+    private TableView<Usuario> tabelaFuncionario;
 
     @FXML
-    private TableColumn<?, ?> nomeTabelaFuncionario;
+    private TableColumn<UsuarioTabAdapter,String> nomeTabelaFuncionario;
 
     @FXML
-    private TableColumn<?, ?> cpfTabelaFuncionario;
+    private TableColumn<UsuarioTabAdapter,String> cpfTabelaFuncionario;
 
     @FXML
-    private TableColumn<?, ?> CargotabelaFuncionario;
+    private TableColumn<UsuarioTabAdapter,String> CargotabelaFuncionario;
 
     @FXML
-    private TableColumn<?, ?> RuaTabFuncionario;
+    private TableColumn<UsuarioTabAdapter,String> RuaTabFuncionario;
 
     @FXML
-    private TableColumn<?, ?> BairroTabFuncionario;
+    private TableColumn<Usuario,String> BairroTabFuncionario;
 
     @FXML
-    private TableColumn<?, ?> SituacaoTabFuncionario;
+    private TableColumn<UsuarioTabAdapter,String> SituacaoTabFuncionario;
 
     @FXML
     private Button JBeditar;
@@ -195,7 +197,7 @@ public class ControleCadastro implements Initializable {
 
 	public void action(ActionEvent event) {
 
-		Object obj = event.getSource(); // Disseram que tinha algo a ver com Evento haa blz mayk cara brigadão Porn v tentar passsa o usuario 
+		Object obj = event.getSource(); //
 
 		
 		if(obj ==JBnovoCadastro ) {
@@ -203,6 +205,27 @@ public class ControleCadastro implements Initializable {
 			TabListaCadastro.getTabPane().getSelectionModel().select(TabNovocadastro);
 			//aqui funciona
 		}
+		
+		if(obj == JBbuscarCadastro) {
+			
+			
+			if (TXbuscarFuncionario.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "PREENCHA A BUSCA",
+						"Preencha a busca!");
+			} else {
+
+				try {
+
+					tabelaFuncionario.getItems().setAll(fachada.searchAllSuperUsuario((TXbuscarFuncionario.getText())));
+
+				} catch (Exception e) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro Buscar Cliente",
+							"Erro ao buscar cliente", e.getMessage());
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		if(obj.equals(BToutroResponsavel)) {
 //			TabNovocadastro.getTabPane().getSelectionModel().select(TabNovoResponsavel); tem que se ligar nos listiner/eventoskkk
 			//Aí ele vinha parar aki
@@ -212,8 +235,11 @@ public class ControleCadastro implements Initializable {
 		
 		if (obj == BTcadastrarUsuario) {
 			
-			usuario = new Usuario();
-			endereço = new Endereco();
+			carregar();
+			
+			
+//			usuario = new Usuario();
+//			endereço = new Endereco();
 //			 (usuario != null) {
 //				endereço = usuario.getEndereco();
 //			}
@@ -221,6 +247,103 @@ public class ControleCadastro implements Initializable {
 //				endereço = new Endereco();
 //			}
 			
+//			endereço.setCidade(TXusuarioCidade.getText().trim());
+//			endereço.setCep(TXusuarioCEP.getText().trim());
+//			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+//			endereço.setRua(TXusuarioRua.getText().trim());
+//			endereço.setBairro(TXusuarioBairro.getText().trim());
+//			endereço.setNumero(TXusuarioNumero.getText().trim());
+//			usuario.setEndereco(endereço);
+//			usuario.setNome(TXusuarioNome.getText().trim());
+//			usuario.setNome(TXusuarioNome.getText().trim());
+//			usuario.setEndereco(endereço);
+//			usuario.setData_nasc(TXusuarioData_nasc.getValue());
+//			usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
+//			usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
+//			usuario.setLogin(TXusuarioLogin.getText().trim());
+//			usuario.setSenha(TXusuarioSenha.getText().trim());
+			
+//			System.out.println(usuario.getLogin());
+//			System.out.println(usuario.getNaturalidade());
+//			System.out.println(usuario.getNome());
+//			System.out.println(usuario.getSenha());
+//			System.out.println(usuario.getData_nasc());
+//			System.out.println(usuario.getEndereco());
+//			System.out.println(usuario.getTipo());
+//			System.out.println("endereço");
+//			
+//			System.out.println(endereço.getBairro());
+//			System.out.println(endereço.getCep());
+//			System.out.println(endereço.getCidade());
+//			System.out.println(endereço.getNumero());
+//			System.out.println(endereço.getRua());
+//			System.out.println(endereço.getEstado());
+		
+//			try {
+//				//fachada.createOrUpdateEndereco(endereço);
+//				fachada.createOrUpdatePessoa(usuario);
+//				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+//						"O Usuário foi salvo com sucesso!");
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
+//						"O Usuário não foi salvo com sucesso!");
+//				
+//			}
+			
+			
+			
+
+
+		}
+	}
+
+
+
+	
+	
+	private void carregar() {
+		
+		if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
+			
+			aluno = new Aluno();
+			endereço = new Endereco();
+			endereço.setCidade(TXusuarioCidade.getText().trim());
+			endereço.setCep(TXusuarioCEP.getText().trim());
+			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereço.setRua(TXusuarioRua.getText().trim());
+			endereço.setBairro(TXusuarioBairro.getText().trim());
+			endereço.setNumero(TXusuarioNumero.getText().trim());
+			aluno.setEndereco(endereço);
+			aluno.setNome(TXusuarioNome.getText().trim());
+			aluno.setNome(TXusuarioNome.getText().trim());
+			aluno.setEndereco(endereço);
+			aluno.setData_nasc(TXusuarioData_nasc.getValue());
+			aluno.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
+			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
+			aluno.setLogin(TXusuarioLogin.getText().trim());
+			aluno.setSenha(TXusuarioSenha.getText().trim());
+			aluno.setCpf(TXcpfUsuario.getText());
+		
+			
+			try {
+				//fachada.createOrUpdateEndereco(endereço);
+				fachada.createOrUpdateAluno(aluno);
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+						"O Aluno foi salvo com sucesso!");
+			} catch (Exception e) {
+				
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
+						"O Aluno não foi salvo com sucesso!");
+				
+			}
+			
+			
+		}
+		else if (COMBOusuarioTipo.getValue() == TipoUsuario.Administrador) {
+			
+			usuario = new Usuario();
+			endereço = new Endereco();
 			endereço.setCidade(TXusuarioCidade.getText().trim());
 			endereço.setCep(TXusuarioCEP.getText().trim());
 			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
@@ -236,75 +359,19 @@ public class ControleCadastro implements Initializable {
 			usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
 			usuario.setLogin(TXusuarioLogin.getText().trim());
 			usuario.setSenha(TXusuarioSenha.getText().trim());
-			
-			System.out.println(usuario.getLogin());
-			System.out.println(usuario.getNaturalidade());
-			System.out.println(usuario.getNome());
-			System.out.println(usuario.getSenha());
-			System.out.println(usuario.getData_nasc());
-			System.out.println(usuario.getEndereco());
-			System.out.println(usuario.getTipo());
-			System.out.println("endereço");
-			
-			System.out.println(endereço.getBairro());
-			System.out.println(endereço.getCep());
-			System.out.println(endereço.getCidade());
-			System.out.println(endereço.getNumero());
-			System.out.println(endereço.getRua());
-			System.out.println(endereço.getEstado());
-			
-			
-			
-			
 			try {
 				//fachada.createOrUpdateEndereco(endereço);
 				fachada.createOrUpdatePessoa(usuario);
 				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
 						"O Usuário foi salvo com sucesso!");
 			} catch (Exception e) {
-				// TODO: handle exception
+				
 				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
 						"O Usuário não foi salvo com sucesso!");
 				
 			}
-			
-			
-			
-
-
 		}
-	}
-
-
-
 	
-	
-	private void carregar() {
-		usuario = new Usuario();
-		Endereco endereco = null;
-
-		if (usuario != null)
-			endereco = usuario.getEndereco();
-		else if (endereco == null)
-			endereco = new Endereco();
-
-		endereco.setCidade(TXusuarioCidade.getText().trim());
-		endereco.setCep(TXusuarioCEP.getText().trim());
-		endereco.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
-
-						
-		endereco.setRua(TXusuarioRua.getText().trim());
-		endereco.setBairro(TXusuarioBairro.getText().trim());
-		endereco.setNumero(TXusuarioNumero.getText().trim());
-
-		usuario.setNome(TXusuarioNome.getText().trim());
-		usuario.setEndereco(endereco);
-		usuario.setData_nasc(TXusuarioData_nasc.getValue());
-		usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
-		usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
-		usuario.setLogin(TXusuarioLogin.getText().trim());
-		usuario.setSenha(TXusuarioSenha.getText().trim());
-
 
 	
 	}
@@ -454,6 +521,8 @@ public class ControleCadastro implements Initializable {
 				}
 			}
 		});
+		
+		
 
 	}
 
@@ -461,10 +530,36 @@ public class ControleCadastro implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		fachada = Fachada.getInstance();
+		
 		
 		init();
 		
+//		MaskFieldUtil.cpfField(TXcpfUsuario);
+//		MaskFieldUtil.foneField(TXusuarioCidade);
+//		MaskFieldUtil.cepField(TXusuarioCEP);
+		
+
+		nomeTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		cpfTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+		CargotabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+		RuaTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("rua"));
+		BairroTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("bairro"));
+		//SituacaoTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("numero"));
+
+		try {
+
+			usuarioTabAdapters = fachada.getInstance().searchAllSuperUsuario();
+			tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
+			
+			//System.out.println(usuarioTabAdapters);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+//
+	}
 		
 
 		
@@ -484,4 +579,4 @@ public class ControleCadastro implements Initializable {
 //
 //	}
 
-}
+

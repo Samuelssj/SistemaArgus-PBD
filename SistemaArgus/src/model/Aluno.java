@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "aluno")
 @SequenceGenerator(name = Entidade.sequence, sequenceName = Aluno.sequence, initialValue = 1, allocationSize = 1)
 
-public class Aluno extends Entidade {
+public class Aluno extends Usuario {
 
 	
 	@Column(length = 60, nullable = false)
@@ -56,6 +56,7 @@ private static final long serialVersionUID = 1L;
 
 
 
+	
 
 	public String getNome() {
 		return nome;

@@ -9,10 +9,13 @@ import EntidadeEnum.HistoricoTipo;
 import business.BusinessEndereco;
 import business.BusinessUsuario;
 import business.BusinessUtil;
+import business.BussinessAluno;
+import businessInterface.IbusinessAluno;
 import businessInterface.IbusinessEndereco;
 import businessInterface.IbusinessUsuario;
 import businessInterface.IbusinessUtil;
 import exception.BusinessException;
+import model.Aluno;
 import model.Endereco;
 import model.Entidade;
 import model.Usuario;
@@ -20,6 +23,7 @@ import model.Usuario;
 public class Fachada implements IFachada {
 
 	private IbusinessUsuario businessUsuario;
+	private IbusinessAluno businessAluno;
 	private IbusinessEndereco businessEndereco;
 	private IbusinessUtil businessUtil;
 	private static Fachada instance;
@@ -28,6 +32,7 @@ public class Fachada implements IFachada {
 		businessUsuario = new BusinessUsuario();
 		businessEndereco = new BusinessEndereco();
 		businessUtil = new BusinessUtil();
+		businessAluno = new BussinessAluno();
 	}
 
 	public static Fachada getInstance() {
@@ -121,6 +126,40 @@ public class Fachada implements IFachada {
 	public Long searchContSelect(Class<? extends Entidade> classe, String sql) throws BusinessException {
 		// TODO Auto-generated method stub
 		return businessUtil.searchContSelect(classe, sql);
+	}
+
+	
+	//ALUNO
+	
+	
+	@Override
+	public void createOrUpdateAluno(Usuario entidade) throws BusinessException {
+		businessUsuario.createOrUpdate(entidade);
+		
+	}
+
+	@Override
+	public Usuario searchAluno(int id) throws BusinessException {
+	
+		return businessUsuario.search(id);
+	}
+
+	@Override
+	public void removeAluno(int id) throws BusinessException {
+		businessEndereco.remove(id);
+		
+	}
+
+	@Override
+	public List<Aluno> searchAllAluno() throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessAluno.searchAll();
+	}
+
+	@Override
+	public List<Aluno> searchAllAluno(String search) throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessAluno.searchAll(search);
 	}
 
 }

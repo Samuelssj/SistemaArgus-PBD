@@ -60,7 +60,7 @@ public class ControleTelaLog extends Controle {
 //				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha errada");
 //				e2.printStackTrace();
 //			}
-//			
+			
 			
 			
 		}
