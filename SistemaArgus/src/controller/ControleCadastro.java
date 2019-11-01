@@ -316,15 +316,16 @@ public class ControleCadastro implements Initializable {
 			endereço.setNumero(TXusuarioNumero.getText().trim());
 			aluno.setEndereco(endereço);
 			aluno.setNome(TXusuarioNome.getText().trim());
-			aluno.setNome(TXusuarioNome.getText().trim());
 			aluno.setEndereco(endereço);
 			aluno.setData_nasc(TXusuarioData_nasc.getValue());
 			aluno.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
 			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
-			aluno.setLogin(TXusuarioLogin.getText().trim());
-			aluno.setSenha(TXusuarioSenha.getText().trim());
+//			aluno.setLogin(TXusuarioLogin.getText().trim());
+//			aluno.setSenha(TXusuarioSenha.getText().trim());
+			aluno.setPai(TXusuarioPaiNome.getText().trim());
+			aluno.setMãe(TXusuarioMaeNome.getText().trim());
 			aluno.setCpf(TXcpfUsuario.getText());
-		
+			
 			
 			try {
 				//fachada.createOrUpdateEndereco(endereço);

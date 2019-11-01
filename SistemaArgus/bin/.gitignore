@@ -1,3 +1,6 @@
+/EntidadeEnum/
+/META-INF/
+/application/
 /business/
 /businessInterface/
 /controller/
@@ -8,4 +11,3 @@
 /model/
 /util/
 /view/
-/application/
