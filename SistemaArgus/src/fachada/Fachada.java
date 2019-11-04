@@ -5,26 +5,33 @@ import java.util.List;
 
 import org.hibernate.annotations.common.util.impl.Log;
 
+import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
+
 import EntidadeEnum.HistoricoTipo;
 import business.BusinessEndereco;
+import business.BusinessResponsavel;
 import business.BusinessUsuario;
 import business.BusinessUtil;
 import business.BussinessAluno;
 import businessInterface.IbusinessAluno;
 import businessInterface.IbusinessEndereco;
+import businessInterface.IbusinessResponsavel;
 import businessInterface.IbusinessUsuario;
 import businessInterface.IbusinessUtil;
 import exception.BusinessException;
 import model.Aluno;
 import model.Endereco;
 import model.Entidade;
+import model.Responsavel;
 import model.Usuario;
+import model.UsuarioTabAdapter;
 
 public class Fachada implements IFachada {
 
 	private IbusinessUsuario businessUsuario;
 	private IbusinessAluno businessAluno;
 	private IbusinessEndereco businessEndereco;
+	private IbusinessResponsavel businessResponsavel;
 	private IbusinessUtil businessUtil;
 	private static Fachada instance;
 
@@ -33,6 +40,7 @@ public class Fachada implements IFachada {
 		businessEndereco = new BusinessEndereco();
 		businessUtil = new BusinessUtil();
 		businessAluno = new BussinessAluno();
+		businessResponsavel = new BusinessResponsavel();
 	}
 
 	public static Fachada getInstance() {
@@ -77,9 +85,22 @@ public class Fachada implements IFachada {
 		return businessUsuario.searchAll(search);
 	}
 
-	
-	//ENDERECO
-	
+	@Override
+	public List<UsuarioTabAdapter> searchAllUsuarioAdapter() throws BusinessException {
+		// TODO Auto-generated method stub
+		// return businessUsuario.searchAll();
+		return null;
+	}
+
+	@Override
+	public List<UsuarioTabAdapter> searchAllUsuarioAdapter(String search) throws BusinessException {
+		// TODO Auto-generated method stub
+		// return businessUsuario.searchAll(search);
+		return null;
+	}
+
+												// ENDERECO
+
 	@Override
 	public void createOrUpdateEndereco(Endereco entidade) throws BusinessException {
 		businessEndereco.createOrUpdate(entidade);
@@ -110,6 +131,8 @@ public class Fachada implements IFachada {
 		return businessEndereco.searchAll(search);
 	}
 
+												// UTILL
+
 	@Override
 	public Long searchCont(Class<? extends Entidade> classe) throws BusinessException {
 		// TODO Auto-generated method stub
@@ -128,26 +151,24 @@ public class Fachada implements IFachada {
 		return businessUtil.searchContSelect(classe, sql);
 	}
 
-	
-	//ALUNO
-	
-	
+												// ALUNO
+
 	@Override
 	public void createOrUpdateAluno(Usuario entidade) throws BusinessException {
 		businessUsuario.createOrUpdate(entidade);
-		
+
 	}
 
 	@Override
 	public Usuario searchAluno(int id) throws BusinessException {
-	
+
 		return businessUsuario.search(id);
 	}
 
 	@Override
 	public void removeAluno(int id) throws BusinessException {
 		businessEndereco.remove(id);
-		
+
 	}
 
 	@Override
@@ -160,6 +181,52 @@ public class Fachada implements IFachada {
 	public List<Aluno> searchAllAluno(String search) throws BusinessException {
 		// TODO Auto-generated method stub
 		return businessAluno.searchAll(search);
+	}
+
+											// RESPONSAVEL
+
+	@Override
+	public void createOrUpdateResponsavel(Responsavel entidade) throws BusinessException {
+
+		businessResponsavel.createOrUpdate(entidade);
+
+	}
+
+	@Override
+	public Responsavel searchResponsavel(int id) throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessResponsavel.search(id);
+	}
+
+	@Override
+	public void removeResponsavel(int id) throws BusinessException {
+		// TODO Auto-generated method stub
+		businessResponsavel.remove(id);
+
+	}
+
+	@Override
+	public List<Responsavel> searchAllResponsavel() throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessResponsavel.searchAll();
+	}
+
+	@Override
+	public List<Responsavel> searchAllResponsavel(String search) throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessResponsavel.searchAll(search);
+	}
+
+	@Override
+	public List<UsuarioTabAdapter> searchAllResponsavelAdapter(String search) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UsuarioTabAdapter> searchAllResponsavelAdapter() throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

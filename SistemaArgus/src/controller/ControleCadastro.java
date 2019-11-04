@@ -523,7 +523,10 @@ public class ControleCadastro implements Initializable {
 			}
 		});
 		
-		
+		if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
+			TXusuarioPaiNome.setEditable(true);
+			
+		}
 
 	}
 

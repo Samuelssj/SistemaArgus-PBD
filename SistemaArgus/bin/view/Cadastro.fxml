@@ -306,22 +306,6 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label text="Naturalidade/Pai" GridPane.rowIndex="14">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                   <GridPane.margin>
-                                                      <Insets top="10.0" />
-                                                   </GridPane.margin>
-                                                </Label>
-                                                <Label text="Naturalidade/Mãe" GridPane.columnIndex="1" GridPane.rowIndex="14">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                   <GridPane.margin>
-                                                      <Insets top="10.0" />
-                                                   </GridPane.margin>
-                                                </Label>
                                                 <Label text="Data Nascimento" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <font>
                                                       <Font size="14.0" />
@@ -332,32 +316,6 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <Label text="Data Nascimento/Pai" GridPane.columnIndex="2" GridPane.rowIndex="10">
-                                                   <GridPane.margin>
-                                                      <Insets left="10.0" />
-                                                   </GridPane.margin>
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <DatePicker fx:id="TXusuarioPaiNasc" onAction="#action" prefHeight="25.0" prefWidth="174.0" GridPane.columnIndex="2" GridPane.rowIndex="11">
-                                                   <GridPane.margin>
-                                                      <Insets left="10.0" right="10.0" />
-                                                   </GridPane.margin>
-                                                </DatePicker>
-                                                <DatePicker fx:id="TXusuarioMaeNasc" onAction="#action" GridPane.columnIndex="2" GridPane.rowIndex="13">
-                                                   <GridPane.margin>
-                                                      <Insets left="10.0" right="10.0" />
-                                                   </GridPane.margin>
-                                                </DatePicker>
-                                                <Label text="Data Nacimento/Mãe" GridPane.columnIndex="2" GridPane.rowIndex="12">
-                                                   <GridPane.margin>
-                                                      <Insets left="10.0" />
-                                                   </GridPane.margin>
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
                                                 <TextField fx:id="TXusuarioMaeNome" GridPane.rowIndex="13">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
@@ -369,12 +327,12 @@
                                                    </GridPane.margin>
                                                 </TextField>
                                                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-                                                <TextField fx:id="TXusuarioPaiNome" GridPane.rowIndex="11">
+                                                <TextField fx:id="TXusuarioPaiNome" disable="true" GridPane.rowIndex="11">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <RadioButton fx:id="RadioProprioresp" mnemonicParsing="false" onAction="#action" text="Proprio Responsável" toggleGroup="$genero1" GridPane.rowIndex="15">
+                                                <RadioButton fx:id="RadioProprioresp" mnemonicParsing="false" onAction="#action" text="Proprio Responsável:" toggleGroup="$genero1" GridPane.rowIndex="15">
                                                    <GridPane.margin>
                                                       <Insets bottom="-50.0" left="160.0" top="40.0" />
                                                    </GridPane.margin>
@@ -382,16 +340,6 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </RadioButton>
-                                                <ComboBox fx:id="COMBOusuarioPaiNaturalidade" onAction="#action" prefWidth="150.0" GridPane.rowIndex="14">
-                                                   <GridPane.margin>
-                                                      <Insets left="115.0" top="10.0" />
-                                                   </GridPane.margin>
-                                                </ComboBox>
-                                                <ComboBox fx:id="COMBOusuarioMaeNAturalidade" onAction="#action" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
-                                                   <GridPane.margin>
-                                                      <Insets left="120.0" top="10.0" />
-                                                   </GridPane.margin>
-                                                </ComboBox>
                                                 <ComboBox fx:id="COMBOusuarioTipo" onAction="#action" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="160.0" right="10.0" />
