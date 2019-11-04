@@ -29,14 +29,6 @@ public class Criptografia {
 		return is64;
 	}
 
-	public static void main(String[] args) {
-		
-		String senha = "IVR2dTBYWDBPMmpBNlQzNF9BYkJtRjcxTVI4Wm5LQ1NXZ0xfR0o4cC1wd1k=";
-		
-		System.out.println(isCriptografado(senha));
-		System.out.println(isCriptografado(criptografar(senha.getBytes())));
-		System.out.println(descriptografar(senha));
-	}
-
+	
 
 }

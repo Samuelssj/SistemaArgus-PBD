@@ -77,7 +77,7 @@ public class ControleCadastro implements Initializable {
     private TableColumn<UsuarioTabAdapter,String> RuaTabFuncionario;
 
     @FXML
-    private TableColumn<Usuario,String> BairroTabFuncionario;
+    private TableColumn<UsuarioTabAdapter,String> BairroTabFuncionario;
 
     @FXML
     private TableColumn<UsuarioTabAdapter,String> SituacaoTabFuncionario;
