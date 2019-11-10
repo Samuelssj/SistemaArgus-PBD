@@ -30,6 +30,7 @@ import javafx.scene.layout.AnchorPane;
 import model.Aluno;
 import model.Endereco;
 import model.MaskFieldUtil;
+import model.Responsavel;
 import model.Usuario;
 import model.UsuarioTabAdapter;
 
@@ -37,13 +38,13 @@ public class ControleCadastro implements Initializable {
 
 	private Fachada fachada = Fachada.getInstance();
 	private Endereco endereço;
+	private Responsavel responsavel;
 	private Usuario usuario;
 	private Aluno aluno;
 	private List<Usuario> usuarioTabAdapters;
 	private Endereco endereco;
 	
-	
-    @FXML
+	@FXML
     private AnchorPane AnchoPane;
 
     @FXML
@@ -60,6 +61,7 @@ public class ControleCadastro implements Initializable {
 
     @FXML
     private Button JBnovoCadastro;
+    
 
     @FXML
     private TableView<Usuario> tabelaFuncionario;
@@ -98,9 +100,6 @@ public class ControleCadastro implements Initializable {
     private TextField TXusuarioLogin;
 
     @FXML
-    private TextField TXusuarioCidade;
-
-    @FXML
     private TextField TXusuarioCEP;
 
     @FXML
@@ -128,12 +127,6 @@ public class ControleCadastro implements Initializable {
     private TextField TXusuarioPaiCPF;
 
     @FXML
-    private DatePicker TXusuarioPaiNasc;
-
-    @FXML
-    private DatePicker TXusuarioMaeNasc;
-
-    @FXML
     private TextField TXusuarioMaeNome;
 
     @FXML
@@ -144,16 +137,6 @@ public class ControleCadastro implements Initializable {
 
     @FXML
     private RadioButton RadioProprioresp;
-
-    @FXML
-    private ComboBox<Estado> COMBOusuarioPaiNaturalidade;
-
-    @FXML
-    private ComboBox<Estado> COMBOusuarioMaeNAturalidade;
-
-    @FXML
-    private ComboBox<TipoUsuario> COMBOusuarioTipo;
-
     @FXML
     private ComboBox<Estado> COMBOusuarioNaturalidade;
 
@@ -168,12 +151,18 @@ public class ControleCadastro implements Initializable {
 
     @FXML
     private Button BToutroResponsavel;
-
+    
+    @FXML
+    private ComboBox<TipoUsuario> COMBOusuarioTipo;
+    
     @FXML
     private ComboBox<SiglasEstados> COMBOestadoUsuario;
 
     @FXML
     private TextField TXcpfUsuario;
+
+    @FXML
+    private TextField TXusuarioCidade;
 
     @FXML
     private Tab TabNovoResponsavel;
@@ -199,6 +188,8 @@ public class ControleCadastro implements Initializable {
 
 		Object obj = event.getSource(); //
 
+		visibilidade();
+		
 		
 		if(obj ==JBnovoCadastro ) {
 			
@@ -237,7 +228,11 @@ public class ControleCadastro implements Initializable {
 			
 			carregar();
 			
-			
+//			if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
+//				TXusuarioPaiNome.setDisable(true);
+//				
+//			}
+//			
 //			usuario = new Usuario();
 //			endereço = new Endereco();
 //			 (usuario != null) {
@@ -307,13 +302,11 @@ public class ControleCadastro implements Initializable {
 		if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
 			
 			aluno = new Aluno();
-			endereço = new Endereco();
-			endereço.setCidade(TXusuarioCidade.getText().trim());
-			endereço.setCep(TXusuarioCEP.getText().trim());
-			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
-			endereço.setRua(TXusuarioRua.getText().trim());
-			endereço.setBairro(TXusuarioBairro.getText().trim());
-			endereço.setNumero(TXusuarioNumero.getText().trim());
+			responsavel = new Responsavel();
+			if(Radiomãe.isSelected()) {
+				responsavel.setNome(TXusuarioMaeNome.getText().trim());
+				responsavel.setCpf(TXusuarioMaeCPF.getText().trim());
+			}
 			aluno.setEndereco(endereço);
 			aluno.setNome(TXusuarioNome.getText().trim());
 			aluno.setEndereco(endereço);
@@ -437,62 +430,62 @@ public class ControleCadastro implements Initializable {
 		});
 
 		// COMBOBOX NATURALIDADE PAI
-
-		COMBOusuarioPaiNaturalidade.getItems().setAll(Estado.values());
-		COMBOusuarioPaiNaturalidade.getItems().setAll(Estado.values());
-
-		COMBOusuarioPaiNaturalidade.setButtonCell(new ListCell<Estado>() {
-			@Override
-			protected void updateItem(Estado item, boolean empty) {
-				super.updateItem(item, empty);
-				if (empty || item == null) {
-					setText("Naturalidade Pai");
-				} else {
-					setText(item.toString());
-				}
-			}
-		});
-
-		COMBOusuarioPaiNaturalidade.setButtonCell(new ListCell<Estado>() {
-			@Override
-			protected void updateItem(Estado item, boolean empty) {
-				super.updateItem(item, empty);
-				if (empty || item == null) {
-					setText("Naturalidade Pai");
-				} else {
-					setText(item.toString());
-				}
-			}
-		});
+//
+//		COMBOusuarioPaiNaturalidade.getItems().setAll(Estado.values());
+//		COMBOusuarioPaiNaturalidade.getItems().setAll(Estado.values());
+//
+//		COMBOusuarioPaiNaturalidade.setButtonCell(new ListCell<Estado>() {
+//			@Override
+//			protected void updateItem(Estado item, boolean empty) {
+//				super.updateItem(item, empty);
+//				if (empty || item == null) {
+//					setText("Naturalidade Pai");
+//				} else {
+//					setText(item.toString());
+//				}
+//			}
+//		});
+//
+//		COMBOusuarioPaiNaturalidade.setButtonCell(new ListCell<Estado>() {
+//			@Override
+//			protected void updateItem(Estado item, boolean empty) {
+//				super.updateItem(item, empty);
+//				if (empty || item == null) {
+//					setText("Naturalidade Pai");
+//				} else {
+//					setText(item.toString());
+//				}
+//			}
+//		});
 
 		// COMBOBOX NATURALIDADE MAE
-
-		COMBOusuarioMaeNAturalidade.getItems().setAll(Estado.values());
-		COMBOusuarioMaeNAturalidade.getItems().setAll(Estado.values());
-
-		COMBOusuarioMaeNAturalidade.setButtonCell(new ListCell<Estado>() {
-			@Override
-			protected void updateItem(Estado item, boolean empty) {
-				super.updateItem(item, empty);
-				if (empty || item == null) {
-					setText("Naturalidade Mãe");
-				} else {
-					setText(item.toString());
-				}
-			}
-		});
-
-		COMBOusuarioMaeNAturalidade.setButtonCell(new ListCell<Estado>() {
-			@Override
-			protected void updateItem(Estado item, boolean empty) {
-				super.updateItem(item, empty);
-				if (empty || item == null) {
-					setText("Naturalidade Mãe");
-				} else {
-					setText(item.toString());
-				}
-			}
-		});
+//
+//		COMBOusuarioMaeNAturalidade.getItems().setAll(Estado.values());
+//		COMBOusuarioMaeNAturalidade.getItems().setAll(Estado.values());
+//
+//		COMBOusuarioMaeNAturalidade.setButtonCell(new ListCell<Estado>() {
+//			@Override
+//			protected void updateItem(Estado item, boolean empty) {
+//				super.updateItem(item, empty);
+//				if (empty || item == null) {
+//					setText("Naturalidade Mãe");
+//				} else {
+//					setText(item.toString());
+//				}
+//			}
+//		});
+//
+//		COMBOusuarioMaeNAturalidade.setButtonCell(new ListCell<Estado>() {
+//			@Override
+//			protected void updateItem(Estado item, boolean empty) {
+//				super.updateItem(item, empty);
+//				if (empty || item == null) {
+//					setText("Naturalidade Mãe");
+//				} else {
+//					setText(item.toString());
+//				}
+//			}
+//		});
 
 		// COMBOBOX SIGLAS ESTADOS
 
@@ -523,11 +516,30 @@ public class ControleCadastro implements Initializable {
 			}
 		});
 		
-		if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
-			TXusuarioPaiNome.setEditable(true);
-			
-		}
+		
 
+	}
+	
+	public void visibilidade() {
+		if(COMBOusuarioTipo.getValue() != TipoUsuario.Aluno) {
+			TXusuarioMaeNome.setDisable(true);
+			TXusuarioMaeCPF.setDisable(true);
+			TXusuarioPaiNome.setDisable(true);
+			TXusuarioPaiCPF.setDisable(true);
+			
+		}else{
+			TXusuarioMaeNome.setDisable(false);
+			TXusuarioMaeCPF.setDisable(false);
+			TXusuarioPaiNome.setDisable(false);
+			TXusuarioPaiCPF.setDisable(false);
+		}
+		
+		if (RadioProprioresp.isSelected()) {
+			TXcpfUsuario.setDisable(false);
+		}else {
+			TXcpfUsuario.setDisable(true);
+		}
+		
 	}
 
 

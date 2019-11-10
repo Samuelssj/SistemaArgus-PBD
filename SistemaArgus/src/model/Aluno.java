@@ -1,5 +1,8 @@
 package model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -25,17 +28,22 @@ public class Aluno extends Usuario {
 	@Column(length = 60, nullable = false)
 	private String cpf; //rua VARCHAR (50) NOT NULL,
 	
+	
 	@OneToOne
 	@JoinColumn(name = "curriculo")
 	private Curriculo curriculo;
 	
-	@OneToOne
-	@JoinColumn(name = "nota")
-	private Nota nota;
+	@OneToMany
+	@JoinColumn(name = "turma")
+	private List<Turma> turmas;
 	
-	@ManyToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "responsavel")
-	private Responsavel responsavel;
+	private Responsavel responsaveis;
+	
+	@OneToMany
+	@JoinColumn(name = "acompanhamento")
+	private List<Acompanhamento> acompanhamentos;
 	
 
 	
@@ -47,16 +55,15 @@ private static final long serialVersionUID = 1L;
 	
 	
 	
-	@Override
-	public String toString() {
-		return "Aluno [nome=" + nome + ", pai=" + pai + ", mãe=" + mãe + ", cpf=" + cpf + ", curriculo=" + curriculo
-				+ ", nota=" + nota + ", responsavel=" + responsavel + "]";
-	}
-
-
-
 
 	
+
+
+
+
+
+
+
 
 	public String getNome() {
 		return nome;
@@ -68,6 +75,46 @@ private static final long serialVersionUID = 1L;
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+
+
+
+
+
+
+	
+
+
+
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+
+
+
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
+
+
+
+
+
+
+	public List<Acompanhamento> getAcompanhamentos() {
+		return acompanhamentos;
+	}
+
+
+
+
+
+	public void setAcompanhamentos(List<Acompanhamento> acompanhamentos) {
+		this.acompanhamentos = acompanhamentos;
 	}
 
 
@@ -135,36 +182,6 @@ private static final long serialVersionUID = 1L;
 	}
 
 
-
-
-
-	public Nota getNota() {
-		return nota;
-	}
-
-
-
-
-
-	public void setNota(Nota nota) {
-		this.nota = nota;
-	}
-
-
-
-
-
-	public Responsavel getResponsavel() {
-		return responsavel;
-	}
-
-
-
-
-
-	public void setResponsavel(Responsavel responsavel) {
-		this.responsavel = responsavel;
-	}
 
 
 

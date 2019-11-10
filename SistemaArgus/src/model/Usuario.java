@@ -37,9 +37,9 @@ public class  Usuario extends Entidade {
 	@Column(length = 30, nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
-	@Column(length = 30, nullable = false)
+	@Column(length = 30)
 	private String login;
-	@Column(length = 30, nullable = false)
+	@Column(length = 30 )
 	private String senha;
 
 

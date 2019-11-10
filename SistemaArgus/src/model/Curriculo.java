@@ -22,9 +22,7 @@ public class Curriculo extends Entidade {
 	@Column(length = 60,nullable = false)
 	private String AnoLetivo; //bairro VARCHAR (50) NOT NULL,
 	@Column(length = 60, nullable = false)
-	private String DiciplinasAlocadas; //cep VARCHAR (50) NOT NULL,
-	@Column(length = 60, nullable = false)
-	private String cidade; //cidade VARCHAR (50) NOT NULL, 
+	private String DiciplinasAlocadas; //cep VARCHAR (5
 	@Column(length = 60, nullable = false)
 	private boolean status;
 
@@ -48,7 +46,7 @@ private static final long serialVersionUID = 1L;
 	@Override
 	public String toString() {
 		return "Curriculo [nome=" + nome + ", tipoAno=" + tipoAno + ", AnoLetivo=" + AnoLetivo + ", DiciplinasAlocadas="
-				+ DiciplinasAlocadas + ", cidade=" + cidade + ", status=" + status + ", disciplina=" + disciplina
+				+ DiciplinasAlocadas + ", cidade="  + ", status=" + status + ", disciplina=" + disciplina
 				+ ", parcela=" + parcela + "]";
 	}
 
@@ -108,19 +106,6 @@ private static final long serialVersionUID = 1L;
 		DiciplinasAlocadas = diciplinasAlocadas;
 	}
 
-
-
-
-	public String getCidade() {
-		return cidade;
-	}
-
-
-
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
 
 
 
