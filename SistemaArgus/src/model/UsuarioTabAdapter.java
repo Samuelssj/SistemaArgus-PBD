@@ -9,12 +9,36 @@ public class UsuarioTabAdapter {
 	private String rua;
 	private String bairro;
 	private String numero;
+	private String cep;
+	private String cidade;
 
+	
 	
 	
 	public Integer getId() {
 		return id;
 	}
+
+	
+	public String getCidade() {
+		return cidade;
+	}
+
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+
+	public String getCep() {
+		return cep;
+	}
+
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
 
 	public void setId(Integer id) {
 		this.id = id;

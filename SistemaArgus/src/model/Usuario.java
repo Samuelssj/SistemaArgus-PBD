@@ -41,13 +41,19 @@ public class  Usuario extends Entidade {
 	private String login;
 	@Column(length = 30 )
 	private String senha;
+	@Column(length = 30 )
+	private Boolean situacao;
+
+
 
 
 	@Override
 	public String toString() {
 		return "Usuario [nome=" + nome + ", data_nasc=" + data_nasc + ", naturalidade=" + naturalidade + ", tipo="
-				+ tipo + ", login=" + login + ", senha=" + senha + ", endereco=" + endereco + "]";
+				+ tipo + ", login=" + login + ", senha=" + senha + ", situacao=" + situacao + ", endereco=" + endereco
+				+ "]";
 	}
+	
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco")
@@ -57,6 +63,16 @@ public class  Usuario extends Entidade {
 	
 	protected static final String sequence = "usuario_sequence";
 	
+
+	
+	
+	public Boolean getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(Boolean situacao) {
+		this.situacao = situacao;
+	}
 
 	public Endereco getEndereco() {
 		return endereco;

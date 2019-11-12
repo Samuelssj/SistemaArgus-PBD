@@ -91,18 +91,17 @@
                                           <TableView fx:id="tabelaFuncionario" fixedCellSize="0.0" onSort="#action" prefHeight="198.0" prefWidth="873.0" BorderPane.alignment="CENTER">
                                             <columns>
                                               <TableColumn fx:id="nomeTabelaFuncionario" prefWidth="75.0" text="Nome" />
-                                              <TableColumn fx:id="cpfTabelaFuncionario" prefWidth="75.0" text="CPF" />
-                                                <TableColumn fx:id="CargotabelaFuncionario" prefWidth="75.0" text="Cargo" />
-                                                <TableColumn fx:id="RuaTabFuncionario" prefWidth="75.0" text="Rua" />
-                                                <TableColumn fx:id="BairroTabFuncionario" prefWidth="75.0" text="Bairro" />
+                                              <TableColumn fx:id="funcaoTabelaFuncionario" prefWidth="75.0" text="Função" />
+                                                <TableColumn fx:id="cidadetabelaFuncionario" prefWidth="75.0" text="Cidade" />
+                                                <TableColumn fx:id="cepTabFuncionario" prefWidth="75.0" text="Cep" />
                                                 <TableColumn fx:id="SituacaoTabFuncionario" prefWidth="75.0" text="Situação" />
                                             </columns>
-                                             <columnResizePolicy>
-                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                             </columnResizePolicy>
                                              <BorderPane.margin>
                                                 <Insets left="10.0" right="10.0" />
                                              </BorderPane.margin>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
                                           </TableView>
                                        </left>
                                        <bottom>

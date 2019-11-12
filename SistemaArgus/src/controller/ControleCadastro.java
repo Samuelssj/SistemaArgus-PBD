@@ -70,16 +70,14 @@ public class ControleCadastro implements Initializable {
     private TableColumn<UsuarioTabAdapter,String> nomeTabelaFuncionario;
 
     @FXML
-    private TableColumn<UsuarioTabAdapter,String> cpfTabelaFuncionario;
+    private TableColumn<UsuarioTabAdapter,String>funcaoTabelaFuncionario;
+
 
     @FXML
-    private TableColumn<UsuarioTabAdapter,String> CargotabelaFuncionario;
+    private TableColumn<UsuarioTabAdapter,String> cidadetabelaFuncionario;
 
     @FXML
-    private TableColumn<UsuarioTabAdapter,String> RuaTabFuncionario;
-
-    @FXML
-    private TableColumn<UsuarioTabAdapter,String> BairroTabFuncionario;
+    private TableColumn<UsuarioTabAdapter,String>  cepTabFuncionario;
 
     @FXML
     private TableColumn<UsuarioTabAdapter,String> SituacaoTabFuncionario;
@@ -228,67 +226,7 @@ public class ControleCadastro implements Initializable {
 			
 			carregar();
 			
-//			if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
-//				TXusuarioPaiNome.setDisable(true);
-//				
-//			}
-//			
-//			usuario = new Usuario();
-//			endereço = new Endereco();
-//			 (usuario != null) {
-//				endereço = usuario.getEndereco();
-//			}
-//			else if (endereço == null) {
-//				endereço = new Endereco();
-//			}
 			
-//			endereço.setCidade(TXusuarioCidade.getText().trim());
-//			endereço.setCep(TXusuarioCEP.getText().trim());
-//			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
-//			endereço.setRua(TXusuarioRua.getText().trim());
-//			endereço.setBairro(TXusuarioBairro.getText().trim());
-//			endereço.setNumero(TXusuarioNumero.getText().trim());
-//			usuario.setEndereco(endereço);
-//			usuario.setNome(TXusuarioNome.getText().trim());
-//			usuario.setNome(TXusuarioNome.getText().trim());
-//			usuario.setEndereco(endereço);
-//			usuario.setData_nasc(TXusuarioData_nasc.getValue());
-//			usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
-//			usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
-//			usuario.setLogin(TXusuarioLogin.getText().trim());
-//			usuario.setSenha(TXusuarioSenha.getText().trim());
-			
-//			System.out.println(usuario.getLogin());
-//			System.out.println(usuario.getNaturalidade());
-//			System.out.println(usuario.getNome());
-//			System.out.println(usuario.getSenha());
-//			System.out.println(usuario.getData_nasc());
-//			System.out.println(usuario.getEndereco());
-//			System.out.println(usuario.getTipo());
-//			System.out.println("endereço");
-//			
-//			System.out.println(endereço.getBairro());
-//			System.out.println(endereço.getCep());
-//			System.out.println(endereço.getCidade());
-//			System.out.println(endereço.getNumero());
-//			System.out.println(endereço.getRua());
-//			System.out.println(endereço.getEstado());
-		
-//			try {
-//				//fachada.createOrUpdateEndereco(endereço);
-//				fachada.createOrUpdatePessoa(usuario);
-//				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
-//						"O Usuário foi salvo com sucesso!");
-//			} catch (Exception e) {
-//				// TODO: handle exception
-//				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
-//						"O Usuário não foi salvo com sucesso!");
-//				
-//			}
-			
-			
-			
-
 
 		}
 	}
@@ -353,6 +291,7 @@ public class ControleCadastro implements Initializable {
 			usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
 			usuario.setLogin(TXusuarioLogin.getText().trim());
 			usuario.setSenha(TXusuarioSenha.getText().trim());
+			usuario.setSituacao(true);
 			try {
 				//fachada.createOrUpdateEndereco(endereço);
 				fachada.createOrUpdatePessoa(usuario);
@@ -552,21 +491,21 @@ public class ControleCadastro implements Initializable {
 		
 //		MaskFieldUtil.cpfField(TXcpfUsuario);
 //		MaskFieldUtil.foneField(TXusuarioCidade);
-//		MaskFieldUtil.cepField(TXusuarioCEP);
+		//MaskFieldUtil.cepField(TXusuarioCEP);
 		
 
 		nomeTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("nome"));
-		cpfTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-		CargotabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-		RuaTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("rua"));
-		BairroTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("bairro"));
+		funcaoTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+		cepTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("cep"));
+		cidadetabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+		SituacaoTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("situacao"));
 		//SituacaoTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("numero"));
 
 		try {
 
 			usuarioTabAdapters = fachada.getInstance().searchAllSuperUsuario();
 			tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
-			
+			System.out.println(usuarioTabAdapters);
 			//System.out.println(usuarioTabAdapters);
 			
 		} catch (Exception e) {
