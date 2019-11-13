@@ -5,10 +5,10 @@ public class UsuarioTabAdapter {
 	private Integer id;
 	private String nome;
 	private String cpf;
-	private String data_nascimento;
-	private String rua;
-	private String bairro;
-	private String numero;
+//	private String data_nascimento;
+//	private String rua;
+//	private String bairro;
+//	private String numero;
 	private String cep;
 	private String cidade;
 
@@ -60,37 +60,37 @@ public class UsuarioTabAdapter {
 		this.cpf = cpf;
 	}
 
-	public String getData_nascimento() {
-		return data_nascimento;
-	}
-
-	public void setData_nascimento(String data_nascimento) {
-		this.data_nascimento = data_nascimento;
-	}
-
-	public String getRua() {
-		return rua;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+//	public String getData_nascimento() {
+//		return data_nascimento;
+//	}
+//
+//	public void setData_nascimento(String data_nascimento) {
+//		this.data_nascimento = data_nascimento;
+//	}
+//
+//	public String getRua() {
+//		return rua;
+//	}
+//
+//	public void setRua(String rua) {
+//		this.rua = rua;
+//	}
+//
+//	public String getBairro() {
+//		return bairro;
+//	}
+//
+//	public void setBairro(String bairro) {
+//		this.bairro = bairro;
+//	}
+//
+//	public String getNumero() {
+//		return numero;
+//	}
+//
+//	public void setNumero(String numero) {
+//		this.numero = numero;
+//	}
 
 
 

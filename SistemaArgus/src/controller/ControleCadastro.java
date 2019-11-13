@@ -251,8 +251,6 @@ public class ControleCadastro implements Initializable {
 			aluno.setData_nasc(TXusuarioData_nasc.getValue());
 			aluno.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
 			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
-//			aluno.setLogin(TXusuarioLogin.getText().trim());
-//			aluno.setSenha(TXusuarioSenha.getText().trim());
 			aluno.setPai(TXusuarioPaiNome.getText().trim());
 			aluno.setMãe(TXusuarioMaeNome.getText().trim());
 			aluno.setCpf(TXcpfUsuario.getText());
@@ -490,9 +488,9 @@ public class ControleCadastro implements Initializable {
 		init();
 		
 //		MaskFieldUtil.cpfField(TXcpfUsuario);
-//		MaskFieldUtil.foneField(TXusuarioCidade);
-		//MaskFieldUtil.cepField(TXusuarioCEP);
-		
+//	MaskFieldUtil.foneField(TXusuarioCidade);
+//		MaskFieldUtil.cepField(TXusuarioCEP);
+//		
 
 		nomeTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		funcaoTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("tipo"));
