@@ -44,7 +44,8 @@ public class ControleCadastro implements Initializable {
 	private List<Usuario> usuarioTabAdapters;
 	private Endereco endereco;
 	
-	@FXML
+
+    @FXML
     private AnchorPane AnchoPane;
 
     @FXML
@@ -61,26 +62,7 @@ public class ControleCadastro implements Initializable {
 
     @FXML
     private Button JBnovoCadastro;
-    
 
-    @FXML
-    private TableView<Usuario> tabelaFuncionario;
-
-    @FXML
-    private TableColumn<UsuarioTabAdapter,String> nomeTabelaFuncionario;
-
-    @FXML
-    private TableColumn<UsuarioTabAdapter,String>funcaoTabelaFuncionario;
-
-
-    @FXML
-    private TableColumn<UsuarioTabAdapter,String> cidadetabelaFuncionario;
-
-    @FXML
-    private TableColumn<UsuarioTabAdapter,String>  cepTabFuncionario;
-
-    @FXML
-    private TableColumn<UsuarioTabAdapter,String> SituacaoTabFuncionario;
 
     @FXML
     private Button JBeditar;
@@ -135,8 +117,6 @@ public class ControleCadastro implements Initializable {
 
     @FXML
     private RadioButton RadioProprioresp;
-    @FXML
-    private ComboBox<Estado> COMBOusuarioNaturalidade;
 
     @FXML
     private PasswordField TXusuarioSenha;
@@ -149,12 +129,6 @@ public class ControleCadastro implements Initializable {
 
     @FXML
     private Button BToutroResponsavel;
-    
-    @FXML
-    private ComboBox<TipoUsuario> COMBOusuarioTipo;
-    
-    @FXML
-    private ComboBox<SiglasEstados> COMBOestadoUsuario;
 
     @FXML
     private TextField TXcpfUsuario;
@@ -180,6 +154,46 @@ public class ControleCadastro implements Initializable {
     @FXML
     private Button BTvoltar;
 
+    @FXML
+    private TableView<?> tabelaResponsavel;
+
+    @FXML
+    private TableColumn<?, ?> nomeTabResponsavel;
+
+    @FXML
+    private TableColumn<?, ?> cpfTabResponsavel;
+
+    @FXML
+    private TableColumn<?, ?> datanascTabResponsavel;
+    
+
+    @FXML
+    private TableView<Usuario> tabelaFuncionario;
+
+    @FXML
+    private TableColumn<UsuarioTabAdapter,String> nomeTabelaFuncionario;
+
+    @FXML
+    private TableColumn<UsuarioTabAdapter,String>funcaoTabelaFuncionario;
+
+    @FXML
+    private TableColumn<UsuarioTabAdapter,String>  cpfTabFuncionario;
+
+    @FXML
+    private TableColumn<UsuarioTabAdapter,String> SituacaoTabFuncionario;
+
+ 
+    @FXML
+    private ComboBox<Estado> COMBOusuarioNaturalidade;
+
+
+    @FXML
+    private ComboBox<TipoUsuario> COMBOusuarioTipo;
+    
+    @FXML
+    private ComboBox<SiglasEstados> COMBOestadoUsuario;
+
+    
 	@FXML
 
 	public void action(ActionEvent event) {
@@ -494,8 +508,7 @@ public class ControleCadastro implements Initializable {
 
 		nomeTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		funcaoTabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-		cepTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("cep"));
-		cidadetabelaFuncionario.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+		cpfTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 		SituacaoTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("situacao"));
 		//SituacaoTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("numero"));
 

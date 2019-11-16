@@ -1,6 +1,6 @@
 package model;
 
-public class UsuarioTabAdapter {
+public class UsuarioTabAdapter  extends Entidade{
 
 	private Integer id;
 	private String nome;
@@ -58,6 +58,13 @@ public class UsuarioTabAdapter {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+
+	@Override
+	public String detalhesEntidade() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 //	public String getData_nascimento() {

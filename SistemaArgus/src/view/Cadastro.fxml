@@ -92,8 +92,7 @@
                                             <columns>
                                               <TableColumn fx:id="nomeTabelaFuncionario" prefWidth="75.0" text="Nome" />
                                               <TableColumn fx:id="funcaoTabelaFuncionario" prefWidth="75.0" text="Função" />
-                                                <TableColumn fx:id="cidadetabelaFuncionario" prefWidth="75.0" text="Cidade" />
-                                                <TableColumn fx:id="cepTabFuncionario" prefWidth="75.0" text="Cep" />
+                                                <TableColumn fx:id="cpfTabFuncionario" prefWidth="75.0" text="CPF" />
                                                 <TableColumn fx:id="SituacaoTabFuncionario" prefWidth="75.0" text="Situação" />
                                             </columns>
                                              <BorderPane.margin>
@@ -422,13 +421,13 @@
                            <children>
                               <VBox prefHeight="425.0" prefWidth="878.0" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <BorderPane prefHeight="439.0" prefWidth="878.0">
+                                    <BorderPane prefHeight="499.0" prefWidth="878.0">
                                        <bottom>
                                           <GridPane alignment="TOP_CENTER" prefHeight="432.0" prefWidth="878.0" BorderPane.alignment="CENTER">
                                              <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="342.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="274.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="279.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="362.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="196.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="322.0" />
                                              </columnConstraints>
                                              <rowConstraints>
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -440,11 +439,10 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
                                                 <Label GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -455,44 +453,44 @@
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label prefHeight="103.0" prefWidth="333.0" text="Novo Responsável" textFill="#5404e8">
+                                                <Label prefHeight="53.0" prefWidth="317.0" text="Cadastre um novo" textFill="#5404e8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                                    <font>
                                                       <Font size="36.0" />
                                                    </font>
                                                    <GridPane.margin>
-                                                      <Insets bottom="20.0" left="10.0" top="60.0" />
+                                                      <Insets />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label text="Nome:" GridPane.rowIndex="3">
+                                                <Label text="Nome:" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <Label GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                <TextField fx:id="TXresponsavelNome" GridPane.rowIndex="4">
+                                                <TextField fx:id="TXresponsavelNome" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXresponsavelCPF" GridPane.rowIndex="6">
+                                                <TextField fx:id="TXresponsavelCPF" GridPane.columnIndex="2" GridPane.rowIndex="8">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <Button fx:id="BTcadastrarComResponsavel" mnemonicParsing="false" onAction="#action" prefHeight="39.0" prefWidth="228.0" text="Cadastrar" GridPane.rowIndex="10">
+                                                <Button fx:id="BTcadastrarComResponsavel" mnemonicParsing="false" onAction="#action" prefHeight="39.0" prefWidth="228.0" text="Cadastrar" GridPane.columnIndex="1" GridPane.rowIndex="12">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
                                                    <GridPane.margin>
-                                                      <Insets left="200.0" />
+                                                      <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Label text="Data Nascimento" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label text="Data Nascimento" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <DatePicker fx:id="TXresponsavelDataNasc" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <DatePicker fx:id="TXresponsavelDataNasc" GridPane.columnIndex="2" GridPane.rowIndex="6">
                                                    <opaqueInsets>
                                                       <Insets />
                                                    </opaqueInsets>
@@ -500,7 +498,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </DatePicker>
-                                                <Label text="CPF:" GridPane.rowIndex="5">
+                                                <Label text="CPF:" GridPane.columnIndex="2" GridPane.rowIndex="7">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -508,7 +506,7 @@
                                                       <Insets />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button fx:id="BTvoltar" mnemonicParsing="false" onAction="#action" prefHeight="28.0" prefWidth="101.0" text="Voltar" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                <Button fx:id="BTvoltar" mnemonicParsing="false" onAction="#action" prefHeight="28.0" prefWidth="101.0" text="Voltar" GridPane.columnIndex="2" GridPane.rowIndex="12">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
@@ -516,6 +514,33 @@
                                                       <Font size="16.0" />
                                                    </font>
                                                 </Button>
+                                                <Label text="Selecione Responsável" textFill="#5404e8" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Ou" textFill="#f20b0b" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font size="36.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="70.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <BorderPane prefHeight="67.0" prefWidth="361.0" GridPane.rowIndex="5">
+                                                   <bottom>
+                                                      <TableView fx:id="tabelaResponsavel" prefHeight="68.0" prefWidth="361.0" BorderPane.alignment="CENTER">
+                                                        <columns>
+                                                          <TableColumn fx:id="nomeTabResponsavel" prefWidth="75.0" text="Nome" />
+                                                          <TableColumn fx:id="cpfTabResponsavel" prefWidth="75.0" text="CPF" />
+                                                            <TableColumn fx:id="datanascTabResponsavel" prefWidth="75.0" text="Nascimento" />
+                                                        </columns>
+                                                         <columnResizePolicy>
+                                                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                         </columnResizePolicy>
+                                                      </TableView>
+                                                   </bottom>
+                                                </BorderPane>
                                              </children>
                                              <BorderPane.margin>
                                                 <Insets />
