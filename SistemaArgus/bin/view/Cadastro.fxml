@@ -353,7 +353,7 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </PasswordField>
-                                                <PasswordField fx:id="TXusuarioSenhaConfirmar" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                                <PasswordField fx:id="TXusuarioSenhaConfirmar" disable="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>

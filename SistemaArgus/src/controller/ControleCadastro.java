@@ -34,6 +34,7 @@ import model.Responsavel;
 import model.Usuario;
 import model.UsuarioTabAdapter;
 
+
 public class ControleCadastro implements Initializable {
 
 	private Fachada fachada = Fachada.getInstance();
@@ -155,13 +156,13 @@ public class ControleCadastro implements Initializable {
     private Button BTvoltar;
 
     @FXML
-    private TableView<?> tabelaResponsavel;
+    private TableView<Responsavel> tabelaResponsavel;
 
     @FXML
-    private TableColumn<?, ?> nomeTabResponsavel;
+    private TableColumn<Responsavel, String> nomeTabResponsavel;
 
     @FXML
-    private TableColumn<?, ?> cpfTabResponsavel;
+    private TableColumn<Responsavel, String> cpfTabResponsavel;
 
 
     @FXML
@@ -189,6 +190,7 @@ public class ControleCadastro implements Initializable {
     
     @FXML
     private ComboBox<SiglasEstados> COMBOestadoUsuario;
+
 
     
 	@FXML
@@ -240,6 +242,21 @@ public class ControleCadastro implements Initializable {
 			
 
 		}
+		if(obj == JBbuscarCadastro) {
+			if(TXbuscarFuncionario.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "PREENCHA A BUSCA",
+						"Preencha a busca!");
+				
+			}else {
+				try {
+					tabelaFuncionario.getItems().setAll(fachada.searchAllAluno(TXbuscarFuncionario.getText()));
+					
+				} catch (Exception e) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro Buscar Cliente",
+							"Erro ao buscar cliente", e.getMessage());
+					e.printStackTrace();				}
+			}
+		}
 	}
 
 
@@ -251,6 +268,14 @@ public class ControleCadastro implements Initializable {
 		if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
 			
 			aluno = new Aluno();
+			endereço = new Endereco();
+			endereço.setCidade(TXusuarioCidade.getText().trim());
+			endereço.setCep(TXusuarioCEP.getText().trim());
+			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereço.setRua(TXusuarioRua.getText().trim());
+			endereço.setBairro(TXusuarioBairro.getText().trim());
+			endereço.setNumero(TXusuarioNumero.getText().trim());
+			aluno.setEndereco(endereço);
 			responsavel = new Responsavel();
 			if(Radiomãe.isSelected()) {
 				responsavel.setNome(TXusuarioMaeNome.getText().trim());
@@ -259,10 +284,8 @@ public class ControleCadastro implements Initializable {
 				responsavel.setNome(TXusuarioPaiNome.getText().trim());
 				responsavel.setCpf(TXusuarioPaiCPF.getText().trim());
 			}
-			
-			System.out.println(responsavel);
 			aluno.setResponsavel(responsavel);
-			aluno.setEndereco(endereço);
+			
 			aluno.setNome(TXusuarioNome.getText().trim());
 			aluno.setEndereco(endereço);
 			aluno.setData_nasc(TXusuarioData_nasc.getValue());
@@ -272,6 +295,7 @@ public class ControleCadastro implements Initializable {
 			aluno.setMãe(TXusuarioMaeNome.getText().trim());
 			aluno.setCpf(TXcpfUsuario.getText());
 			
+			System.out.println(aluno);
 			try {
 				//fachada.createOrUpdateEndereco(endereço);
 				fachada.createOrUpdateAluno(aluno);
@@ -299,7 +323,7 @@ public class ControleCadastro implements Initializable {
 			usuario.setEndereco(endereço);
 			usuario.setNome(TXusuarioNome.getText().trim());
 			usuario.setNome(TXusuarioNome.getText().trim());
-			usuario.setEndereco(endereço);
+			//usuario.setEndereco(endereço);
 			usuario.setData_nasc(TXusuarioData_nasc.getValue());
 			usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
 			usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
@@ -309,6 +333,9 @@ public class ControleCadastro implements Initializable {
 			try {
 				//fachada.createOrUpdateEndereco(endereço);
 				fachada.createOrUpdatePessoa(usuario);
+				usuarioTabAdapters = fachada.searchAllSuperUsuario();
+				tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
+				
 				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
 						"O Usuário foi salvo com sucesso!");
 			} catch (Exception e) {
@@ -317,6 +344,7 @@ public class ControleCadastro implements Initializable {
 						"O Usuário não foi salvo com sucesso!");
 				
 			}
+			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 		}
 	
 
@@ -480,7 +508,7 @@ public class ControleCadastro implements Initializable {
 			TXusuarioMaeCPF.setDisable(true);
 			TXusuarioPaiNome.setDisable(true);
 			TXusuarioPaiCPF.setDisable(true);
-			
+	
 			Radiomãe.setDisable(true);
 			RadioPai.setDisable(true);
 			RadioProprioresp.setSelected(true);
