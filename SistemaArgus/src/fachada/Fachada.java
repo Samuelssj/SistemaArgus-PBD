@@ -9,6 +9,7 @@ import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
 
 import EntidadeEnum.HistoricoTipo;
 import business.BusinessEndereco;
+import business.BusinessProfessor;
 import business.BusinessResponsavel;
 import business.BusinessUsuario;
 import business.BusinessUtil;
@@ -18,10 +19,12 @@ import businessInterface.IbusinessEndereco;
 import businessInterface.IbusinessResponsavel;
 import businessInterface.IbusinessUsuario;
 import businessInterface.IbusinessUtil;
+import businessInterface.IbusunessProfessor;
 import exception.BusinessException;
 import model.Aluno;
 import model.Endereco;
 import model.Entidade;
+import model.Professor;
 import model.Responsavel;
 import model.Usuario;
 import model.UsuarioTabAdapter;
@@ -32,6 +35,7 @@ public class Fachada implements IFachada {
 	private IbusinessAluno businessAluno;
 	private IbusinessEndereco businessEndereco;
 	private IbusinessResponsavel businessResponsavel;
+	private IbusunessProfessor businessProfessor;
 	private IbusinessUtil businessUtil;
 	private static Fachada instance;
 
@@ -41,6 +45,7 @@ public class Fachada implements IFachada {
 		businessUtil = new BusinessUtil();
 		businessAluno = new BussinessAluno();
 		businessResponsavel = new BusinessResponsavel();
+		businessProfessor = new BusinessProfessor();
 	}
 
 	public static Fachada getInstance() {
@@ -229,4 +234,44 @@ public class Fachada implements IFachada {
 		return null;
 	}
 
+	
+									//PROFESSOR
+										
+	
+	@Override
+	public void createOrUpdateProfessor(Professor entidade) throws BusinessException {
+			
+		businessProfessor.createOrUpdate(entidade);
+		
+	}
+
+	@Override
+	public Usuario searchProfessor(int id) throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessProfessor.search(id);
+	}
+
+	@Override
+	public void removeProfessor(int id) throws BusinessException {
+		// TODO Auto-generated method stub
+		businessProfessor.remove(id);
+		
+	}
+
+	@Override
+	public List<Professor> searchAllProfessor() throws BusinessException {
+		// TODO Auto-generated method stub
+		return  businessProfessor.searchAll();
+	}
+
+	@Override
+	public List<Professor> searchAllProfessor(String search) throws BusinessException {
+		// TODO Auto-generated method stub
+		return businessProfessor.searchAll(search); 
+		
+	}
+
+
+
+	
 }

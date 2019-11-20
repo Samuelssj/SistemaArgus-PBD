@@ -10,6 +10,7 @@ import exception.BusinessException;
 import model.Aluno;
 import model.Endereco;
 import model.Entidade;
+import model.Professor;
 import model.Responsavel;
 import model.Usuario;
 import model.UsuarioTabAdapter;
@@ -28,6 +29,14 @@ public interface IFachada {
   public List<UsuarioTabAdapter> searchAllUsuarioAdapter() throws BusinessException;    
   public List<UsuarioTabAdapter> searchAllUsuarioAdapter(String search) throws BusinessException;
   
+  
+//PROFESSOR
+public void createOrUpdateProfessor(Professor entidade) throws BusinessException;
+public Usuario searchProfessor(int id) throws BusinessException;
+public void removeProfessor(int id) throws BusinessException;
+public List<Professor> searchAllProfessor() throws BusinessException;    
+public List<Professor> searchAllProfessor(String search) throws BusinessException;
+  
 //Endereco
 public void createOrUpdateEndereco(Endereco entidade) throws BusinessException;
 public Endereco searchEndereco(int id) throws BusinessException;
@@ -44,7 +53,6 @@ public List<Aluno> searchAllAluno() throws BusinessException;
 public List<Aluno> searchAllAluno(String search) throws BusinessException;
 
 // RESPONSAVEL
-
 
 public void createOrUpdateResponsavel(Responsavel entidade) throws BusinessException;
 public Responsavel searchResponsavel(int id) throws BusinessException;

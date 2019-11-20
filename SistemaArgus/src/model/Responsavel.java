@@ -16,19 +16,19 @@ import javax.persistence.Table;
 public class Responsavel extends Usuario{
 
 
-	@Column(length = 50, nullable = false)
-	private String nome; // nome VARCHAR (50) NOT NULL,
-	@Column(length = 11, nullable = false)
-	private String cpf; // codigo VARCHAR (50) NOT NULL,
+	@Column(length = 50)
+	private String nome;
+	@Column(length = 11)
+	private String cpf; 
 
 //	@OneToOne(cascade = CascadeType.ALL)
 //	@JoinColumn(name = "aluno")
 	//private Aluno aluno; // id_endereco INTEGER REFERENCES ENDERECO(id)
 	
-	@OneToOne
-	@JoinColumn(name = "aluno")
-	private Aluno aluno;
-	
+//	@OneToOne
+//	@JoinColumn(name = "aluno")
+//	private Aluno aluno;
+//	
 	private static final long serialVersionUID = 1L;
 	
 	protected static final String sequence = "responsavel_sequence";
@@ -49,6 +49,8 @@ public class Responsavel extends Usuario{
 		this.cpf = cpf;
 	}
 
+	
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

@@ -24,9 +24,16 @@ public class Aluno extends Usuario {
 	private String pai;
 	@Column(length = 60, nullable = false)
 	private String mãe; 
-	@Column(length = 60, nullable = true)
+	@Column(length = 60)
 	private String cpf; 
-
+	
+//	@Column(length = 60, nullable = true)
+//	private String responsavel; 
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "endereco")
+	private Endereco endereco;
+	
 	@OneToOne
 	@JoinColumn(name = "curriculo")
 	private Curriculo curriculo;
@@ -37,7 +44,7 @@ public class Aluno extends Usuario {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "responsavel")
-	private Responsavel responsaveis;
+	private Responsavel responsavel;
 
 	@OneToMany
 	@JoinColumn(name = "acompanhamento")
@@ -53,6 +60,14 @@ public class Aluno extends Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Responsavel getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(Responsavel responsavel) {
+		this.responsavel = responsavel;
 	}
 
 	public List<Turma> getTurmas() {

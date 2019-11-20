@@ -232,7 +232,7 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXusuarioLogin" GridPane.rowIndex="5">
+                                                <TextField fx:id="TXusuarioLogin" disable="true" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -348,12 +348,12 @@
                                                       <Insets right="140.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <PasswordField fx:id="TXusuarioSenha" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <PasswordField fx:id="TXusuarioSenha" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </PasswordField>
-                                                <PasswordField fx:id="TXusuarioSenhaConfirmar" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                                <PasswordField fx:id="TXusuarioSenhaConfirmar" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -384,7 +384,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <TextField fx:id="TXcpfUsuario" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                                                <TextField fx:id="TXcpfUsuario" GridPane.columnIndex="1" GridPane.rowIndex="16">
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -472,7 +472,7 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="TXresponsavelCPF" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                                <TextField fx:id="TXresponsavelCPF" GridPane.columnIndex="2" GridPane.rowIndex="6">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -485,20 +485,7 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Label text="Data Nascimento" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <DatePicker fx:id="TXresponsavelDataNasc" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                                                   <opaqueInsets>
-                                                      <Insets />
-                                                   </opaqueInsets>
-                                                   <GridPane.margin>
-                                                      <Insets left="10.0" />
-                                                   </GridPane.margin>
-                                                </DatePicker>
-                                                <Label text="CPF:" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                                <Label text="CPF:" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -533,7 +520,6 @@
                                                         <columns>
                                                           <TableColumn fx:id="nomeTabResponsavel" prefWidth="75.0" text="Nome" />
                                                           <TableColumn fx:id="cpfTabResponsavel" prefWidth="75.0" text="CPF" />
-                                                            <TableColumn fx:id="datanascTabResponsavel" prefWidth="75.0" text="Nascimento" />
                                                         </columns>
                                                          <columnResizePolicy>
                                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -53,6 +53,7 @@ public class Dao<Tipo extends Entidade> implements IDao<Tipo> {
 			entityManager.getTransaction().begin();
 			entityManager.persist(entidade);
 			entityManager.getTransaction().commit();
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			entityManager.getTransaction().rollback();

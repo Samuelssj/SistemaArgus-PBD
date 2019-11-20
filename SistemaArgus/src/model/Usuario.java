@@ -28,13 +28,13 @@ import EntidadeEnum.TipoUsuario;
 
 public class  Usuario extends Entidade {
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 50)
 	private String nome;
-	@Column(length = 30, nullable = false)
+	@Column(length = 30)
 	private LocalDate data_nasc;
-	@Column(length = 30, nullable = false)
+	@Column(length = 30 )
 	private String naturalidade;
-	@Column(length = 30, nullable = false)
+	@Column(length = 30)
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
 	@Column(length = 30)

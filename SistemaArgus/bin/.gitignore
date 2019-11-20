@@ -1,12 +1,8 @@
-/EntidadeEnum/
-/application/
-/business/
-/businessInterface/
 /controller/
-/dao/
+/view/
 /daoInterface/
-/exception/
+/dao/
+/businessInterface/
+/business/
 /fachada/
 /model/
-/util/
-/view/

@@ -163,9 +163,6 @@ public class ControleCadastro implements Initializable {
     @FXML
     private TableColumn<?, ?> cpfTabResponsavel;
 
-    @FXML
-    private TableColumn<?, ?> datanascTabResponsavel;
-    
 
     @FXML
     private TableView<Usuario> tabelaFuncionario;
@@ -258,7 +255,13 @@ public class ControleCadastro implements Initializable {
 			if(Radiomãe.isSelected()) {
 				responsavel.setNome(TXusuarioMaeNome.getText().trim());
 				responsavel.setCpf(TXusuarioMaeCPF.getText().trim());
+			}if(RadioPai.isSelected()) {
+				responsavel.setNome(TXusuarioPaiNome.getText().trim());
+				responsavel.setCpf(TXusuarioPaiCPF.getText().trim());
 			}
+			
+			System.out.println(responsavel);
+			aluno.setResponsavel(responsavel);
 			aluno.setEndereco(endereço);
 			aluno.setNome(TXusuarioNome.getText().trim());
 			aluno.setEndereco(endereço);
@@ -268,7 +271,6 @@ public class ControleCadastro implements Initializable {
 			aluno.setPai(TXusuarioPaiNome.getText().trim());
 			aluno.setMãe(TXusuarioMaeNome.getText().trim());
 			aluno.setCpf(TXcpfUsuario.getText());
-			
 			
 			try {
 				//fachada.createOrUpdateEndereco(endereço);
@@ -472,17 +474,35 @@ public class ControleCadastro implements Initializable {
 	}
 	
 	public void visibilidade() {
+		
 		if(COMBOusuarioTipo.getValue() != TipoUsuario.Aluno) {
 			TXusuarioMaeNome.setDisable(true);
 			TXusuarioMaeCPF.setDisable(true);
 			TXusuarioPaiNome.setDisable(true);
 			TXusuarioPaiCPF.setDisable(true);
 			
+			Radiomãe.setDisable(true);
+			RadioPai.setDisable(true);
+			RadioProprioresp.setSelected(true);
+			TXcpfUsuario.setDisable(true);
+			TXusuarioLogin.setDisable(false);
+			TXusuarioSenha.setDisable(false);
+			TXusuarioSenhaConfirmar.setDisable(false);
+			RadioProprioresp.setSelected(true);
+			
 		}else{
 			TXusuarioMaeNome.setDisable(false);
 			TXusuarioMaeCPF.setDisable(false);
 			TXusuarioPaiNome.setDisable(false);
 			TXusuarioPaiCPF.setDisable(false);
+			TXcpfUsuario.setDisable(false);
+			TXusuarioLogin.setDisable(true);
+			TXusuarioSenha.setDisable(true);
+			TXusuarioSenhaConfirmar.setDisable(true);
+			
+			Radiomãe.setDisable(false);
+			RadioPai.setDisable(false);
+			TXcpfUsuario.setDisable(true);
 		}
 		
 		if (RadioProprioresp.isSelected()) {
