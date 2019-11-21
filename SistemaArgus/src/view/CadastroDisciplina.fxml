@@ -198,7 +198,7 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <Label text="Responsável Financeiro:" GridPane.rowIndex="15">
+                                                <Label text="Tipo do ano" GridPane.rowIndex="15">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -214,7 +214,7 @@
                                                       <Insets right="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <RadioButton fx:id="Radiomãe" mnemonicParsing="false" onAction="#action" text="Mãe" GridPane.rowIndex="15">
+                                                <RadioButton fx:id="Radiomãe" mnemonicParsing="false" onAction="#action" text="Bimestre" GridPane.rowIndex="15">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -225,12 +225,12 @@
                                                       <ToggleGroup fx:id="genero1" />
                                                    </toggleGroup>
                                                 </RadioButton>
-                                                <RadioButton fx:id="RadioPai" mnemonicParsing="false" onAction="#action" prefHeight="20.0" prefWidth="47.0" text="Pai" toggleGroup="$genero1" GridPane.rowIndex="15">
+                                                <RadioButton fx:id="RadioPai" mnemonicParsing="false" onAction="#action" prefHeight="20.0" prefWidth="100.0" text="Tri-mestre" toggleGroup="$genero1" GridPane.rowIndex="15">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                    <GridPane.margin>
-                                                      <Insets bottom="-80.0" left="105.0" top="10.0" />
+                                                      <Insets bottom="-80.0" left="130.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </RadioButton>
                                                 <Label text="Professor" GridPane.rowIndex="4">

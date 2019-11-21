@@ -1,8 +1,8 @@
 /controller/
 /view/
-/daoInterface/
-/dao/
-/businessInterface/
-/business/
-/fachada/
+/util/
 /model/
+/dao/
+/business/
+/META-INF/
+/application/

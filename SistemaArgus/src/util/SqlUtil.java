@@ -4,7 +4,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Aluno;
 import model.Entidade;
+import model.Usuario;
 
 
 public enum SqlUtil {
@@ -55,7 +57,11 @@ public enum SqlUtil {
 		return sql;
 	}
 
-	
+	public static void main(String[] args) {
+		
+		buscaPorBusca(Aluno.class);
+		
+	}
 
 	
 	

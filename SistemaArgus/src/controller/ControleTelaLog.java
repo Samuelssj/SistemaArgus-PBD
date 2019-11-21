@@ -44,29 +44,37 @@ public class ControleTelaLog extends Controle {
 		if (e.getSource() == JBentrar) {
 			
 			
-			Main.changeStage("Menu");
-//			
-//			try {
-//				usuario = fachada.searchUser(TxLogin.getText().trim(), TxSenha.getText().trim());
-//				
-//				if(usuario != null) {
-//					Main.changeStage("Menu");
-//					limparCampos();
-//				}else {
-//				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha erradaAAA");
-//				}
-//			} catch (Exception e2) {
-//				// TODO: handle exception
-//				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha errada");
-//				e2.printStackTrace();
-//			}
+			try {
+				
+				
+				System.out.println(TxLogin.getText().trim());
+				System.out.println(TxSenha.getText().trim());
+				
+				System.out.println(fachada);
+				usuario = fachada.searchUser(TxLogin.getText().trim(), TxSenha.getText().trim());
+				
+				
+				if(usuario != null) {
+					Main.changeStage("Menu");
+					limparCampos();
+				}else {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha erradaAAA");
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha errada");
+				e2.printStackTrace();
+			}
 			
 			
 			
 		}
 
 		if (e.getSource() == JBresetarSenha) {
-			System.out.println("mudar a senha");
+			Main.changeStage("resetar");
+			limparCampos();
+			
+			
 		}
 
 		if(e.getSource() ==JBsair) {
@@ -75,12 +83,6 @@ public class ControleTelaLog extends Controle {
 //			}
 			System.exit(0);
 		}
-	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

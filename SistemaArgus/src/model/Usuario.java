@@ -18,6 +18,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.oracle.webservices.internal.api.databinding.DatabindingMode;
+
 import EntidadeEnum.TipoUsuario;
 
 @Entity
@@ -30,7 +32,7 @@ public class  Usuario extends Entidade {
 
 	@Column(length = 50)
 	private String nome;
-	@Column(length = 30)
+	@Column()
 	private LocalDate data_nasc;
 	@Column(length = 30 )
 	private String naturalidade;
@@ -44,17 +46,6 @@ public class  Usuario extends Entidade {
 	@Column(length = 30 )
 	private Boolean situacao;
 
-
-
-
-	@Override
-	public String toString() {
-		return "Usuario [nome=" + nome + ", data_nasc=" + data_nasc + ", naturalidade=" + naturalidade + ", tipo="
-				+ tipo + ", login=" + login + ", senha=" + senha + ", situacao=" + situacao + ", endereco=" + endereco
-				+ "]";
-	}
-	
-
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco")
 	private Endereco endereco; //id_endereco INTEGER REFERENCES ENDERECO(id)
@@ -63,8 +54,12 @@ public class  Usuario extends Entidade {
 	
 	protected static final String sequence = "usuario_sequence";
 	
-
-	
+	@Override
+	public String toString() {
+		return "Usuario [nome=" + nome + ", data_nasc=" + data_nasc + ", naturalidade=" + naturalidade + ", tipo="
+				+ tipo + ", login=" + login + ", senha=" + senha + ", situacao=" + situacao + ", endereco=" + endereco
+				+ "]";
+	}
 	
 	public Boolean getSituacao() {
 		return situacao;

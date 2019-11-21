@@ -299,8 +299,11 @@ public class ControleCadastro implements Initializable {
 			try {
 				//fachada.createOrUpdateEndereco(endereço);
 				fachada.createOrUpdateAluno(aluno);
+				usuarioTabAdapters = fachada.searchAllSuperUsuario();
+				tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
 				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
 						"O Aluno foi salvo com sucesso!");
+				
 			} catch (Exception e) {
 				
 				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
@@ -308,7 +311,7 @@ public class ControleCadastro implements Initializable {
 				
 			}
 			
-			
+			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 		}
 		else if (COMBOusuarioTipo.getValue() == TipoUsuario.Administrador) {
 			

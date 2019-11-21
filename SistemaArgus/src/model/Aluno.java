@@ -36,17 +36,17 @@ public class Aluno extends Usuario {
 	@JoinColumn(name = "curriculo")
 	private Curriculo curriculo;
 
-	@OneToMany
-	@JoinColumn(name = "turma")
-	private List<Turma> turmas;
+//	@OneToMany
+//	@JoinColumn(name = "turma")
+//	private List<Turma> turmas;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "responsavel")
 	private Responsavel responsavel;
 
-	@OneToMany
-	@JoinColumn(name = "acompanhamento")
-	private List<Acompanhamento> acompanhamentos;
+//	@OneToMany
+//	@JoinColumn(name = "acompanhamento")
+//	private List<Acompanhamento> acompanhamentos;
 
 	private static final long serialVersionUID = 1L;
 
@@ -68,21 +68,21 @@ public class Aluno extends Usuario {
 		this.responsavel = responsavel;
 	}
 
-	public List<Turma> getTurmas() {
-		return turmas;
-	}
-
-	public void setTurmas(List<Turma> turmas) {
-		this.turmas = turmas;
-	}
-
-	public List<Acompanhamento> getAcompanhamentos() {
-		return acompanhamentos;
-	}
-
-	public void setAcompanhamentos(List<Acompanhamento> acompanhamentos) {
-		this.acompanhamentos = acompanhamentos;
-	}
+//	public List<Turma> getTurmas() {
+//		return turmas;
+//	}
+//
+//	public void setTurmas(List<Turma> turmas) {
+//		this.turmas = turmas;
+//	}
+//
+//	public List<Acompanhamento> getAcompanhamentos() {
+//		return acompanhamentos;
+//	}
+//
+//	public void setAcompanhamentos(List<Acompanhamento> acompanhamentos) {
+//		this.acompanhamentos = acompanhamentos;
+//	}
 
 	public String getPai() {
 		return pai;

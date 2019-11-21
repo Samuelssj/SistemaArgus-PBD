@@ -18,9 +18,9 @@ import model.Endereco;
 import model.Tela;
 
 public class Main extends Application {
-	private static Pane login;
+	private static Pane login, resetarSenha;
 	private static Pane inicio, cadProfessorP;
-	private static Scene sceneLogin, cadProfessor;
+	private static Scene sceneLogin, resetSenha;
 	private static Scene sceneMenu;
 	private static Stage stage;
 
@@ -39,7 +39,8 @@ public class Main extends Application {
 			login = FXMLLoader.load(getClass().getClassLoader().getResource("view/TelaLog.fxml"));
 
 			inicio = FXMLLoader.load(getClass().getClassLoader().getResource("view/TelaMenu.fxml"));
-		// = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroProfessor.fxml"));
+			
+			resetarSenha = FXMLLoader.load(getClass().getClassLoader().getResource("view/ResetarSenha.fxml"));
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -49,9 +50,12 @@ public class Main extends Application {
 
 		sceneLogin = new Scene(login);
 		primaryStage.setScene(sceneLogin);
-
+	
 		sceneMenu = new Scene(inicio);
 
+	    resetSenha = new Scene(resetarSenha);	
+		
+		
 		primaryStage.centerOnScreen();
 		primaryStage.show();
 		primaryStage.setTitle("Sistema (ARGUS-ACAD)");
@@ -67,12 +71,18 @@ public class Main extends Application {
 			stage.setScene(sceneMenu);
 			stage.centerOnScreen();
 			break;
-//
-//		case "cadProfessor":
-//			stage.setScene(cadProfessor);
-//			stage.centerOnScreen();
-//			stage.show();
-//			break;
+
+		case "resetar":
+			stage.setScene(resetSenha);
+			stage.centerOnScreen();
+			stage.show();
+			break;
+
+		case "log":
+			stage.setScene(sceneLogin);
+			stage.centerOnScreen();
+			stage.show();
+			break;
 
 		default:
 			break;

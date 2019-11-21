@@ -37,7 +37,7 @@ public class BusinessUsuario extends Business<Usuario> implements IbusinessUsuar
 
 			//senha = Criptografia.criptografar(senha.getBytes());
 			Usuario usuario = daousuario.searchUser(login, senha);
-
+			System.out.println("Business "+usuario);
 			return usuario;
 
 		} catch (DaoException e) {

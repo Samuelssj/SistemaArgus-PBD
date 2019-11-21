@@ -4,8 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
+import org.hibernate.internal.ExceptionConverterImpl;
+
+import com.itextpdf.text.ExceptionConverter;
 
 import daoInterface.IDao;
 import exception.DaoException;
@@ -130,10 +134,11 @@ public class Dao<Tipo extends Entidade> implements IDao<Tipo> {
 		} catch (NoResultException n) {
 			n.printStackTrace();
 			throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
-		}
+		} 
+//		catch (Exception e) {
+//			e.printStackTrace();
+//			throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+//		}
 	
 	}
 

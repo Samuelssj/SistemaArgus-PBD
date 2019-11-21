@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="517.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControleCadastro">
+<VBox prefHeight="517.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControleAluno">
    <children>
       <AnchorPane fx:id="AnchoPane" onDragDetected="#action" prefHeight="517.0" prefWidth="878.0">
          <children>
@@ -98,7 +98,7 @@
                                           <AnchorPane prefHeight="68.0" prefWidth="878.0" BorderPane.alignment="CENTER">
                                              <children>
                                                 <Button fx:id="JBeditar" layoutX="584.0" layoutY="26.0" mnemonicParsing="false" onAction="#action" text="Editar" AnchorPane.topAnchor="26.0" />
-                                                <Button fx:id="JBdeletar" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#action" text="Deletar" />
+                                                <Button fx:id="JBdeletar" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#action" text="Adicionar Disciplina" />
                                              </children>
                                           </AnchorPane>
                                        </bottom>
@@ -109,7 +109,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab fx:id="TabNovocadastro" text="Novo Cadastro">
+                  <Tab fx:id="TabNovocadastro" text="Atualizar Cadastro">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -348,6 +348,91 @@
                                     </BorderPane>
                                  </children>
                               </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="TabNovocadastro1" text="Cadastrar Diciplina">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="425.0" prefWidth="878.0" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <BorderPane prefHeight="439.0" prefWidth="878.0">
+                                       <bottom>
+                                          <GridPane alignment="TOP_CENTER" prefHeight="432.0" prefWidth="878.0" BorderPane.alignment="BOTTOM_LEFT">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="342.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="274.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="279.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="270.0" minHeight="10.0" prefHeight="270.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="60.0" left="10.0" top="40.0" />
+                                                   </GridPane.margin>
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="53.0" prefWidth="291.0" text="Atualizar Cadastro" textFill="#5404e8" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="36.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="20.0" left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label text="Nome:" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Disciplina" />
+                                                      <TableColumn prefWidth="75.0" text="Media" />
+                                                      <TableColumn prefWidth="75.0" text="Situação" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <GridPane.margin>
+                                                      <Insets right="-100.0" />
+                                                   </GridPane.margin>
+                                                </TableView>
+                                                <TableView layoutX="10.0" layoutY="309.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Disciplina" />
+                                                      <TableColumn prefWidth="75.0" text="Media" />
+                                                      <TableColumn prefWidth="75.0" text="Situação" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                             <BorderPane.margin>
+                                                <Insets />
+                                             </BorderPane.margin>
+                                          </GridPane>
+                                       </bottom>
+                                    </BorderPane>
+                                 </children>
+                              </VBox>
+                              <Button fx:id="BTatualizar1" layoutX="439.0" layoutY="435.0" mnemonicParsing="false" onAction="#action" prefHeight="39.0" prefWidth="162.0" text="adicionar">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </content>

@@ -37,11 +37,6 @@ private static final long serialVersionUID = 1L;
 	@JoinColumn(name = "disciplina")
 	private Disciplina disciplina;
 	
-	
-	
-	
-	
-	
 	@Override
 	public String toString() {
 		return "Turma [situacao=" + situacao + ", vagas=" + vagas + ", nome=" + nome + ", aluno=" + aluno
