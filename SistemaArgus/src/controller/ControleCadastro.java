@@ -323,7 +323,6 @@ public class ControleCadastro implements Initializable {
 			usuario.setEndereco(endereço);
 			usuario.setNome(TXusuarioNome.getText().trim());
 			usuario.setNome(TXusuarioNome.getText().trim());
-			//usuario.setEndereco(endereço);
 			usuario.setData_nasc(TXusuarioData_nasc.getValue());
 			usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
 			usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));

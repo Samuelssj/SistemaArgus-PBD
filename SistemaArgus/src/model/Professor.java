@@ -21,6 +21,7 @@ public abstract class Professor extends Usuario {
 	@Column(length = 11, nullable = false)
 	private String cpf; // codigo VARCHAR (50) NOT NULL,
 
+	
 	@OneToOne
 	@JoinColumn(name = "turma")
 	private Turma turma;

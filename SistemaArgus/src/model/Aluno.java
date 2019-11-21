@@ -30,9 +30,7 @@ public class Aluno extends Usuario {
 //	@Column(length = 60, nullable = true)
 //	private String responsavel; 
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "endereco")
-	private Endereco endereco;
+
 	
 	@OneToOne
 	@JoinColumn(name = "curriculo")

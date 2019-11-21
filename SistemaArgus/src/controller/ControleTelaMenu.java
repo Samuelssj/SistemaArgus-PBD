@@ -17,7 +17,7 @@ import javafx.scene.layout.Pane;
 
 public class ControleTelaMenu implements Initializable {
 
-	private Pane CadastroPessoa,CadProfessor;
+	private Pane CadastroPessoa,AlunoDetalhe;
 
     @FXML
     private AnchorPane AnchoPane;
@@ -97,8 +97,8 @@ public class ControleTelaMenu implements Initializable {
 			itemMenuCargo.setText("Pessoa");
 			
 		}
-		if(event.getSource() == menuCadastroProfessor) {
-			atualizarTela("CadProfessor");
+		if(event.getSource() == menuAluno) {
+			atualizarTela("AlunoDetalhe");
 		}
 
 	}
@@ -107,7 +107,7 @@ public class ControleTelaMenu implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
 			CadastroPessoa = FXMLLoader.load(getClass().getClassLoader().getResource("view/Cadastro.fxml"));
-			CadProfessor = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroProfessor.fxml"));
+			AlunoDetalhe = FXMLLoader.load(getClass().getClassLoader().getResource("view/Aluno.fxml"));
 			
 			
 		} catch (Exception e) {
@@ -126,12 +126,12 @@ public class ControleTelaMenu implements Initializable {
 			pane.getChildren().setAll(CadastroPessoa);
 		}
 		
-		if (tela.equalsIgnoreCase("CadProfessor")) {
-			AnchorPane.setBottomAnchor(CadProfessor, 0.0);
-			AnchorPane.setLeftAnchor(CadProfessor, 0.0);
-			AnchorPane.setRightAnchor(CadProfessor, 0.0);
-			AnchorPane.setTopAnchor(CadProfessor, 0.0);
-			pane.getChildren().setAll(CadProfessor);
+		if (tela.equalsIgnoreCase("alunoDetalhe")) {
+			AnchorPane.setBottomAnchor(AlunoDetalhe, 0.0);
+			AnchorPane.setLeftAnchor(AlunoDetalhe, 0.0);
+			AnchorPane.setRightAnchor(AlunoDetalhe, 0.0);
+			AnchorPane.setTopAnchor(AlunoDetalhe, 0.0);
+			pane.getChildren().setAll(AlunoDetalhe);
 		}
 		
 	}
