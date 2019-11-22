@@ -7,9 +7,12 @@ import org.hibernate.annotations.common.util.impl.Log;
 
 import EntidadeEnum.HistoricoTipo;
 import exception.BusinessException;
+import model.Acompanhamento;
 import model.Aluno;
+import model.Disciplina;
 import model.Endereco;
 import model.Entidade;
+import model.Pedagogo;
 import model.Professor;
 import model.Responsavel;
 import model.Usuario;
@@ -29,10 +32,9 @@ public interface IFachada {
   public List<UsuarioTabAdapter> searchAllUsuarioAdapter() throws BusinessException;    
   public List<UsuarioTabAdapter> searchAllUsuarioAdapter(String search) throws BusinessException;
   
-  
 //PROFESSOR
 public void createOrUpdateProfessor(Professor entidade) throws BusinessException;
-public Usuario searchProfessor(int id) throws BusinessException;
+public Professor searchProfessor(int id) throws BusinessException;
 public void removeProfessor(int id) throws BusinessException;
 public List<Professor> searchAllProfessor() throws BusinessException;    
 public List<Professor> searchAllProfessor(String search) throws BusinessException;
@@ -61,6 +63,46 @@ public List<Responsavel> searchAllResponsavel() throws BusinessException;
 public List<Responsavel> searchAllResponsavel(String search) throws BusinessException;
 public List<UsuarioTabAdapter> searchAllResponsavelAdapter() throws BusinessException;    
 public List<UsuarioTabAdapter> searchAllResponsavelAdapter(String search) throws BusinessException;
+
+//PEDAGOGO
+
+public void createOrUpdatePedagogo(Pedagogo entidade) throws BusinessException;
+public Usuario searchPedagogo(int id) throws BusinessException;
+public void removePedagogo(int id) throws BusinessException;
+public List<Pedagogo> searchAllPedagogo() throws BusinessException;    
+public List<Pedagogo> searchAllPedagogo(String search) throws BusinessException;
+
+//ACOMPANHAMENTO
+
+public void createOrUpdateAcompanhamento(Acompanhamento entidade) throws BusinessException;
+public Acompanhamento searchAcompanhamento(int id) throws BusinessException;
+public void removeAcompanhamento(int id) throws BusinessException;
+public List<Acompanhamento> searchAllAcompanhamento() throws BusinessException;    
+public List<Acompanhamento> searchAllAcompanhamento(String search) throws BusinessException;
+
+//DISCIPLINA 
+
+public void createOrUpdateDisciplina(Disciplina entidade) throws BusinessException;
+public Disciplina searchDisciplina(int id) throws BusinessException;
+public void removeDisciplina(int id) throws BusinessException;
+public List<Disciplina> searchAllDisciplina() throws BusinessException;    
+public List<Disciplina> searchAllDisciplina(String search) throws BusinessException;
+
+//NOTA
+
+// CURRICULO
+
+//PARCELA
+
+
+//TURMA
+
+
+
+
+
+
+
 
 //Util
 public Long searchCont(Class<? extends Entidade> classe) throws BusinessException;

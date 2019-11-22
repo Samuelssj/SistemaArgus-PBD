@@ -234,7 +234,6 @@ public class Fachada implements IFachada {
 		return null;
 	}
 
-	
 									//PROFESSOR
 										
 	
@@ -246,7 +245,7 @@ public class Fachada implements IFachada {
 	}
 
 	@Override
-	public Usuario searchProfessor(int id) throws BusinessException {
+	public Professor searchProfessor(int id) throws BusinessException {
 		// TODO Auto-generated method stub
 		return businessProfessor.search(id);
 	}

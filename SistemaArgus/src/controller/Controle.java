@@ -42,14 +42,8 @@ public abstract class Controle implements Initializable , Ouvinte{
 		return data;
 	}
 	
-	@Override
-	public void setColor(String color) {
-		pane.setStyle("-fx-background-color:" + color + ";");
-	}
-	
-	protected void setColor(AnchorPane pane, String color) {
-		pane.setStyle("-fx-background-color:" + color + ";");
-	}
+
+
 
 	protected abstract void init();
 

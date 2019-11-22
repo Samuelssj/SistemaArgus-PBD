@@ -2,7 +2,7 @@ package EntidadeEnum;
 
 public enum TipoUsuario {
 	
-	Administrador("Administrador"), Aluno("Aluno"), Direção("Direção"), Pedagogo("Pedagogo"), Professor("Professor"), Responsável("Responsável"),
+	Administrador("Administrador"), Aluno("Aluno"), Direção("Direção"), Pedagogo("Pedagogo"), Professor("Professor"),
 	Secretária("Secretária");
 	
 	private String tipo;

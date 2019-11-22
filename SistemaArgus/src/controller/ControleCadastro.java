@@ -43,6 +43,7 @@ public class ControleCadastro implements Initializable {
 	private Usuario usuario;
 	private Aluno aluno;
 	private List<Usuario> usuarioTabAdapters;
+	private List<Responsavel> responsavelTabAdapter;
 	private Endereco endereco;
 	
 
@@ -561,13 +562,19 @@ public class ControleCadastro implements Initializable {
 		cpfTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 		SituacaoTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("situacao"));
 		//SituacaoTabFuncionario.setCellValueFactory(new PropertyValueFactory<>("numero"));
-
+		nomeTabResponsavel.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		cpfTabResponsavel.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+		
+		
 		try {
 
 			usuarioTabAdapters = fachada.getInstance().searchAllSuperUsuario();
 			tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
-			System.out.println(usuarioTabAdapters);
-			//System.out.println(usuarioTabAdapters);
+			
+			responsavelTabAdapter = fachada.getInstance().searchAllResponsavel();
+			tabelaResponsavel.getItems().setAll(responsavelTabAdapter);
+			
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
