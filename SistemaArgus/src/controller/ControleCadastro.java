@@ -314,7 +314,10 @@ public class ControleCadastro implements Initializable {
 			
 			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 		}
-		else if (COMBOusuarioTipo.getValue() == TipoUsuario.Administrador) {
+		else if (COMBOusuarioTipo.getValue() == TipoUsuario.Administrador || COMBOusuarioTipo.getValue() == TipoUsuario.Direção || 
+				COMBOusuarioTipo.getValue() == TipoUsuario.Secretária)
+		{
+			
 			
 			usuario = new Usuario();
 			endereço = new Endereco();
@@ -334,7 +337,7 @@ public class ControleCadastro implements Initializable {
 			usuario.setSenha(TXusuarioSenha.getText().trim());
 			usuario.setSituacao(true);
 			try {
-				//fachada.createOrUpdateEndereco(endereço);
+				
 				fachada.createOrUpdatePessoa(usuario);
 				usuarioTabAdapters = fachada.searchAllSuperUsuario();
 				tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
@@ -545,6 +548,17 @@ public class ControleCadastro implements Initializable {
 	}
 
 
+	public void preencherCampos() {
+		
+		UsuarioTabAdapter  user = new UsuarioTabAdapter();
+		
+		user = fachada.getInstance().searchUsuario(tabelaFuncionario.getSelectionModel().getSelectedItem())
+		
+		
+		
+	}
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

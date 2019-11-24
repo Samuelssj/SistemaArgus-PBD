@@ -11,11 +11,11 @@ import javax.persistence.Table;
 
 public class Disciplina extends Entidade {
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 50)
 	private String nome;
-	@Column(length = 10, nullable = false)
+	@Column(length = 10)
 	private String cargaHoraria;
-	@Column(nullable = false)
+	@Column()
 	private boolean status;
 	
 	

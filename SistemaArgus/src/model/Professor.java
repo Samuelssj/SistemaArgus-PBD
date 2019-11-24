@@ -22,9 +22,9 @@ public abstract class Professor extends Usuario {
 	private String cpf; // codigo VARCHAR (50) NOT NULL,
 
 	
-	@OneToOne
-	@JoinColumn(name = "turma")
-	private Turma turma;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "disciplina")
+	private Disciplina disciplina;
 	
 	private static final long serialVersionUID = 1L;
 	
