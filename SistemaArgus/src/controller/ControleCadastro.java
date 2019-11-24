@@ -258,6 +258,10 @@ public class ControleCadastro implements Initializable {
 					e.printStackTrace();				}
 			}
 		}
+		
+		if(obj == JBeditar) {
+			preencherCampos();
+		}
 	}
 
 
@@ -290,7 +294,7 @@ public class ControleCadastro implements Initializable {
 			aluno.setNome(TXusuarioNome.getText().trim());
 			aluno.setEndereco(endereço);
 			aluno.setData_nasc(TXusuarioData_nasc.getValue());
-			aluno.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
+			aluno.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem());
 			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
 			aluno.setPai(TXusuarioPaiNome.getText().trim());
 			aluno.setMãe(TXusuarioMaeNome.getText().trim());
@@ -331,7 +335,7 @@ public class ControleCadastro implements Initializable {
 			usuario.setNome(TXusuarioNome.getText().trim());
 			usuario.setNome(TXusuarioNome.getText().trim());
 			usuario.setData_nasc(TXusuarioData_nasc.getValue());
-			usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem().toString());
+			usuario.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem());
 			usuario.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
 			usuario.setLogin(TXusuarioLogin.getText().trim());
 			usuario.setSenha(TXusuarioSenha.getText().trim());
@@ -549,13 +553,14 @@ public class ControleCadastro implements Initializable {
 
 
 	public void preencherCampos() {
+	Usuario user = new Usuario();
+		 user = tabelaFuncionario.getSelectionModel().getSelectedItem();
+			
+
 		
-		UsuarioTabAdapter  user = new UsuarioTabAdapter();
-		
-		user = fachada.getInstance().searchUsuario(tabelaFuncionario.getSelectionModel().getSelectedItem())
-		
-		
-		
+//		tabelaClientes.getSelectionModel().getSelectedItem();
+//		clienteTabAdapters = fachada.getAllAdapterCliente();
+//	tabelaClientes.getItems().setAll(clienteTabAdapters);
 	}
 	
 	

@@ -29,8 +29,7 @@ public interface IFachada {
 //  Usuario	
   public void createOrUpdatePessoa(Usuario entidade) throws BusinessException;
   public Usuario searchUsuario(int id) throws BusinessException;
-  public void removeSuperUsuario(int id) throws BusinessException;
-  public List<Usuario> searchAllSuperUsuario() throws BusinessException;    
+  public void removeSuperUsuario(int id) throws BusinessException;  public List<Usuario> searchAllSuperUsuario() throws BusinessException;    
   public List<Usuario> searchAllSuperUsuario(String search) throws BusinessException;
   public Usuario searchUser(String login, String senha) throws BusinessException;
   public List<UsuarioTabAdapter> searchAllUsuarioAdapter() throws BusinessException;    

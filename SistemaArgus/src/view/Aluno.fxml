@@ -24,7 +24,7 @@
          <children>
             <TabPane fx:id="TabPane" layoutX="8.0" layoutY="7.0" prefHeight="517.0" prefWidth="878.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <tabs>
-                <Tab fx:id="TabListaCadastro" text="Lista de Cadastro">
+                <Tab fx:id="TabListaCadastroAluno" text="Lista de Cadastro">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -59,7 +59,7 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <TextField fx:id="TXbuscarFuncionario" prefHeight="25.0" prefWidth="416.0" promptText="Informe nome,cpf ou cargo" GridPane.rowIndex="2">
+                                                <TextField fx:id="TXbuscarAluno" prefHeight="25.0" prefWidth="416.0" promptText="Informe nome,cpf ou cargo" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -79,12 +79,11 @@
                                           </GridPane>
                                        </top>
                                        <left>
-                                          <TableView fx:id="tabelaFuncionario" fixedCellSize="0.0" onSort="#action" prefHeight="198.0" prefWidth="873.0" BorderPane.alignment="CENTER">
+                                          <TableView fx:id="tabelaAluno" fixedCellSize="0.0" onSort="#action" prefHeight="198.0" prefWidth="873.0" BorderPane.alignment="CENTER">
                                             <columns>
-                                              <TableColumn fx:id="nomeTabelaFuncionario" prefWidth="75.0" text="Nome" />
-                                              <TableColumn fx:id="funcaoTabelaFuncionario" prefWidth="75.0" text="Função" />
-                                                <TableColumn fx:id="cpfTabFuncionario" prefWidth="75.0" text="Turma" />
-                                                <TableColumn fx:id="SituacaoTabFuncionario" prefWidth="75.0" text="Situação" />
+                                              <TableColumn fx:id="Tabnomealuno" prefWidth="75.0" text="Nome" />
+                                                <TableColumn fx:id="TabpaiAluno" prefWidth="75.0" text="Pai" />
+                                                <TableColumn fx:id="TabmaeAluno" prefWidth="75.0" text="Mãe" />
                                             </columns>
                                              <BorderPane.margin>
                                                 <Insets left="10.0" right="10.0" />
@@ -109,7 +108,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab fx:id="TabNovocadastro" text="Atualizar Cadastro">
+                  <Tab fx:id="Tabatualizaraluno" text="Atualizar Cadastro">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -326,11 +325,15 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="13">
+                                                <TableView fx:id="TabelaNotas" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="13">
                                                   <columns>
-                                                    <TableColumn prefWidth="75.0" text="Disciplina" />
-                                                    <TableColumn prefWidth="75.0" text="Media" />
-                                                      <TableColumn prefWidth="75.0" text="Situação" />
+                                                    <TableColumn fx:id="TabDisciplina" prefWidth="75.0" text="Disciplina" />
+                                                      <TableColumn fx:id="TabNota1" prefWidth="75.0" text="Nota 1" />
+                                                      <TableColumn fx:id="TabNota2" prefWidth="75.0" text="Nota 2" />
+                                                      <TableColumn fx:id="TabNota3" prefWidth="75.0" text="Nota3" />
+                                                      <TableColumn fx:id="TabNota4" prefWidth="75.0" text="Nota 4" />
+                                                    <TableColumn fx:id="TabMedia" prefWidth="75.0" text="Media" />
+                                                      <TableColumn fx:id="TabSituacao" prefWidth="75.0" text="Situação" />
                                                   </columns>
                                                    <columnResizePolicy>
                                                       <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -348,6 +351,11 @@
                                     </BorderPane>
                                  </children>
                               </VBox>
+                              <Button fx:id="BTvoltar1" layoutX="766.0" layoutY="437.0" mnemonicParsing="false" onAction="#action" text="Voltar">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </content>
@@ -429,6 +437,11 @@
                                  </children>
                               </VBox>
                               <Button fx:id="BTatualizar1" layoutX="439.0" layoutY="435.0" mnemonicParsing="false" onAction="#action" prefHeight="39.0" prefWidth="162.0" text="adicionar">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="BTvoltar2" layoutX="799.0" layoutY="442.0" mnemonicParsing="false" onAction="#action" text="Voltar">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -515,7 +528,7 @@
                                                       <Insets />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button fx:id="BTvoltar" mnemonicParsing="false" onAction="#action" prefHeight="28.0" prefWidth="101.0" text="Voltar" GridPane.columnIndex="2" GridPane.rowIndex="12">
+                                                <Button fx:id="BTvoltar3" mnemonicParsing="false" onAction="#action" prefHeight="28.0" prefWidth="101.0" text="Voltar" GridPane.columnIndex="2" GridPane.rowIndex="12">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>

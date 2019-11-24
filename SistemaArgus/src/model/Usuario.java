@@ -20,6 +20,7 @@ import javax.persistence.Table;
 
 import com.oracle.webservices.internal.api.databinding.DatabindingMode;
 
+import EntidadeEnum.Estado;
 import EntidadeEnum.TipoUsuario;
 
 @Entity
@@ -35,7 +36,7 @@ public class  Usuario extends Entidade {
 	@Column()
 	private LocalDate data_nasc;
 	@Column(length = 30 )
-	private String naturalidade;
+	private Estado naturalidade;
 	@Column(length = 30)
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
@@ -85,11 +86,11 @@ public class  Usuario extends Entidade {
 		this.data_nasc = localDate;
 	}
 
-	public String getNaturalidade() {
+	public Estado getNaturalidade() {
 		return naturalidade;
 	}
 
-	public void setNaturalidade(String naturalidade) {
+	public void setNaturalidade(Estado naturalidade) {
 		this.naturalidade = naturalidade;
 	}
 
