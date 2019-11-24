@@ -9,12 +9,16 @@ import EntidadeEnum.HistoricoTipo;
 import exception.BusinessException;
 import model.Acompanhamento;
 import model.Aluno;
+import model.Curriculo;
 import model.Disciplina;
 import model.Endereco;
 import model.Entidade;
+import model.Nota;
+import model.Parcela;
 import model.Pedagogo;
 import model.Professor;
 import model.Responsavel;
+import model.Turma;
 import model.Usuario;
 import model.UsuarioTabAdapter;
 
@@ -89,17 +93,33 @@ public List<Disciplina> searchAllDisciplina() throws BusinessException;
 public List<Disciplina> searchAllDisciplina(String search) throws BusinessException;
 
 //NOTA
+public void createOrUpdateNota(Nota entidade) throws BusinessException;
+public Nota searchNota(int id) throws BusinessException;
+public void removeNota(int id) throws BusinessException;
+public List<Nota> searchAllNota() throws BusinessException;    
+public List<Nota> searchAllNota(String search) throws BusinessException;
 
 // CURRICULO
+public void createOrUpdateCurriculo(Curriculo entidade) throws BusinessException;
+public Curriculo searchCurriculo(int id) throws BusinessException;
+public void removeCurriculo(int id) throws BusinessException;
+public List<Curriculo> searchAllCurriculo() throws BusinessException;    
+public List<Curriculo> searchAllCurriculo(String search) throws BusinessException;
 
 //PARCELA
-
+public void createOrUpdateParcela(Parcela entidade) throws BusinessException;
+public Parcela searchParcela(int id) throws BusinessException;
+public void removeParcela(int id) throws BusinessException;
+public List<Parcela> searchAllParcela() throws BusinessException;    
+public List<Parcela> searchAllParcela(String search) throws BusinessException;
 
 //TURMA
 
-
-
-
+public void createOrUpdateTurma(Turma entidade) throws BusinessException;
+public Turma searchTurma(int id) throws BusinessException;
+public void removeTurma(int id) throws BusinessException;
+public List<Turma> searchAllTurma() throws BusinessException;    
+public List<Turma> searchAllTurma(String search) throws BusinessException;
 
 
 

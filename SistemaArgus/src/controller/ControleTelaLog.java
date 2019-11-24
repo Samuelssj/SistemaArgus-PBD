@@ -94,19 +94,19 @@ public class ControleTelaLog extends Controle {
 	@Override
 	protected void init() {
 		// TODO Auto-generated method stub
-		try {
-			Long cont = fachada.searchCont(Usuario.class);
-
-			if (cont == 0) {
-				Dao.resetConnection();
-				model.Usuario usuario = fachada.searchUsuario(1);
-				fachada.createOrUpdatePessoa(usuario);
-			}
-
-		} catch (BusinessException e) {
-
-			e.printStackTrace();
-		}
+//		try {
+//			Long cont = fachada.searchCont(Usuario.class);
+//
+//			if (cont == 0) {
+//				Dao.resetConnection();
+//				model.Usuario usuario = fachada.searchUsuario(1);
+//				fachada.createOrUpdatePessoa(usuario);
+//			}
+//
+//		} catch (BusinessException e) {
+//
+//			e.printStackTrace();
+//		}
 
 		
 	}
