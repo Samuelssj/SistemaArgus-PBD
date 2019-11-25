@@ -42,7 +42,7 @@ public class  Usuario extends Entidade {
 	private TipoUsuario tipo;
 	@Column(length = 30)
 	private String login;
-	@Column(length = 30 )
+	@Column(length = 200 )
 	private String senha;
 	@Column(length = 30 )
 	private Boolean situacao;

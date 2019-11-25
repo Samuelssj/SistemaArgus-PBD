@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.xml.bind.ValidationException;
 
+
 import businessInterface.Ibusiness;
 import daoInterface.IDao;
 import exception.BusinessException;
 import exception.DaoException;
 import exception.ValidacaoException;
 import model.Entidade;
+import util.Criptografia;
 
 public class Business<Tipo extends Entidade> implements Ibusiness<Tipo> {
 
@@ -76,7 +78,13 @@ public class Business<Tipo extends Entidade> implements Ibusiness<Tipo> {
 	@Override
 	public void validation(Tipo entidade) throws ValidacaoException {
 		// TODO Auto-generated method stub
+	
 		
+//		if (entidade.getId().length() < 6 || entidade.getSenha().length() > 11)
+//			throw new ValidationException("A SENHA TEM QUE TER NO MINIMO 6 E NO MAXIMO 11 CARACTERES");
+//		else if (!Criptografia.isCriptografado(entidade.getSenha()))
+//			entidade.setSenha(Criptografia.criptografar(entidade.getSenha().getBytes()));
+//		
 	}
 
 	

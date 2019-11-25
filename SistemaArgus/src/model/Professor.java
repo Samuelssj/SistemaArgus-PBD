@@ -14,11 +14,11 @@ import javax.persistence.Table;
 @Table(name = "professor")
 @SequenceGenerator(name = Entidade.sequence, sequenceName = Professor.sequence, initialValue = 1, allocationSize = 1)
 
-public abstract class Professor extends Usuario {
+public class Professor extends Usuario {
 
 	@Column(length = 50, nullable = false)
 	private String nome; // nome VARCHAR (50) NOT NULL,
-	@Column(length = 11, nullable = false)
+	@Column(length = 11, nullable = false, unique = true)
 	private String cpf; // codigo VARCHAR (50) NOT NULL,
 
 	
@@ -58,6 +58,14 @@ public abstract class Professor extends Usuario {
 	@Override
 	public String toString() {
 		return "Professor [nome=" + nome + ", cpf=" + cpf + ", endereco="  + "]";
+	}
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 	
 	

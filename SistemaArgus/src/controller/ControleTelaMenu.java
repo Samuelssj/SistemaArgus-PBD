@@ -17,76 +17,74 @@ import javafx.scene.layout.Pane;
 
 public class ControleTelaMenu implements Initializable {
 
-	private Pane CadastroPessoa,AlunoDetalhe;
+	private Pane CadastroPessoa,AlunoDetalhe, CadastroDisciplina;
 
-    @FXML
-    private AnchorPane AnchoPane;
+	 @FXML
+	    private AnchorPane AnchoPane;
 
-    @FXML
-    private MenuItem menuCadastroAluno;
+	    @FXML
+	    private MenuItem menuCadastroAluno;
 
-    @FXML
-    private MenuItem menuCadastroProfessor;
+	    @FXML
+	    private MenuItem menuCadastroDisciplina;
+	    
+	    @FXML
+	    private ImageView menuIcoCad;
 
-    @FXML
-    private ImageView menuIcoCad;
+	    @FXML
+	    private Menu menuLogoff;
 
-    @FXML
-    private Menu menuLogoff;
+	    @FXML
+	    private MenuItem menuAluno;
 
-    @FXML
-    private MenuItem menuAluno;
+	    @FXML
+	    private ImageView menuIcoAluno;
 
-    @FXML
-    private ImageView menuIcoAluno;
+	    @FXML
+	    private MenuItem menuResponsavel;
 
-    @FXML
-    private MenuItem menuResponsavel;
+	    @FXML
+	    private ImageView menuIcoResponsavel;
 
-    @FXML
-    private ImageView menuIcoResponsavel;
+	    @FXML
+	    private MenuItem menuProfessor;
 
-    @FXML
-    private MenuItem menuProfessor;
+	    @FXML
+	    private ImageView menuIcoProfessor;
 
-    @FXML
-    private ImageView menuIcoProfessor;
+	    @FXML
+	    private MenuItem menuPedagogo;
 
-    @FXML
-    private MenuItem menuPedagogo;
+	    @FXML
+	    private ImageView menuIcoPedagogo;
 
-    @FXML
-    private ImageView menuIcoPedagogo;
+	    @FXML
+	    private MenuItem menuHistorico;
 
-    @FXML
-    private MenuItem menuHistorico;
+	    @FXML
+	    private ImageView menuIcoHist;
 
-    @FXML
-    private ImageView menuIcoHist;
+	    @FXML
+	    private MenuItem menuFinanceiro;
 
-    @FXML
-    private MenuItem menuFinanceiro;
+	    @FXML
+	    private ImageView menuIcoFinan;
 
-    @FXML
-    private ImageView menuIcoFinan;
+	    @FXML
+	    private Label itemMenuCargo;
 
-    @FXML
-    private MenuItem menuSair;
+	    @FXML
+	    private MenuItem menuSair;
 
-    @FXML
-    private MenuItem menuSobre;
+	    @FXML
+	    private MenuItem menuSobre;
 
-    @FXML
-    private MenuItem menuTrocarUser;
+	    @FXML
+	    private MenuItem menuTrocarUser;
 
-    @FXML
-    private ImageView menuIcoLogoff;
+	    @FXML
+	    private AnchorPane pane;
 
-    @FXML
-    private Label itemMenuCargo;
-    
-    @FXML
-    private AnchorPane pane;
 
 	@FXML
 	void action(ActionEvent event) {
@@ -100,6 +98,9 @@ public class ControleTelaMenu implements Initializable {
 		if(event.getSource() == menuAluno) {
 			atualizarTela("AlunoDetalhe");
 		}
+		if(event.getSource() == menuCadastroDisciplina) {
+			atualizarTela("disciplina");
+		}
 
 	}
 
@@ -108,6 +109,7 @@ public class ControleTelaMenu implements Initializable {
 		try {
 			CadastroPessoa = FXMLLoader.load(getClass().getClassLoader().getResource("view/Cadastro.fxml"));
 			AlunoDetalhe = FXMLLoader.load(getClass().getClassLoader().getResource("view/Aluno.fxml"));
+			CadastroDisciplina = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroDisciplina.fxml"));
 			
 			
 		} catch (Exception e) {
@@ -133,6 +135,12 @@ public class ControleTelaMenu implements Initializable {
 			AnchorPane.setTopAnchor(AlunoDetalhe, 0.0);
 			pane.getChildren().setAll(AlunoDetalhe);
 		}
-		
+		if (tela.equalsIgnoreCase("disciplina")) {
+			AnchorPane.setBottomAnchor(CadastroDisciplina, 0.0);
+			AnchorPane.setLeftAnchor(CadastroDisciplina, 0.0);
+			AnchorPane.setRightAnchor(CadastroDisciplina, 0.0);
+			AnchorPane.setTopAnchor(CadastroDisciplina, 0.0);
+			pane.getChildren().setAll(CadastroDisciplina);
+		}
 	}
 }

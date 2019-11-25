@@ -76,6 +76,7 @@ public class ControleRedefinirSenha extends Controle {
 
 				System.out.println(fachada);
 				usuario = fachada.searchUser(TXnomeLoginADM.getText().trim(), TXnomeSenhaADM.getText().trim());
+				
 
 				if (usuario != null) {
 					

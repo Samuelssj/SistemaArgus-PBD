@@ -25,10 +25,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Aluno;
+import model.Endereco;
+import model.Responsavel;
 
 public class ControleAluno implements Initializable {
 	private List<Aluno> alunoTabAdapters;
 	private Fachada fachada = Fachada.getInstance();
+	private Aluno aluno;
+	private Responsavel responsavel;
+	private Endereco endereço;
 
     @FXML
     private AnchorPane AnchoPane;
@@ -237,6 +242,51 @@ public class ControleAluno implements Initializable {
 	    		TabPane.getSelectionModel().select(TabListaCadastroAluno);
 	    		LimparCampos();
 	    	}
+	    	if(e.getSource() == BTatualizar) {
+	    		if(verificarCampos()) {
+	    			
+	    			aluno = new Aluno();
+	    			endereço = new Endereco();
+	    			endereço.setCidade(TXusuarioCidade.getText().trim());
+	    			endereço.setCep(TXusuarioCEP.getText().trim());
+	    			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+	    			endereço.setRua(TXusuarioRua.getText().trim());
+	    			endereço.setBairro(TXusuarioBairro.getText().trim());
+	    			endereço.setNumero(TXusuarioNumero.getText().trim());
+	    			aluno.setEndereco(endereço);
+	    			responsavel = new Responsavel();
+	    			aluno.setResponsavel(responsavel);
+	    			aluno.setNome(TXusuarioNome.getText().trim());
+	    			aluno.setEndereco(endereço);
+	    			aluno.setData_nasc(TXusuarioData_nasc.getValue());
+	    			aluno.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem());
+	    			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
+	    			aluno.setPai(TXusuarioPaiNome.getText().trim());
+	    			aluno.setMãe(TXusuarioMaeNome.getText().trim());
+	    			
+	    			
+	    			System.out.println(aluno);
+	    			try {
+	    				
+	    				fachada.createOrUpdateAluno(aluno);
+	    				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao atualizar", "Atualizado",
+	    						"O Aluno foi atualizado com sucesso!");
+	    				
+	    			} catch (Exception event) {
+	    				
+	    				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao atualizar", "Erro",
+	    						"O Aluno não foi atualizado com sucesso!");
+	    				
+	    			}
+	    			
+	    			
+	    			
+	    		}
+	    		
+	    		
+	    		
+	    		
+	    	}
 	    }
 	    
 
@@ -269,6 +319,72 @@ public class ControleAluno implements Initializable {
 	 			    		 
 	    }
 	    
+	    
+	    public boolean verificarCampos() {
+	    	if (TXusuarioNome.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NOME Vazio",
+						"Preencha o NOME!");
+				return false;
+			}
+	    	if (TXusuarioCidade.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CIDADE Vazia",
+						"Preencha a CIDADE!");
+				return false;
+			}
+	    	if (TXusuarioCEP.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CEP Vazio",
+						"Preencha o CEP!");
+				return false;
+			}
+	    	if (TXusuarioMaeNome.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NOME DA MÂE Vazio",
+						"Preencha o NOME DA MÃE!");
+				return false;
+			}
+	    	if (TXusuarioPaiNome.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NOME DO PAI Vazio",
+						"Preencha o NOME DO PAI!");
+				return false;
+			}
+	    	
+	    	if (TXusuarioNumero.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NÚMERO Vazio",
+						"Preencha o NÚMERO!");
+				return false;
+			}
+	    	if (TXusuarioRua.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "RUA Vazio",
+						"Preencha a RUA!");
+				return false;
+			}
+	    	if (TXusuarioBairro.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "BAIRRO Vazio",
+						"Preencha o BAIRRO!");
+				return false;
+			}
+	    	if (COMBOestadoUsuario.getSelectionModel().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "ESTADO Vazio",
+						"Preencha o ESTADO!");
+				return false;
+			}
+	    	if (COMBOusuarioNaturalidade.getSelectionModel().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NATURALIDADE Vazio",
+						"Preencha a NATURALIDADE!");
+				return false;
+			}
+	    	if (COMBOusuarioTipo.getSelectionModel().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CARGO Vazio",
+						"Preencha o CARGO!");
+				return false;
+			}
+	    	if (TXusuarioData_nasc.getValue() == null) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NASCIMENTO Vazio",
+						"Preencha o NASCIMENTO!");
+				return false;
+			}
+	    	return true;
+	    	
+	    }
 	    
 	    public void LimparCampos() {
 	    	

@@ -1,6 +1,9 @@
 package controller;
 
+import java.math.BigInteger;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -30,9 +33,12 @@ import javafx.scene.layout.AnchorPane;
 import model.Aluno;
 import model.Endereco;
 import model.MaskFieldUtil;
+import model.Pedagogo;
+import model.Professor;
 import model.Responsavel;
 import model.Usuario;
 import model.UsuarioTabAdapter;
+import util.Criptografia;
 
 
 public class ControleCadastro implements Initializable {
@@ -45,6 +51,9 @@ public class ControleCadastro implements Initializable {
 	private List<Usuario> usuarioTabAdapters;
 	private List<Responsavel> responsavelTabAdapter;
 	private Endereco endereco;
+	private Professor professor;
+	private Pedagogo pedagogo;
+	
 	
 
     @FXML
@@ -356,10 +365,88 @@ public class ControleCadastro implements Initializable {
 			}
 			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 		}
+		else if(COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
+			
+			professor = new Professor();
+			endereço = new Endereco();
+			endereço.setCidade(TXusuarioCidade.getText().trim());
+			endereço.setCep(TXusuarioCEP.getText().trim());
+			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereço.setRua(TXusuarioRua.getText().trim());
+			endereço.setBairro(TXusuarioBairro.getText().trim());
+			endereço.setNumero(TXusuarioNumero.getText().trim());
+			professor.setEndereco(endereço);
+			professor.setNome(TXusuarioNome.getText().trim());
+			professor.setNome(TXusuarioNome.getText().trim());
+			professor.setData_nasc(TXusuarioData_nasc.getValue());
+			professor.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem());
+			professor.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
+			professor.setLogin(TXusuarioLogin.getText().trim());
+			
+			//professor.setSenha(Criptografia.criptografar((TXusuarioSenha.getText().trim().getBytes())));
+			
+			professor.setSenha(functioCrip2(TXusuarioSenha.getText().trim()));
+			professor.setCpf(TXcpfUsuario.getText().trim());
+			professor.setSituacao(true);
+			
+			try {
+				
+				fachada.createOrUpdateProfessor(professor);
+				usuarioTabAdapters = fachada.searchAllSuperUsuario();
+				tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
+				
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+						"O Professor foi salvo com sucesso!");
+			} catch (Exception e) {
+				
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
+						"O Professor não foi salvo com sucesso!");
+				
+			}
+			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+		}
+		else if(COMBOusuarioTipo.getValue() == TipoUsuario.Pedagogo) {
+			pedagogo = new Pedagogo();
+			endereço = new Endereco();
+			endereço.setCidade(TXusuarioCidade.getText().trim());
+			endereço.setCep(TXusuarioCEP.getText().trim());
+			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereço.setRua(TXusuarioRua.getText().trim());
+			endereço.setBairro(TXusuarioBairro.getText().trim());
+			endereço.setNumero(TXusuarioNumero.getText().trim());
+			pedagogo.setEndereco(endereço);
+			pedagogo.setNome(TXusuarioNome.getText().trim());
+			pedagogo.setNome(TXusuarioNome.getText().trim());
+			pedagogo.setData_nasc(TXusuarioData_nasc.getValue());
+			pedagogo.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem());
+			pedagogo.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
+			pedagogo.setLogin(TXusuarioLogin.getText().trim());
+			pedagogo.setSenha(TXusuarioSenha.getText().trim());
+			pedagogo.setCpf(TXcpfUsuario.getText().trim());
+			pedagogo.setSituacao(true);
+			try {
+				
+				fachada.createOrUpdatePedagogo(pedagogo);
+				usuarioTabAdapters = fachada.searchAllSuperUsuario();
+				tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
+				
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+						"O Pedagogo foi salvo com sucesso!");
+			} catch (Exception e) {
+				
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
+						"O pedagogo não foi salvo com sucesso!");
+				
+			}
+			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+		}
+	
+
+		}
 	
 
 	
-	}
+	
 
 	protected void init() {
 		// COMBOBOX TIPO DE USUARIO
@@ -563,6 +650,30 @@ public class ControleCadastro implements Initializable {
 //	tabelaClientes.getItems().setAll(clienteTabAdapters);
 	}
 	
+	
+	public String functioCrip2(String senha){
+
+		String sen = "";
+
+		MessageDigest md = null;
+
+		try {
+
+		md = MessageDigest.getInstance("MD5");
+
+		} catch (NoSuchAlgorithmException e) {
+
+		e.printStackTrace();
+
+		}
+
+		BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
+
+		sen = hash.toString(16);
+
+		return sen;
+
+		}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

@@ -18,7 +18,8 @@
               <menus>
                   <Menu mnemonicParsing="false">
                     <items>
-                      <MenuItem fx:id="menuCadastroAluno" mnemonicParsing="false" onAction="#action" text=" Cadastro" />
+                      <MenuItem fx:id="menuCadastroAluno" mnemonicParsing="false" onAction="#action" text=" Cadastro Pessoa" />
+                        <MenuItem fx:id="menuCadastroDisciplina" mnemonicParsing="false" onAction="#action" text="Cadastro Disciplina" />
                     </items>
                      <graphic>
                         <ImageView fx:id="menuIcoCad" fitHeight="68.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
@@ -101,20 +102,6 @@
                      </graphic>
                   </Menu>
                   <Menu mnemonicParsing="false">
-                    <items>
-                      <MenuItem fx:id="menuSair" mnemonicParsing="false" onAction="#action" text="Sair" />
-                        <MenuItem fx:id="menuSobre" mnemonicParsing="false" onAction="#action" text="Sobre o Argus" />
-                        <MenuItem fx:id="menuTrocarUser" mnemonicParsing="false" onAction="#action" text="Trocar Usuário" />
-                    </items>
-                     <graphic>
-                        <ImageView fx:id="menuIcoLogoff" fitHeight="68.0" fitWidth="113.0" onDragDetected="#action" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../res/logoutIco.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Menu>
-                  <Menu mnemonicParsing="false">
                      <graphic>
                         <Label fx:id="itemMenuCargo" onDragDetected="#action" text="Cargo_usuário">
                            <font>
@@ -122,6 +109,11 @@
                            </font>
                         </Label>
                      </graphic>
+                     <items>
+                      <MenuItem fx:id="menuSair" mnemonicParsing="false" onAction="#action" text="Sair" />
+                        <MenuItem fx:id="menuSobre" mnemonicParsing="false" onAction="#action" text="Sobre o Argus" />
+                        <MenuItem fx:id="menuTrocarUser" mnemonicParsing="false" onAction="#action" text="Trocar Usuário" />
+                     </items>
                   </Menu>
               </menus>
             </MenuBar>
