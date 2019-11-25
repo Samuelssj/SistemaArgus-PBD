@@ -33,6 +33,7 @@ public class ControleCadastroDisciplina implements Initializable{
 	private List<Professor> professorTabAdapter;
 	private Fachada fachada;
 	private Disciplina disciplina;
+	private Professor professor;
 	
 	  @FXML
 	    private AnchorPane AnchoPane;
@@ -160,20 +161,34 @@ public class ControleCadastroDisciplina implements Initializable{
 				}
 	    	}
 	    	
-	    	if(obj == JBnovoCadastroDisciplina) {
+	    	if(obj == BTcadastrarDisciplina) {
 	    		
 	    		disciplina = new Disciplina();
 	    		Professor p = new Professor();
+	    		professor = new Professor();
 	    		
 	    		disciplina.setCargaHoraria(TXdisciplinaCargah.getText().trim());
 	    		disciplina.setNome(TXdisciplinaNome.getText().trim());
-	    		p = TabelaprofessorDisciplina.getSelectionModel().getSelectedItem();
-				
-	    		p.setDisciplina(disciplina);
+	    		p.setId( TabelaprofessorDisciplina.getSelectionModel().getSelectedItem().getId());
+	    		disciplina.setProfessor(p);
+				disciplina.setStatus(true);
+	   
+//	    		professor.setCpf(p.getCpf());
+//	    		professor.setData_nasc(p.getData_nasc());
+//	    		professor.setDisciplina(disciplina);
+//	    		professor.setEndereco(p.getEndereco());
+//	    		professor.setNaturalidade(p.getNaturalidade());
+//	    		professor.setNome(p.getNome());
+//	    		professor.setSenha(p.getSenha());
+//	    		professor.setSituacao(p.getSituacao());
+//	    		professor.setTipo(p.getTipo());
+	    		
 	    		
 				try {
 					//fachada.createOrUpdateEndereco(endereço);
-					fachada.createOrUpdateProfessor(p);
+					System.out.println(disciplina);
+					fachada.createOrUpdateDisciplina(disciplina);
+					
 					System.out.println("o professor é" + p);
 					Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
 							"O Aluno foi salvo com sucesso!");

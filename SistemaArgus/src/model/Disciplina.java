@@ -1,7 +1,10 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -18,8 +21,12 @@ public class Disciplina extends Entidade {
 	@Column()
 	private boolean status;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "professor")
+	private Professor professor;
 	
-private static final long serialVersionUID = 1L;
+	
+private static long serialVersionUID = 1L;
 	
 	protected static final String sequence = "disciplina_sequence";
 	
@@ -59,6 +66,19 @@ private static final long serialVersionUID = 1L;
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public static void setSerialversionuid(long serialversionuid) {
+		serialVersionUID = serialversionuid;
 	}
 
 	@Override

@@ -16,15 +16,15 @@ import javax.persistence.Table;
 
 public class Professor extends Usuario {
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 50, nullable = true)
 	private String nome; // nome VARCHAR (50) NOT NULL,
-	@Column(length = 11, nullable = false, unique = true)
+	@Column(length = 11, nullable = true, unique = true)
 	private String cpf; // codigo VARCHAR (50) NOT NULL,
 
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "disciplina")
-	private Disciplina disciplina;
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "disciplina")
+//	private Disciplina disciplina;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -60,14 +60,14 @@ public class Professor extends Usuario {
 		return "Professor [nome=" + nome + ", cpf=" + cpf + ", endereco="  + "]";
 	}
 
-	public Disciplina getDisciplina() {
-		return disciplina;
-	}
-
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
-	}
-	
+//	public Disciplina getDisciplina() {
+//		return disciplina;
+//	}
+//
+//	public void setDisciplina(Disciplina disciplina) {
+//		this.disciplina = disciplina;
+//	}
+//	
 	
 	
 
