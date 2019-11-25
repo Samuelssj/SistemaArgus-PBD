@@ -76,14 +76,20 @@ public class ControleRedefinirSenha extends Controle {
 
 				System.out.println(fachada);
 				usuario = fachada.searchUser(TXnomeLoginADM.getText().trim(), TXnomeSenhaADM.getText().trim());
+				int i = 0;
+				Usuario p = new Usuario();
 				
-
 				if (usuario != null) {
 					
 									
 					TXnovaSenha.setDisable(false);
 					TXnovaSenhaConfirmar.setDisable(false);
 					
+					i = TabelaSenhas.getSelectionModel().getSelectedItem().getId();
+					p = fachada.searchUsuario(i);
+					p.setSenha(TXnovaSenha.getText().trim());
+					
+					fachada.createOrUpdateAluno(p);
 					
 					limparCampos();
 				} else {

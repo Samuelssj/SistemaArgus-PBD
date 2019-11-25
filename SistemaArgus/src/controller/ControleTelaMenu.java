@@ -92,7 +92,7 @@ public class ControleTelaMenu implements Initializable {
 		if (event.getSource() == menuCadastroAluno) {
 
 			atualizarTela("pessoa");
-			itemMenuCargo.setText("Pessoa");
+//			itemMenuCargo.setText(logi.getUsuario().getNome());
 			
 		}
 		if(event.getSource() == menuAluno) {
@@ -101,11 +101,20 @@ public class ControleTelaMenu implements Initializable {
 		if(event.getSource() == menuCadastroDisciplina) {
 			atualizarTela("disciplina");
 		}
+		if(event.getSource() == menuSair) {
+			System.exit(0);
+		}
+		if(event.getSource() == menuTrocarUser) {
+			Main.changeStage("log");
+			
+		}
 
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+//		itemMenuCargo.setText(logi.getUsuario().getNome());
+		
 		try {
 			CadastroPessoa = FXMLLoader.load(getClass().getClassLoader().getResource("view/Cadastro.fxml"));
 			AlunoDetalhe = FXMLLoader.load(getClass().getClassLoader().getResource("view/Aluno.fxml"));
@@ -119,7 +128,8 @@ public class ControleTelaMenu implements Initializable {
 	}
 
 	public void atualizarTela(String tela) {
-
+		
+		
 		if (tela.equalsIgnoreCase("pessoa")) {
 			AnchorPane.setBottomAnchor(CadastroPessoa, 0.0);
 			AnchorPane.setLeftAnchor(CadastroPessoa, 0.0);
@@ -143,4 +153,6 @@ public class ControleTelaMenu implements Initializable {
 			pane.getChildren().setAll(CadastroDisciplina);
 		}
 	}
+
+	
 }

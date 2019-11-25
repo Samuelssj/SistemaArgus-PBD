@@ -21,14 +21,6 @@ public class Responsavel extends Usuario{
 	@Column(length = 11)
 	private String cpf; 
 
-//	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "aluno")
-	//private Aluno aluno; // id_endereco INTEGER REFERENCES ENDERECO(id)
-	
-//	@OneToOne
-//	@JoinColumn(name = "aluno")
-//	private Aluno aluno;
-//	
 	private static final long serialVersionUID = 1L;
 	
 	protected static final String sequence = "responsavel_sequence";

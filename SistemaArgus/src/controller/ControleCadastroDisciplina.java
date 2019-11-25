@@ -4,13 +4,12 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import EntidadeEnum.SiglasEstados;
-import EntidadeEnum.TipoUsuario;
 import exception.Menssagem;
 import fachada.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
@@ -20,14 +19,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import model.Aluno;
 import model.Disciplina;
-import model.Endereco;
 import model.Professor;
-import model.Responsavel;
 
 public class ControleCadastroDisciplina implements Initializable{
 	private List<Professor> professorTabAdapter;
@@ -121,6 +116,8 @@ public class ControleCadastroDisciplina implements Initializable{
 
 	    @FXML
 	    private RadioButton Radiomãe1;
+	    @FXML
+	    private Button BTvoltarDiciplina1;
 
 	    @FXML
 	    private ToggleGroup genero11;
@@ -139,9 +136,20 @@ public class ControleCadastroDisciplina implements Initializable{
 	    	
 	    	if(obj ==JBnovoCadastroDisciplina ) {
 				
-				TabListaCadastro.getTabPane().getSelectionModel().select(TabNovocadastro);
-				//aqui funciona
+				
+	    		TabListaCadastro.getTabPane().getSelectionModel().select(TabNovocadastro);
+	    		
+				try {
+
+					professorTabAdapter= fachada.getInstance().searchAllProfessor();
+					TabelaprofessorDisciplina.getItems().setAll(professorTabAdapter);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
 			}
+	    	
 	    	if(obj == JBbuscarCadastroDisciplina) {
 
 				if (TXbuscarFuncionario.getText().trim().isEmpty()) {
@@ -160,7 +168,11 @@ public class ControleCadastroDisciplina implements Initializable{
 					}
 				}
 	    	}
-	    	
+	    	if(obj == BTvoltarDiciplina1) {
+	    	   
+	    		TabNovocadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+	    		
+	    	}
 	    	if(obj == BTcadastrarDisciplina) {
 	    		
 	    		disciplina = new Disciplina();
@@ -194,7 +206,7 @@ public class ControleCadastroDisciplina implements Initializable{
 							"O Aluno foi salvo com sucesso!");
 					
 				} catch (Exception e) {
-					
+					e.printStackTrace();
 					Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
 							"O Aluno não foi salvo com sucesso!");
 					
@@ -207,6 +219,9 @@ public class ControleCadastroDisciplina implements Initializable{
 	    	
 	    }
 
+	    
+	    
+	    
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			// TODO Auto-generated method stub

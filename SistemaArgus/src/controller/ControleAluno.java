@@ -30,6 +30,7 @@ import model.Responsavel;
 
 public class ControleAluno implements Initializable {
 	private List<Aluno> alunoTabAdapters;
+	private List<Responsavel> responsavelTabAdapter;
 	private Fachada fachada = Fachada.getInstance();
 	private Aluno aluno;
 	private Responsavel responsavel;
@@ -108,9 +109,6 @@ public class ControleAluno implements Initializable {
     @FXML
     private Button BToutroResponsavel;
 
-
-   
-
     @FXML
     private ComboBox<SiglasEstados> COMBOestadoUsuario;
 
@@ -172,14 +170,15 @@ public class ControleAluno implements Initializable {
     private Button BTvoltar2;
     @FXML
     private Button BTvoltar3;
+    
     @FXML
-    private TableView<?> tabelaResponsavel;
+    private TableView<Responsavel> tabelaResponsavel;
 
     @FXML
-    private TableColumn<?, ?> nomeTabResponsavel;
+    private TableColumn<Responsavel, String> nomeTabResponsavel;
 
     @FXML
-    private TableColumn<?, ?> cpfTabResponsavel;
+    private TableColumn<Responsavel, String> cpfTabResponsavel;
 
     @FXML
     private Button BTbuscarResponsavel;
@@ -506,14 +505,16 @@ public class ControleAluno implements Initializable {
 			TabmaeAluno.setCellValueFactory(new PropertyValueFactory<>("mãe"));
 			TabpaiAluno.setCellValueFactory(new PropertyValueFactory<>("pai"));
 			
+			nomeTabResponsavel.setCellValueFactory(new PropertyValueFactory<>("nome"));
+			cpfTabResponsavel.setCellValueFactory(new PropertyValueFactory<>("nome"));
 			
 			try {
 
 				alunoTabAdapters = fachada.getInstance().searchAllAluno();
 				tabelaAluno.getItems().setAll(alunoTabAdapters);
 				
-				//responsavelTabAdapter = fachada.getInstance().searchAllResponsavel();
-				//tabelaResponsavel.getItems().setAll(responsavelTabAdapter);
+				responsavelTabAdapter = fachada.getInstance().searchAllResponsavel();
+				tabelaResponsavel.getItems().setAll(responsavelTabAdapter);
 				
 				
 				
