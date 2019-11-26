@@ -20,6 +20,9 @@ public class Disciplina extends Entidade {
 	private String cargaHoraria;
 	@Column()
 	private boolean status;
+	@OneToOne
+	@JoinColumn(name = "id_professor")
+	private Professor professor;
 	
 	
 	
@@ -47,6 +50,16 @@ private static long serialVersionUID = 1L;
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	
+	
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 
 	public String getCargaHoraria() {

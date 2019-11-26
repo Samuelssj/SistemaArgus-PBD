@@ -273,7 +273,7 @@
                                                       <Insets right="10.0" top="40.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <RadioButton fx:id="Radiomãe" mnemonicParsing="false" onAction="#action" text="Mãe" GridPane.rowIndex="15">
+                                                <RadioButton fx:id="Radiomae" mnemonicParsing="false" onAction="#action" text="Mãe" GridPane.rowIndex="15">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>

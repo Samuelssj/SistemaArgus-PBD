@@ -184,45 +184,26 @@ public class ControleCadastroDisciplina implements Initializable{
 	    	}
 	    	if(obj == BTcadastrarDisciplina) {
 	    		
-	    		disciplina = new Disciplina();
-	    		Professor p = new Professor();
-	    		professor = new Professor();
+	    		try {
 	    		
-	    		disciplina.setCargaHoraria(TXdisciplinaCargah.getText().trim());
-	    		disciplina.setNome(TXdisciplinaNome.getText().trim());
-	    		p =  TabelaprofessorDisciplina.getSelectionModel().getSelectedItem();
-	    		fachada.createOrUpdateDisciplina(disciplina);
-	    		p.setDisciplina(disciplina);
-			
-	   
-//	    		professor.setCpf(p.getCpf());
-//	    		professor.setData_nasc(p.getData_nasc());
-//	    		professor.setDisciplina(disciplina);
-//	    		professor.setEndereco(p.getEndereco());
-//	    		professor.setNaturalidade(p.getNaturalidade());
-//	    		professor.setNome(p.getNome());
-//	    		professor.setSenha(p.getSenha());
-//	    		professor.setSituacao(p.getSituacao());
-//	    		professor.setTipo(p.getTipo());
+		    		disciplina = new Disciplina();
+		    		Professor p = TabelaprofessorDisciplina.getSelectionModel().getSelectedItem();	    		
+		    		disciplina.setCargaHoraria(TXdisciplinaCargah.getText().trim());
+		    		disciplina.setNome(TXdisciplinaNome.getText().trim());	
+		    		disciplina.setProfessor(p);
+		    		fachada.getInstance().createOrUpdateDisciplina(disciplina);
+		    		
+		    		Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+							"A disciplina foi salva com sucesso!");
 	    		
 	    		
-				try {
-					//fachada.createOrUpdateEndereco(endereço);
-					System.out.println("o professor é" + p);
-					System.out.println(disciplina);
-					fachada.createOrUpdateProfessor(p);;
-					
-					Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
-							"O Aluno foi salvo com sucesso!");
-					
-				} catch (Exception e) {
+	    		} catch (Exception e) {
 					e.printStackTrace();
 					Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
-							"O Aluno não foi salvo com sucesso!");
+							"A disciplina n�o foi salva com sucesso!");
 					
 				}
 				
-				//TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 	    		
 	    	}
 	    	

@@ -34,7 +34,7 @@ public class ControleAluno implements Initializable {
 	private Fachada fachada = Fachada.getInstance();
 	private Aluno aluno;
 	private Responsavel responsavel;
-	private Endereco endereço;
+	private Endereco endereco;
 
     @FXML
     private AnchorPane AnchoPane;
@@ -246,18 +246,18 @@ public class ControleAluno implements Initializable {
 	    		if(verificarCampos()) {
 	    			
 	    			aluno = new Aluno();
-	    			endereço = new Endereco();
-	    			endereço.setCidade(TXusuarioCidade.getText().trim());
-	    			endereço.setCep(TXusuarioCEP.getText().trim());
-	    			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
-	    			endereço.setRua(TXusuarioRua.getText().trim());
-	    			endereço.setBairro(TXusuarioBairro.getText().trim());
-	    			endereço.setNumero(TXusuarioNumero.getText().trim());
-	    			aluno.setEndereco(endereço);
+	    			endereco = new Endereco();
+	    			endereco.setCidade(TXusuarioCidade.getText().trim());
+	    			endereco.setCep(TXusuarioCEP.getText().trim());
+	    			endereco.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+	    			endereco.setRua(TXusuarioRua.getText().trim());
+	    			endereco.setBairro(TXusuarioBairro.getText().trim());
+	    			endereco.setNumero(TXusuarioNumero.getText().trim());
+	    			aluno.setEndereco(endereco);
 	    			responsavel = new Responsavel();
 	    			aluno.setResponsavel(responsavel);
 	    			aluno.setNome(TXusuarioNome.getText().trim());
-	    			aluno.setEndereco(endereço);
+	    			aluno.setEndereco(endereco);
 	    			aluno.setData_nasc(TXusuarioData_nasc.getValue());
 	    			aluno.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem());
 	    			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));

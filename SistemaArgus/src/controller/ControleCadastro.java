@@ -45,7 +45,6 @@ import util.Criptografia;
 public class ControleCadastro implements Initializable {
 
 	private Fachada fachada = Fachada.getInstance();
-	private Endereco endereço;
 	private Responsavel responsavel;
 	private Usuario usuario;
 	private Aluno aluno;
@@ -107,7 +106,7 @@ public class ControleCadastro implements Initializable {
     private Button BTcadastrarUsuario;
 
     @FXML
-    private RadioButton Radiomãe;
+    private RadioButton Radiomae;
 
     @FXML
     private ToggleGroup genero1;
@@ -291,16 +290,16 @@ public class ControleCadastro implements Initializable {
 		if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
 			
 			aluno = new Aluno();
-			endereço = new Endereco();
-			endereço.setCidade(TXusuarioCidade.getText().trim());
-			endereço.setCep(TXusuarioCEP.getText().trim());
-			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
-			endereço.setRua(TXusuarioRua.getText().trim());
-			endereço.setBairro(TXusuarioBairro.getText().trim());
-			endereço.setNumero(TXusuarioNumero.getText().trim());
-			aluno.setEndereco(endereço);
+			endereco = new Endereco();
+			endereco.setCidade(TXusuarioCidade.getText().trim());
+			endereco.setCep(TXusuarioCEP.getText().trim());
+			endereco.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereco.setRua(TXusuarioRua.getText().trim());
+			endereco.setBairro(TXusuarioBairro.getText().trim());
+			endereco.setNumero(TXusuarioNumero.getText().trim());
+			aluno.setEndereco(endereco);
 			responsavel = new Responsavel();
-			if(Radiomãe.isSelected()) {
+			if(Radiomae.isSelected()) {
 				responsavel.setNome(TXusuarioMaeNome.getText().trim());
 				responsavel.setCpf(TXusuarioMaeCPF.getText().trim());
 			}if(RadioPai.isSelected()) {
@@ -310,7 +309,7 @@ public class ControleCadastro implements Initializable {
 			aluno.setResponsavel(responsavel);
 			
 			aluno.setNome(TXusuarioNome.getText().trim());
-			aluno.setEndereco(endereço);
+			aluno.setEndereco(endereco);
 			aluno.setData_nasc(TXusuarioData_nasc.getValue());
 			aluno.setNaturalidade(COMBOusuarioNaturalidade.getSelectionModel().getSelectedItem());
 			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
@@ -320,7 +319,7 @@ public class ControleCadastro implements Initializable {
 			
 			System.out.println(aluno);
 			try {
-				//fachada.createOrUpdateEndereco(endereço);
+				//fachada.createOrUpdateEndereco(endereco);
 				fachada.createOrUpdateAluno(aluno);
 				usuarioTabAdapters = fachada.searchAllSuperUsuario();
 				tabelaFuncionario.getItems().setAll(usuarioTabAdapters);
@@ -336,20 +335,20 @@ public class ControleCadastro implements Initializable {
 			
 			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 		}
-		else if (COMBOusuarioTipo.getValue() == TipoUsuario.Administrador || COMBOusuarioTipo.getValue() == TipoUsuario.Direção || 
-				COMBOusuarioTipo.getValue() == TipoUsuario.Secretária)
+		else if (COMBOusuarioTipo.getValue() == TipoUsuario.Administrador || COMBOusuarioTipo.getValue() == TipoUsuario.Direcao || 
+				COMBOusuarioTipo.getValue() == TipoUsuario.Secretaria)
 		{
 			
 			
 			usuario = new Usuario();
-			endereço = new Endereco();
-			endereço.setCidade(TXusuarioCidade.getText().trim());
-			endereço.setCep(TXusuarioCEP.getText().trim());
-			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
-			endereço.setRua(TXusuarioRua.getText().trim());
-			endereço.setBairro(TXusuarioBairro.getText().trim());
-			endereço.setNumero(TXusuarioNumero.getText().trim());
-			usuario.setEndereco(endereço);
+			endereco = new Endereco();
+			endereco.setCidade(TXusuarioCidade.getText().trim());
+			endereco.setCep(TXusuarioCEP.getText().trim());
+			endereco.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereco.setRua(TXusuarioRua.getText().trim());
+			endereco.setBairro(TXusuarioBairro.getText().trim());
+			endereco.setNumero(TXusuarioNumero.getText().trim());
+			usuario.setEndereco(endereco);
 			usuario.setNome(TXusuarioNome.getText().trim());
 			usuario.setNome(TXusuarioNome.getText().trim());
 			usuario.setData_nasc(TXusuarioData_nasc.getValue());
@@ -377,14 +376,14 @@ public class ControleCadastro implements Initializable {
 		else if(COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
 			
 			professor = new Professor();
-			endereço = new Endereco();
-			endereço.setCidade(TXusuarioCidade.getText().trim());
-			endereço.setCep(TXusuarioCEP.getText().trim());
-			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
-			endereço.setRua(TXusuarioRua.getText().trim());
-			endereço.setBairro(TXusuarioBairro.getText().trim());
-			endereço.setNumero(TXusuarioNumero.getText().trim());
-			professor.setEndereco(endereço);
+			endereco = new Endereco();
+			endereco.setCidade(TXusuarioCidade.getText().trim());
+			endereco.setCep(TXusuarioCEP.getText().trim());
+			endereco.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereco.setRua(TXusuarioRua.getText().trim());
+			endereco.setBairro(TXusuarioBairro.getText().trim());
+			endereco.setNumero(TXusuarioNumero.getText().trim());
+			professor.setEndereco(endereco);
 			professor.setNome(TXusuarioNome.getText().trim());
 			professor.setNome(TXusuarioNome.getText().trim());
 			professor.setData_nasc(TXusuarioData_nasc.getValue());
@@ -416,14 +415,14 @@ public class ControleCadastro implements Initializable {
 		}
 		else if(COMBOusuarioTipo.getValue() == TipoUsuario.Pedagogo) {
 			pedagogo = new Pedagogo();
-			endereço = new Endereco();
-			endereço.setCidade(TXusuarioCidade.getText().trim());
-			endereço.setCep(TXusuarioCEP.getText().trim());
-			endereço.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
-			endereço.setRua(TXusuarioRua.getText().trim());
-			endereço.setBairro(TXusuarioBairro.getText().trim());
-			endereço.setNumero(TXusuarioNumero.getText().trim());
-			pedagogo.setEndereco(endereço);
+			endereco = new Endereco();
+			endereco.setCidade(TXusuarioCidade.getText().trim());
+			endereco.setCep(TXusuarioCEP.getText().trim());
+			endereco.setEstado(SiglasEstados.valueOf(COMBOestadoUsuario.getSelectionModel().getSelectedItem().toString()));
+			endereco.setRua(TXusuarioRua.getText().trim());
+			endereco.setBairro(TXusuarioBairro.getText().trim());
+			endereco.setNumero(TXusuarioNumero.getText().trim());
+			pedagogo.setEndereco(endereco);
 			pedagogo.setNome(TXusuarioNome.getText().trim());
 			pedagogo.setNome(TXusuarioNome.getText().trim());
 			pedagogo.setData_nasc(TXusuarioData_nasc.getValue());
@@ -615,7 +614,7 @@ public class ControleCadastro implements Initializable {
 			TXusuarioPaiNome.setDisable(true);
 			TXusuarioPaiCPF.setDisable(true);
 	
-			Radiomãe.setDisable(true);
+			Radiomae.setDisable(true);
 			RadioPai.setDisable(true);
 			RadioProprioresp.setSelected(true);
 			TXcpfUsuario.setDisable(true);
@@ -639,7 +638,7 @@ public class ControleCadastro implements Initializable {
 			TXusuarioSenha.setDisable(true);
 			TXusuarioSenhaConfirmar.setDisable(true);
 			tabelaDisciplinaProfessor.setVisible(false);
-			Radiomãe.setDisable(false);
+			Radiomae.setDisable(false);
 			RadioPai.setDisable(false);
 			TXcpfUsuario.setDisable(true);
 			

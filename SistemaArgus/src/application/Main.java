@@ -19,14 +19,14 @@ import model.Tela;
 
 public class Main extends Application {
 	private static Pane login, resetarSenha;
-	private static Pane inicio, cadProfessorP;
+	private static Pane inicio;
 	private static Scene sceneLogin, resetSenha;
 	private static Scene sceneMenu;
 	private static Stage stage;
 
 	public static void main(String[] args) {
 				
-
+//samuel ssj
 	launch(args);
 
 	}

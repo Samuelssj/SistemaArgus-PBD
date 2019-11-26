@@ -21,11 +21,7 @@ public class Professor extends Usuario {
 	@Column(length = 11, nullable = false, unique = true)
 	private String cpf; // 
 
-	
-	@OneToOne()
-	@JoinColumn(name = "disciplina")
-	private Disciplina disciplina;
-	
+
 	private static final long serialVersionUID = 1L;
 	
 	protected static final String sequence = "professor_sequence";
@@ -57,20 +53,10 @@ public class Professor extends Usuario {
 
 	@Override
 	public String toString() {
-		return "Professor [nome=" + nome + ", cpf=" + cpf + ", endereco="  + "]";
+		return "Professor [nome=" + nome + ", cpf=" + cpf + ", id_professor="  +getId() + "]";
 	}
 
-	public Disciplina getDisciplina() {
-		return disciplina;
-	}
-
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
-	}
 	
-	
-	
-
 	
 
 }
