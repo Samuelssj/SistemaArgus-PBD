@@ -21,9 +21,6 @@ public class Disciplina extends Entidade {
 	@Column()
 	private boolean status;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "professor")
-	private Professor professor;
 	
 	
 private static long serialVersionUID = 1L;
@@ -68,14 +65,7 @@ private static long serialVersionUID = 1L;
 		this.status = status;
 	}
 
-	
-	public Professor getProfessor() {
-		return professor;
-	}
 
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
 
 	public static void setSerialversionuid(long serialversionuid) {
 		serialVersionUID = serialversionuid;

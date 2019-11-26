@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 
 import application.Main;
+import exception.BusinessException;
 import exception.Menssagem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,8 +77,7 @@ public class ControleRedefinirSenha extends Controle {
 
 				System.out.println(fachada);
 				usuario = fachada.searchUser(TXnomeLoginADM.getText().trim(), TXnomeSenhaADM.getText().trim());
-				int i = 0;
-				Usuario p = new Usuario();
+			
 				
 				if (usuario != null) {
 					
@@ -85,11 +85,7 @@ public class ControleRedefinirSenha extends Controle {
 					TXnovaSenha.setDisable(false);
 					TXnovaSenhaConfirmar.setDisable(false);
 					
-					i = TabelaSenhas.getSelectionModel().getSelectedItem().getId();
-					p = fachada.searchUsuario(i);
-					p.setSenha(TXnovaSenha.getText().trim());
 					
-					fachada.createOrUpdateAluno(p);
 					
 					limparCampos();
 				} else {
@@ -103,6 +99,25 @@ public class ControleRedefinirSenha extends Controle {
 				e2.printStackTrace();
 			}
 
+		}if(event.getSource() == BTAtualizar) {
+		
+			
+			Usuario u = new Usuario();
+			u = TabelaSenhas.getSelectionModel().getSelectedItem();
+			
+			u.setSenha(TXnovaSenha.getText().trim());
+
+			
+
+			
+			try {
+				fachada.createOrUpdateAluno(u);
+			} catch (BusinessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			limparCampos();
 		}
 
 	}

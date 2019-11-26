@@ -22,7 +22,7 @@ public class Professor extends Usuario {
 	private String cpf; // 
 
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "disciplina")
 	private Disciplina disciplina;
 	

@@ -31,6 +31,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Aluno;
+import model.Disciplina;
 import model.Endereco;
 import model.MaskFieldUtil;
 import model.Pedagogo;
@@ -190,6 +191,14 @@ public class ControleCadastro implements Initializable {
     @FXML
     private TableColumn<UsuarioTabAdapter,String> SituacaoTabFuncionario;
 
+    @FXML
+    private TableView<Disciplina> tabelaDisciplinaProfessor;
+
+    @FXML
+    private TableColumn<Disciplina, String> TabDisciplinaProfessorNome;
+
+    @FXML
+    private TableColumn<Disciplina, String> TabDisciplinaProfessorCarga;
  
     @FXML
     private ComboBox<Estado> COMBOusuarioNaturalidade;
@@ -614,8 +623,13 @@ public class ControleCadastro implements Initializable {
 			TXusuarioSenha.setDisable(false);
 			TXusuarioSenhaConfirmar.setDisable(false);
 			RadioProprioresp.setSelected(true);
+			if(COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
+				tabelaDisciplinaProfessor.setVisible(true);
+				}
 			
-		}else{
+			
+		}	
+		else{
 			TXusuarioMaeNome.setDisable(false);
 			TXusuarioMaeCPF.setDisable(false);
 			TXusuarioPaiNome.setDisable(false);
@@ -624,10 +638,11 @@ public class ControleCadastro implements Initializable {
 			TXusuarioLogin.setDisable(true);
 			TXusuarioSenha.setDisable(true);
 			TXusuarioSenhaConfirmar.setDisable(true);
-			
+			tabelaDisciplinaProfessor.setVisible(false);
 			Radiomãe.setDisable(false);
 			RadioPai.setDisable(false);
 			TXcpfUsuario.setDisable(true);
+			
 		}
 		
 		if (RadioProprioresp.isSelected()) {

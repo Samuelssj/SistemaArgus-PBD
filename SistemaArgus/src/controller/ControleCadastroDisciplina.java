@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import exception.BusinessException;
 import exception.Menssagem;
 import fachada.Fachada;
 import javafx.event.ActionEvent;
@@ -23,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Disciplina;
 import model.Professor;
+import model.Responsavel;
 
 public class ControleCadastroDisciplina implements Initializable{
 	private List<Professor> professorTabAdapter;
@@ -129,7 +131,7 @@ public class ControleCadastroDisciplina implements Initializable{
 	    private Button BToutroResponsavel1;
 
 	    @FXML
-	    void action(ActionEvent event) {
+	    void action(ActionEvent event) throws BusinessException {
 
 	    	Object obj = event.getSource();
 	    	
@@ -141,7 +143,7 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		
 				try {
 
-					professorTabAdapter= fachada.getInstance().searchAllProfessor();
+					professorTabAdapter= Fachada.getInstance().searchAllProfessor();
 					TabelaprofessorDisciplina.getItems().setAll(professorTabAdapter);
 					
 				} catch (Exception e) {
@@ -173,6 +175,13 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		TabNovocadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 	    		
 	    	}
+	    	if(obj == BTcadastrarComResponsavel) {
+	    		
+	    		Responsavel r = new Responsavel();
+	    		
+	    
+	    		
+	    	}
 	    	if(obj == BTcadastrarDisciplina) {
 	    		
 	    		disciplina = new Disciplina();
@@ -181,9 +190,10 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		
 	    		disciplina.setCargaHoraria(TXdisciplinaCargah.getText().trim());
 	    		disciplina.setNome(TXdisciplinaNome.getText().trim());
-	    		p.setId( TabelaprofessorDisciplina.getSelectionModel().getSelectedItem().getId());
-	    		disciplina.setProfessor(p);
-				disciplina.setStatus(true);
+	    		p =  TabelaprofessorDisciplina.getSelectionModel().getSelectedItem();
+	    		fachada.createOrUpdateDisciplina(disciplina);
+	    		p.setDisciplina(disciplina);
+			
 	   
 //	    		professor.setCpf(p.getCpf());
 //	    		professor.setData_nasc(p.getData_nasc());
@@ -198,10 +208,10 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		
 				try {
 					//fachada.createOrUpdateEndereco(endereço);
-					System.out.println(disciplina);
-					fachada.createOrUpdateDisciplina(disciplina);
-					
 					System.out.println("o professor é" + p);
+					System.out.println(disciplina);
+					fachada.createOrUpdateProfessor(p);;
+					
 					Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
 							"O Aluno foi salvo com sucesso!");
 					

@@ -241,6 +241,7 @@ public class ControleAluno implements Initializable {
 	    		TabPane.getSelectionModel().select(TabListaCadastroAluno);
 	    		LimparCampos();
 	    	}
+	    
 	    	if(e.getSource() == BTatualizar) {
 	    		if(verificarCampos()) {
 	    			

@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,103 +20,84 @@ public class Nota extends Entidade{
 
 	
 	@Column(length = 50, nullable = false)
-	private Double nota1;
+	private Double nota;
 	
-	@Column(length = 50, nullable = false)
-	private Double nota2;
+	@Column(length = 6)
+	private String tipoNota;
 	
-	@Column(length = 50, nullable = false)
-	private Double nota3;
+	@ManyToOne
+	private Aluno aluno;
 	
-	@Column(length = 50, nullable = false)
-	private Double nota4;
-	
-	@Column(length = 50, nullable = false)
-	private Double media;
+	@ManyToOne
+	private Disciplina disciplina;
 	
 	
 
-	private static final long serialVersionUID = 1L;
+	private static long serialVersionUID = 1L;
 
 	protected static final String sequence = "nota_sequence";
 	
 
-	
-	
-	@Override
-	public String toString() {
-		return "Nota [nota1=" + nota1 + ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4 + ", media="
-				+ media + "]";
+
+
+	public Double getNota() {
+		return nota;
 	}
 
 
 
 
-	public Double getNota1() {
-		return nota1;
+	public void setNota(Double nota) {
+		this.nota = nota;
 	}
 
 
 
 
-	public void setNota1(Double nota1) {
-		this.nota1 = nota1;
+	public String getTipoNota() {
+		return tipoNota;
 	}
 
 
 
 
-	public Double getNota2() {
-		return nota2;
+	public void setTipoNota(String tipoNota) {
+		this.tipoNota = tipoNota;
 	}
 
 
 
 
-	public void setNota2(Double nota2) {
-		this.nota2 = nota2;
+	public Aluno getAluno() {
+		return aluno;
 	}
 
 
 
 
-	public Double getNota3() {
-		return nota3;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 
 
 
 
-	public void setNota3(Double nota3) {
-		this.nota3 = nota3;
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
 
 
 
-	public Double getNota4() {
-		return nota4;
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 
 
 
 
-	public void setNota4(Double nota4) {
-		this.nota4 = nota4;
-	}
-
-
-
-
-	public Double getMedia() {
-		return media;
-	}
-
-
-
-
-	public void setMedia(Double media) {
-		this.media = media;
+	public static void setSerialversionuid(long serialversionuid) {
+		serialVersionUID = serialversionuid;
 	}
 
 

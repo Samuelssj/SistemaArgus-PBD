@@ -270,7 +270,7 @@
                                                       <Font size="16.0" />
                                                    </font>
                                                    <GridPane.margin>
-                                                      <Insets right="10.0" />
+                                                      <Insets right="10.0" top="40.0" />
                                                    </GridPane.margin>
                                                 </Button>
                                                 <RadioButton fx:id="Radiomãe" mnemonicParsing="false" onAction="#action" text="Mãe" GridPane.rowIndex="15">
@@ -402,6 +402,27 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
+                                                <AnchorPane prefHeight="121.0" prefWidth="274.0" GridPane.columnIndex="2" GridPane.rowIndex="13">
+                                                   <children>
+                                                      <TableView fx:id="tabelaDisciplinaProfessor" prefHeight="116.0" prefWidth="274.0" visible="false">
+                                                        <columns>
+                                                          <TableColumn fx:id="TabDisciplinaProfessorNome" prefWidth="75.0" text="Disciplina" />
+                                                          <TableColumn fx:id="TabDisciplinaProfessorCarga" prefWidth="75.0" text="Carga Horária" />
+                                                        </columns>
+                                                         <columnResizePolicy>
+                                                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                         </columnResizePolicy>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                                <Label text="Selecione Disciplina" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
                                              </children>
                                              <BorderPane.margin>
                                                 <Insets />

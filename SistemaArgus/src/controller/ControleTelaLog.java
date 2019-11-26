@@ -43,50 +43,52 @@ public class ControleTelaLog extends Controle {
 	@FXML
 	public void action(ActionEvent e) {
 		if (e.getSource() == JBentrar) {
-		//	Main.changeStage("Menu");
-			
-			try {
-				
-				
-				System.out.println(TxLogin.getText().trim());
-				System.out.println(TxSenha.getText().trim());
-				
-				System.out.println(fachada);
-				usuario = fachada.searchUser(TxLogin.getText().trim(), TxSenha.getText().trim());
-				
-				if(usuario != null) {
-					Main.changeStage("Menu");
-
-					
-					limparCampos();
-				}else {
-				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha erradaAAA");
-				}
-			} catch (Exception e2) {
-				// TODO: handle exception
-				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha errada");
-				e2.printStackTrace();
+			Main.changeStage("Menu");
+//			
+//			try {
+//				
+//				
+//				System.out.println(TxLogin.getText().trim());
+//				System.out.println(TxSenha.getText().trim());
+//				
+//				System.out.println(fachada);
+//				
+//				usuario = fachada.searchUser(TxLogin.getText().trim(), TxSenha.getText().trim());
+//				
+//				
+//				if(usuario != null) {
+//					Main.changeStage("Menu");
+//
+//					
+//					limparCampos();
+//				}else {
+//				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha erradaAAA");
+//				}
+//			} catch (Exception e2) {
+//				// TODO: handle exception
+//				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha errada");
+//				e2.printStackTrace();
 			}
-			
-			
-			
+//			
+//			
+//			
 		}
-
-		if (e.getSource() == JBresetarSenha) {
-			Main.changeStage("resetar");
-			limparCampos();
-			
-			
-		}
-
-		if(e.getSource() ==JBsair) {
-//			if(Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sair", "sair do sistema ", "Deseja sair do Sistema?")) {
-//				System.exit(0);
-//			}
-			System.exit(0);
-		}
-	}
-
+//
+//		if (e.getSource() == JBresetarSenha) {
+//			Main.changeStage("resetar");
+//			limparCampos();
+//			
+//			
+//		}
+//
+//		if(e.getSource() ==JBsair) {
+////			if(Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sair", "sair do sistema ", "Deseja sair do Sistema?")) {
+////				System.exit(0);
+////			}
+//			System.exit(0);
+//		}
+//	}
+//
 	@Override
 	public void update(Tela tela, Entidade entidade) {
 		// TODO Auto-generated method stub
@@ -96,23 +98,23 @@ public class ControleTelaLog extends Controle {
 	@Override
 	protected void init() {
 		
-		try {
-			Long cont = fachada.searchCont(Usuario.class);
-
-			if (cont == 0) {
-				Dao.resetConnection();
-				model.Usuario usuario = fachada.searchUsuario(1);
-				fachada.createOrUpdatePessoa(usuario);
-			}
-
-		} catch (BusinessException e) {
-
-			e.printStackTrace();
-		}
-
-		
+//		try {
+//			Long cont = fachada.searchCont(Usuario.class);
+//
+//			if (cont == 0) {
+//				Dao.resetConnection();
+//				model.Usuario usuario = fachada.searchUsuario(1);
+//				fachada.createOrUpdatePessoa(usuario);
+//			}
+//
+//		} catch (BusinessException e) {
+//
+//			e.printStackTrace();
+//		}
+//
+//		
 	}
-
+//
 	@Override
 	protected void limparCampos() {
 		TxLogin.setText("");
@@ -120,14 +122,14 @@ public class ControleTelaLog extends Controle {
 		
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-	
+//	public Usuario getUsuario() {
+//		return usuario;
+//	}
+//
+//	public void setUsuario(Usuario usuario) {
+//		this.usuario = usuario;
+//	}
+//	
 	
 
 	
