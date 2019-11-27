@@ -21,10 +21,13 @@ public class Disciplina extends Entidade {
 	private String cargaHoraria;
 	@Column()
 	private boolean status;
+	@Column(length = 10)
+	private String Codigo;
+	
+	
 	@ManyToOne()
 	@JoinColumn(name = "id_professor")
 	private Professor professor;
-	
 	
 	
 private static long serialVersionUID = 1L;
@@ -79,7 +82,16 @@ private static long serialVersionUID = 1L;
 		this.status = status;
 	}
 
+	
 
+
+	public String getCodigo() {
+		return Codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		Codigo = codigo;
+	}
 
 	public static void setSerialversionuid(long serialversionuid) {
 		serialVersionUID = serialversionuid;

@@ -13,13 +13,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Disciplina;
@@ -33,7 +31,33 @@ public class ControleCadastroDisciplina implements Initializable{
 	private Disciplina disciplina;
 	private Professor professor;
 
-	  @FXML
+
+    @FXML
+    private TableColumn<Disciplina, String> TabdisciplinaCod;
+	    @FXML
+	    private TableColumn<Disciplina, String> TabdisciplinaNome;
+
+	    @FXML
+	    private TableColumn<Disciplina, String> TabdisciplinaCarga;
+
+	    @FXML
+	    private TableColumn<Disciplina, String> TabdisciplinaSituacao;
+
+
+
+	    @FXML
+	    private TableView<Professor> TabelaprofessorDisciplina;
+
+	    @FXML
+	    private TableColumn<Professor, String> TabnomeDisciplina;
+
+	    @FXML
+	    private TableColumn<Professor, String> TabcpfDisciplina;
+	    
+
+	    
+
+	    @FXML
 	    private AnchorPane AnchoPane;
 
 	    @FXML
@@ -54,14 +78,7 @@ public class ControleCadastroDisciplina implements Initializable{
 	    @FXML
 	    private TableView<Disciplina> tabelaDisciplinas;
 
-	    @FXML
-	    private TableColumn<Disciplina, String> TabdisciplinaNome;
-
-	    @FXML
-	    private TableColumn<Disciplina, String> TabdisciplinaCarga;
-
-	    @FXML
-	    private TableColumn<Disciplina, String> TabdisciplinaSituacao;
+	
 
 	    @FXML
 	    private Button JBeditar;
@@ -81,14 +98,15 @@ public class ControleCadastroDisciplina implements Initializable{
 	    @FXML
 	    private TextField TXdisciplinaCargah;
 
-	    @FXML
-	    private TableView<Professor> TabelaprofessorDisciplina;
+	
 
 	    @FXML
-	    private TableColumn<Professor, String> TabnomeDisciplina;
+	    private Button BTvoltarDiciplina1;
+
+	    
 
 	    @FXML
-	    private TableColumn<Professor, String> TabcpfDisciplina;
+	    private TextField TXdisciplinaCod;
 
 	    @FXML
 	    private Tab TabNovoResponsavel;
@@ -108,28 +126,6 @@ public class ControleCadastroDisciplina implements Initializable{
 	    @FXML
 	    private Button BTvoltar;
 
-	    @FXML
-	    private Tab TabNovocadastro1;
-
-	    @FXML
-	    private TextField TXusuarioNome1;
-
-	    @FXML
-	    private Button BTcadastrarUsuario1;
-
-	    @FXML
-	    private RadioButton Radiomãe1;
-	    @FXML
-	    private Button BTvoltarDiciplina1;
-
-	    @FXML
-	    private ToggleGroup genero11;
-
-	    @FXML
-	    private RadioButton RadioPai1;
-
-	    @FXML
-	    private Button BToutroResponsavel1;
 
 	    @FXML
 	    void action(ActionEvent event) throws BusinessException {
@@ -154,7 +150,7 @@ public class ControleCadastroDisciplina implements Initializable{
 			}
 	    	
 	    	if(obj == JBbuscarCadastroDisciplina) {
-	    		
+	    	
 
 				if (TXbuscarFuncionario.getText().trim().isEmpty()) {
 					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "PREENCHA A BUSCA",
@@ -171,6 +167,7 @@ public class ControleCadastroDisciplina implements Initializable{
 						e.printStackTrace();
 					}
 				
+	    	}
 	    	}
 	    	if(obj == BTvoltarDiciplina1) {
 	    	   
@@ -192,8 +189,9 @@ public class ControleCadastroDisciplina implements Initializable{
 		    		Professor p = TabelaprofessorDisciplina.getSelectionModel().getSelectedItem();	    		
 		    		disciplina.setCargaHoraria(TXdisciplinaCargah.getText().trim());
 		    		disciplina.setNome(TXdisciplinaNome.getText().trim());	
-		    		disciplina.setStatus(true);
+		    		disciplina.setCodigo(TXdisciplinaCod.getText().trim());
 		    		disciplina.setProfessor(p);
+		    		disciplina.setStatus(true);
 		    		fachada.getInstance().createOrUpdateDisciplina(disciplina);
 		    		TabNovocadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 		    		
@@ -222,9 +220,9 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		
 	    	}
 	    	
-	    	}
+	    	
+	    
 	    }
-
 	    
 	    
 	    
@@ -237,7 +235,7 @@ public class ControleCadastroDisciplina implements Initializable{
 			TabdisciplinaCarga.setCellValueFactory(new PropertyValueFactory<>("cargaHoraria"));
 			TabdisciplinaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 			TabdisciplinaSituacao.setCellValueFactory(new PropertyValueFactory<>("status"));
-			
+			TabdisciplinaCod.setCellValueFactory(new PropertyValueFactory<>("codigo"));
 			try {
 
 				professorTabAdapter= fachada.getInstance().searchAllProfessor();

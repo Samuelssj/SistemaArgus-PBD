@@ -4,8 +4,11 @@ import java.math.BigInteger;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javax.transaction.Transactional.TxType;
 
 import EntidadeEnum.Estado;
 import EntidadeEnum.SiglasEstados;
@@ -462,6 +465,7 @@ public class ControleCadastro implements Initializable {
 	protected void init() {
 		// COMBOBOX TIPO DE USUARIO
 
+		
 		COMBOusuarioTipo.getItems().setAll(TipoUsuario.values());
 		COMBOusuarioTipo.getItems().setAll(TipoUsuario.values());
 

@@ -15,15 +15,15 @@ public class Curriculo extends Entidade {
 
 	
 
-	@Column(length = 60, nullable = false)
+	@Column(length = 60)
 	private String nome; //rua VARCHAR (50) NOT NULL,
-	@Column(length = 60, nullable = false)
+	@Column(length = 60)
 	private boolean tipoAno; //numero VARCHAR (50) NOT NULL,
-	@Column(length = 60,nullable = false)
+	@Column(length = 60)
 	private String AnoLetivo; //bairro VARCHAR (50) NOT NULL,
-	@Column(length = 60, nullable = false)
+	@Column(length = 60)
 	private String DiciplinasAlocadas; //cep VARCHAR (5
-	@Column(length = 60, nullable = false)
+	@Column(length = 60)
 	private boolean status;
 
 	

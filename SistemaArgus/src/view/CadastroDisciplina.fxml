@@ -88,6 +88,7 @@
                                             <columns>
                                               <TableColumn fx:id="TabdisciplinaNome" prefWidth="75.0" text="Nome" />
                                                 <TableColumn fx:id="TabdisciplinaCarga" prefWidth="75.0" text="Carga Horária" />
+                                                <TableColumn fx:id="TabdisciplinaCod" prefWidth="75.0" text="Código" />
                                                 <TableColumn fx:id="TabdisciplinaSituacao" prefWidth="75.0" text="Situação" />
                                             </columns>
                                              <columnResizePolicy>
@@ -227,6 +228,12 @@
                                                       <Font size="16.0" />
                                                    </font>
                                                 </Button>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                   <children>
+                                                      <Label fx:id="Código" layoutX="6.0" layoutY="6.0" text="Código" />
+                                                      <TextField fx:id="TXdisciplinaCod" layoutX="6.0" layoutY="22.0" />
+                                                   </children>
+                                                </AnchorPane>
                                              </children>
                                              <BorderPane.margin>
                                                 <Insets />
