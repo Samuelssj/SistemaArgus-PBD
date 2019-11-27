@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,7 +21,7 @@ public class Disciplina extends Entidade {
 	private String cargaHoraria;
 	@Column()
 	private boolean status;
-	@OneToOne
+	@ManyToOne()
 	@JoinColumn(name = "id_professor")
 	private Professor professor;
 	

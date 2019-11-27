@@ -247,8 +247,7 @@ public class ControleCadastro implements Initializable {
 		}
 		
 		if(obj.equals(BToutroResponsavel)) {
-//			TabNovocadastro.getTabPane().getSelectionModel().select(TabNovoResponsavel); tem que se ligar nos listiner/eventoskkk
-			//Aí ele vinha parar aki
+
 			TabPane.getSelectionModel().select(TabNovoResponsavel);
 		}
 		
@@ -334,6 +333,7 @@ public class ControleCadastro implements Initializable {
 			}
 			
 			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+			LimparCampos();
 		}
 		else if (COMBOusuarioTipo.getValue() == TipoUsuario.Administrador || COMBOusuarioTipo.getValue() == TipoUsuario.Direcao || 
 				COMBOusuarioTipo.getValue() == TipoUsuario.Secretaria)
@@ -372,6 +372,7 @@ public class ControleCadastro implements Initializable {
 				
 			}
 			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+			LimparCampos();
 		}
 		else if(COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
 			
@@ -412,6 +413,7 @@ public class ControleCadastro implements Initializable {
 				
 			}
 			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+			LimparCampos();
 		}
 		else if(COMBOusuarioTipo.getValue() == TipoUsuario.Pedagogo) {
 			pedagogo = new Pedagogo();
@@ -447,6 +449,7 @@ public class ControleCadastro implements Initializable {
 				
 			}
 			TabListaCadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+			LimparCampos();
 		}
 	
 
@@ -658,12 +661,31 @@ public class ControleCadastro implements Initializable {
 		 user = tabelaFuncionario.getSelectionModel().getSelectedItem();
 			
 
-		
-//		tabelaClientes.getSelectionModel().getSelectedItem();
-//		clienteTabAdapters = fachada.getAllAdapterCliente();
-//	tabelaClientes.getItems().setAll(clienteTabAdapters);
+		 
 	}
 	
+	
+	public void LimparCampos() {
+    	
+
+			TXusuarioNome.clear();
+			TXusuarioCidade.clear();
+			TXusuarioCEP.clear();
+			TXusuarioMaeNome.clear();
+			TXusuarioPaiNome.clear();
+			TXusuarioNumero.clear();
+			TXusuarioRua.clear();
+			TXusuarioBairro.clear();
+			TXresponsavelNome.clear();
+			TXresponsavelCPF.clear();
+			TXcpfUsuario.clear();
+			
+			COMBOestadoUsuario.getSelectionModel().clearAndSelect(0);
+		    COMBOusuarioNaturalidade.getSelectionModel().clearAndSelect(0);
+		    COMBOusuarioTipo.getSelectionModel().clearAndSelect(0);
+			TXusuarioData_nasc.setValue(null);
+    	
+    }
 	
 	public String functioCrip2(String senha){
 

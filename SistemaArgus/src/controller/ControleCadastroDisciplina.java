@@ -28,10 +28,11 @@ import model.Responsavel;
 
 public class ControleCadastroDisciplina implements Initializable{
 	private List<Professor> professorTabAdapter;
+	private List<Disciplina> disciplinaTabAdapter;
 	private Fachada fachada;
 	private Disciplina disciplina;
 	private Professor professor;
-	
+
 	  @FXML
 	    private AnchorPane AnchoPane;
 
@@ -153,6 +154,7 @@ public class ControleCadastroDisciplina implements Initializable{
 			}
 	    	
 	    	if(obj == JBbuscarCadastroDisciplina) {
+	    		
 
 				if (TXbuscarFuncionario.getText().trim().isEmpty()) {
 					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "PREENCHA A BUSCA",
@@ -161,14 +163,14 @@ public class ControleCadastroDisciplina implements Initializable{
 
 					try {
 
-						tabelaDisciplinas.getItems().setAll(fachada.searchAllDisciplina(((TXbuscarFuncionario.getText()))));
-
+						tabelaDisciplinas.getItems().setAll(fachada.searchAllDisciplina(TXbuscarFuncionario.getText()));
+						
 					} catch (Exception e) {
 						Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro Buscar Cliente",
 								"Erro ao buscar cliente", e.getMessage());
 						e.printStackTrace();
 					}
-				}
+				
 	    	}
 	    	if(obj == BTvoltarDiciplina1) {
 	    	   
@@ -190,8 +192,11 @@ public class ControleCadastroDisciplina implements Initializable{
 		    		Professor p = TabelaprofessorDisciplina.getSelectionModel().getSelectedItem();	    		
 		    		disciplina.setCargaHoraria(TXdisciplinaCargah.getText().trim());
 		    		disciplina.setNome(TXdisciplinaNome.getText().trim());	
+		    		disciplina.setStatus(true);
 		    		disciplina.setProfessor(p);
 		    		fachada.getInstance().createOrUpdateDisciplina(disciplina);
+		    		TabNovocadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+		    		
 		    		
 		    		Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
 							"A disciplina foi salva com sucesso!");
@@ -200,14 +205,24 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		} catch (Exception e) {
 					e.printStackTrace();
 					Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
-							"A disciplina não foi salva com sucesso!");
+							"A disciplina nï¿½o foi salva com sucesso!");
 					
 				}
 				
+	    		try {
+
+					professorTabAdapter= fachada.getInstance().searchAllProfessor();
+					TabelaprofessorDisciplina.getItems().setAll(professorTabAdapter);
+					disciplinaTabAdapter = fachada.getInstance().searchAllDisciplina();
+					tabelaDisciplinas.getItems().setAll(disciplinaTabAdapter);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 	    		
 	    	}
 	    	
-	    	
+	    	}
 	    }
 
 	    
@@ -219,11 +234,18 @@ public class ControleCadastroDisciplina implements Initializable{
 			TabnomeDisciplina.setCellValueFactory(new PropertyValueFactory<>("nome"));
 			TabcpfDisciplina.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 			
+			TabdisciplinaCarga.setCellValueFactory(new PropertyValueFactory<>("cargaHoraria"));
+			TabdisciplinaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+			TabdisciplinaSituacao.setCellValueFactory(new PropertyValueFactory<>("status"));
+			
 			try {
 
 				professorTabAdapter= fachada.getInstance().searchAllProfessor();
 				TabelaprofessorDisciplina.getItems().setAll(professorTabAdapter);
 				
+				
+				disciplinaTabAdapter = fachada.getInstance().searchAllDisciplina();
+				tabelaDisciplinas.getItems().setAll(disciplinaTabAdapter);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
