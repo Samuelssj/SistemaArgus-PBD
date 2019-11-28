@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="SistemaArgus/src"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/classmate-1.3.0.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/hibernate-commons-annotations-5.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/hibernate-core-5.2.10.Final.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/jandex-2.0.3.Final.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/javassist-3.20.0-GA.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/hibernate-release-5.2.10/required/jboss-transaction-api_1.2_spec-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/itextpdf-5.5.11.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/Lib/postgresql-9.4.1212.jar"/>
+	<classpathentry kind="lib" path="SistemaArgus/res/postgresql-9.4.1208.jre6.jar"/>
+	<classpathentry kind="output" path="SistemaArgus/bin"/>
+</classpath>

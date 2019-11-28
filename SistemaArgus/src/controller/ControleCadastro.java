@@ -304,9 +304,15 @@ public class ControleCadastro implements Initializable {
 			if(Radiomae.isSelected()) {
 				responsavel.setNome(TXusuarioMaeNome.getText().trim());
 				responsavel.setCpf(TXusuarioMaeCPF.getText().trim());
+				aluno.setCpf(TXusuarioMaeCPF.getText().trim());
+				
 			}if(RadioPai.isSelected()) {
 				responsavel.setNome(TXusuarioPaiNome.getText().trim());
 				responsavel.setCpf(TXusuarioPaiCPF.getText().trim());
+				aluno.setCpf(TXusuarioPaiCPF.getText().trim());
+				
+			}if(RadioProprioresp.isSelected()) {
+				aluno.setCpf(TXcpfUsuario.getText().trim());
 			}
 			aluno.setResponsavel(responsavel);
 			
@@ -317,9 +323,9 @@ public class ControleCadastro implements Initializable {
 			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
 			aluno.setPai(TXusuarioPaiNome.getText().trim());
 			aluno.setMãe(TXusuarioMaeNome.getText().trim());
-			aluno.setCpf(TXcpfUsuario.getText());
+			//aluno.setCpf(TXcpfUsuario.getText());
 			
-			System.out.println(aluno);
+			System.out.println("XXXXXXXXXXXX" + aluno);
 			try {
 				//fachada.createOrUpdateEndereco(endereco);
 				fachada.createOrUpdateAluno(aluno);
