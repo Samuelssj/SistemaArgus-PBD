@@ -30,6 +30,8 @@ public class Disciplina extends Entidade {
 	private Professor professor;
 	
 	
+	
+	
 private static long serialVersionUID = 1L;
 	
 	protected static final String sequence = "disciplina_sequence";

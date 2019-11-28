@@ -3,6 +3,7 @@ package model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -16,24 +17,29 @@ public class Curriculo extends Entidade {
 	
 
 	@Column(length = 60)
-	private String nome; //rua VARCHAR (50) NOT NULL,
+	private String nome; 
 	@Column(length = 60)
-	private boolean tipoAno; //numero VARCHAR (50) NOT NULL,
+	private boolean tipoAno; 
 	@Column(length = 60)
-	private String AnoLetivo; //bairro VARCHAR (50) NOT NULL,
+	private String AnoLetivo; 
 	@Column(length = 60)
-	private String DiciplinasAlocadas; //cep VARCHAR (5
+	private String DiciplinasAlocadas; 
 	@Column(length = 60)
 	private boolean status;
 
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "disciplina")
 	private Disciplina disciplina;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "parcela")
 	private Parcela parcela;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_aluno")
+	private Aluno aluno;
+	
 	
 	
 private static final long serialVersionUID = 1L;
