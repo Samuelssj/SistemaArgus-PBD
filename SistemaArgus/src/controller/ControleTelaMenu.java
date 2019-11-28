@@ -17,74 +17,82 @@ import javafx.scene.layout.Pane;
 
 public class ControleTelaMenu implements Initializable {
 
-	private Pane CadastroPessoa,AlunoDetalhe, CadastroDisciplina;
+	private Pane CadastroPessoa, AlunoDetalhe, CadastroDisciplina, Curriculo, CadastroNota, cadastroMatricula;
 
-	 @FXML
-	    private AnchorPane AnchoPane;
+	@FXML
+	private AnchorPane AnchoPane;
 
-	    @FXML
-	    private MenuItem menuCadastroAluno;
+	@FXML
+	private MenuItem menuCadastroAluno;
 
-	    @FXML
-	    private MenuItem menuCadastroDisciplina;
-	    
-	    @FXML
-	    private ImageView menuIcoCad;
+	@FXML
+	private MenuItem menuCadastroCurriculo;
 
-	    @FXML
-	    private Menu menuLogoff;
+	@FXML
+	private MenuItem menuCadastroDisciplina;
 
-	    @FXML
-	    private MenuItem menuAluno;
+	@FXML
+	private MenuItem menuCadastroMatricula;
 
-	    @FXML
-	    private ImageView menuIcoAluno;
+	@FXML
+	private ImageView menuIcoCad;
 
-	    @FXML
-	    private MenuItem menuResponsavel;
+	@FXML
+	private Menu menuLogoff;
 
-	    @FXML
-	    private ImageView menuIcoResponsavel;
+	@FXML
+	private MenuItem menuAluno;
 
-	    @FXML
-	    private MenuItem menuProfessor;
+	@FXML
+	private ImageView menuIcoAluno;
 
-	    @FXML
-	    private ImageView menuIcoProfessor;
+	@FXML
+	private MenuItem menuResponsavel;
 
-	    @FXML
-	    private MenuItem menuPedagogo;
+	@FXML
+	private ImageView menuIcoResponsavel;
 
-	    @FXML
-	    private ImageView menuIcoPedagogo;
+	@FXML
+	private MenuItem menuProfessor;
 
-	    @FXML
-	    private MenuItem menuHistorico;
+	@FXML
+	private ImageView menuIcoProfessor;
 
-	    @FXML
-	    private ImageView menuIcoHist;
+	@FXML
+	private MenuItem menuPedagogo;
 
-	    @FXML
-	    private MenuItem menuFinanceiro;
+	@FXML
+	private MenuItem menuCadastroNota;
 
-	    @FXML
-	    private ImageView menuIcoFinan;
+	@FXML
+	private ImageView menuIcoPedagogo;
 
-	    @FXML
-	    private Label itemMenuCargo;
+	@FXML
+	private MenuItem menuHistorico;
 
-	    @FXML
-	    private MenuItem menuSair;
+	@FXML
+	private ImageView menuIcoHist;
 
-	    @FXML
-	    private MenuItem menuSobre;
+	@FXML
+	private MenuItem menuFinanceiro;
 
-	    @FXML
-	    private MenuItem menuTrocarUser;
+	@FXML
+	private ImageView menuIcoFinan;
 
-	    @FXML
-	    private AnchorPane pane;
+	@FXML
+	private Label itemMenuCargo;
 
+	@FXML
+	private MenuItem menuSair;
+
+	@FXML
+	private MenuItem menuSobre;
+
+	@FXML
+	private MenuItem menuTrocarUser;
+
+	@FXML
+	private AnchorPane pane;
 
 	@FXML
 	void action(ActionEvent event) {
@@ -93,33 +101,49 @@ public class ControleTelaMenu implements Initializable {
 
 			atualizarTela("pessoa");
 //			itemMenuCargo.setText(logi.getUsuario().getNome());
-			
+
 		}
-		if(event.getSource() == menuAluno) {
+		if (event.getSource() == menuAluno) {
 			atualizarTela("AlunoDetalhe");
 		}
-		if(event.getSource() == menuCadastroDisciplina) {
+		if (event.getSource() == menuCadastroDisciplina) {
 			atualizarTela("disciplina");
 		}
-		if(event.getSource() == menuSair) {
+		if (event.getSource() == menuSair) {
 			System.exit(0);
 		}
-		if(event.getSource() == menuTrocarUser) {
+		if (event.getSource() == menuTrocarUser) {
 			Main.changeStage("log");
-			
+
 		}
 
+		if (event.getSource() == menuCadastroCurriculo) {
+			atualizarTela("curriculo");
+
+		}
+		if (event.getSource() == menuCadastroNota) {
+			atualizarTela("nota");
+
+		}
+		
+		if (event.getSource() == menuCadastroMatricula) {
+			atualizarTela("matricula");
+
+		}
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 //		itemMenuCargo.setText(logi.getUsuario().getNome());
-		
+
 		try {
 			CadastroPessoa = FXMLLoader.load(getClass().getClassLoader().getResource("view/Cadastro.fxml"));
 			AlunoDetalhe = FXMLLoader.load(getClass().getClassLoader().getResource("view/Aluno.fxml"));
-			CadastroDisciplina = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroDisciplina.fxml"));
-			
+			CadastroDisciplina = FXMLLoader
+					.load(getClass().getClassLoader().getResource("view/CadastroDisciplina.fxml"));
+			Curriculo = FXMLLoader.load(getClass().getClassLoader().getResource("view/Curriculo.fxml"));
+			CadastroNota = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroNota.fxml"));
+			cadastroMatricula  = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroMatricula.fxml"));
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -128,8 +152,7 @@ public class ControleTelaMenu implements Initializable {
 	}
 
 	public void atualizarTela(String tela) {
-		
-		
+
 		if (tela.equalsIgnoreCase("pessoa")) {
 			AnchorPane.setBottomAnchor(CadastroPessoa, 0.0);
 			AnchorPane.setLeftAnchor(CadastroPessoa, 0.0);
@@ -137,7 +160,7 @@ public class ControleTelaMenu implements Initializable {
 			AnchorPane.setTopAnchor(CadastroPessoa, 0.0);
 			pane.getChildren().setAll(CadastroPessoa);
 		}
-		
+
 		if (tela.equalsIgnoreCase("alunoDetalhe")) {
 			AnchorPane.setBottomAnchor(AlunoDetalhe, 0.0);
 			AnchorPane.setLeftAnchor(AlunoDetalhe, 0.0);
@@ -152,7 +175,29 @@ public class ControleTelaMenu implements Initializable {
 			AnchorPane.setTopAnchor(CadastroDisciplina, 0.0);
 			pane.getChildren().setAll(CadastroDisciplina);
 		}
+		if (tela.equalsIgnoreCase("curriculo")) {
+			AnchorPane.setBottomAnchor(Curriculo, 0.0);
+			AnchorPane.setLeftAnchor(Curriculo, 0.0);
+			AnchorPane.setRightAnchor(Curriculo, 0.0);
+			AnchorPane.setTopAnchor(Curriculo, 0.0);
+			pane.getChildren().setAll(Curriculo);
+		}
+
+		if (tela.equalsIgnoreCase("nota")) {
+			AnchorPane.setBottomAnchor(CadastroNota, 0.0);
+			AnchorPane.setLeftAnchor(CadastroNota, 0.0);
+			AnchorPane.setRightAnchor(CadastroNota, 0.0);
+			AnchorPane.setTopAnchor(CadastroNota, 0.0);
+			pane.getChildren().setAll(CadastroNota);
+		}
+		
+		if (tela.equalsIgnoreCase("matricula")) {
+			AnchorPane.setBottomAnchor(cadastroMatricula, 0.0);
+			AnchorPane.setLeftAnchor(cadastroMatricula, 0.0);
+			AnchorPane.setRightAnchor(cadastroMatricula, 0.0);
+			AnchorPane.setTopAnchor(cadastroMatricula, 0.0);
+			pane.getChildren().setAll(cadastroMatricula);
+		}
 	}
 
-	
 }

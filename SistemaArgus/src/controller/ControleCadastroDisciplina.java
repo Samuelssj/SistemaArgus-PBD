@@ -30,7 +30,7 @@ public class ControleCadastroDisciplina implements Initializable{
 	private Fachada fachada;
 	private Disciplina disciplina;
 	private Professor professor;
-
+	
 
     @FXML
     private TableColumn<Disciplina, String> TabdisciplinaCod;
