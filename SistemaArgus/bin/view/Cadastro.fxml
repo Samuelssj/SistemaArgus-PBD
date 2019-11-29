@@ -415,14 +415,6 @@
                                                       </TableView>
                                                    </children>
                                                 </AnchorPane>
-                                                <Label text="Selecione Disciplina" GridPane.columnIndex="2" GridPane.rowIndex="10">
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                                   <GridPane.margin>
-                                                      <Insets top="10.0" />
-                                                   </GridPane.margin>
-                                                </Label>
                                              </children>
                                              <BorderPane.margin>
                                                 <Insets />

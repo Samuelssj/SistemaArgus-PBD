@@ -68,26 +68,26 @@ public class ControleTelaLog extends Controle {
 //				// TODO: handle exception
 //				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION,"Fazer Login", "Erro", "Loguin ou senha errada");
 //				e2.printStackTrace();
-			}
+//			}
 //			
 //			
 //			
 		}
 //
-//		if (e.getSource() == JBresetarSenha) {
-//			Main.changeStage("resetar");
-//			limparCampos();
-//			
-//			
-//		}
-//
-//		if(e.getSource() ==JBsair) {
-////			if(Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sair", "sair do sistema ", "Deseja sair do Sistema?")) {
-////				System.exit(0);
-////			}
-//			System.exit(0);
-//		}
-//	}
+		if (e.getSource() == JBresetarSenha) {
+			Main.changeStage("resetar");
+			limparCampos();
+			
+			
+		}
+
+		if(e.getSource() ==JBsair) {
+//			if(Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sair", "sair do sistema ", "Deseja sair do Sistema?")) {
+//				System.exit(0);
+//			}
+			System.exit(0);
+		}
+	}
 //
 	@Override
 	public void update(Tela tela, Entidade entidade) {

@@ -17,7 +17,7 @@ import javafx.scene.layout.Pane;
 
 public class ControleTelaMenu implements Initializable {
 
-	private Pane CadastroPessoa, AlunoDetalhe, CadastroDisciplina, Curriculo, CadastroNota, cadastroMatricula;
+	private Pane CadastroPessoa, AlunoDetalhe, CadastroDisciplina, Curriculo, CadastroNota, cadastroMatricula, CadastroAcompanhamento;
 
 	@FXML
 	private AnchorPane AnchoPane;
@@ -27,6 +27,10 @@ public class ControleTelaMenu implements Initializable {
 
 	@FXML
 	private MenuItem menuCadastroCurriculo;
+
+    @FXML
+    private MenuItem menuCadastroAcompanhamento;
+
 
 	@FXML
 	private MenuItem menuCadastroDisciplina;
@@ -130,6 +134,10 @@ public class ControleTelaMenu implements Initializable {
 			atualizarTela("matricula");
 
 		}
+		if (event.getSource() ==menuCadastroAcompanhamento) {
+			atualizarTela("acompanhamento");
+
+		}
 	}
 
 	@Override
@@ -144,6 +152,9 @@ public class ControleTelaMenu implements Initializable {
 			Curriculo = FXMLLoader.load(getClass().getClassLoader().getResource("view/Curriculo.fxml"));
 			CadastroNota = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroNota.fxml"));
 			cadastroMatricula  = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroMatricula.fxml"));
+			CadastroAcompanhamento = FXMLLoader.load(getClass().getClassLoader().getResource("view/Acompanhamento.fxml"));
+			
+			
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -197,6 +208,13 @@ public class ControleTelaMenu implements Initializable {
 			AnchorPane.setRightAnchor(cadastroMatricula, 0.0);
 			AnchorPane.setTopAnchor(cadastroMatricula, 0.0);
 			pane.getChildren().setAll(cadastroMatricula);
+		}
+		if (tela.equalsIgnoreCase("acompanhamento")) {
+			AnchorPane.setBottomAnchor(CadastroAcompanhamento, 0.0);
+			AnchorPane.setLeftAnchor(CadastroAcompanhamento, 0.0);
+			AnchorPane.setRightAnchor(CadastroAcompanhamento, 0.0);
+			AnchorPane.setTopAnchor(CadastroAcompanhamento, 0.0);
+			pane.getChildren().setAll(CadastroAcompanhamento);
 		}
 	}
 

@@ -23,6 +23,7 @@
                         <MenuItem fx:id="menuCadastroCurriculo" mnemonicParsing="false" onAction="#action" text="Cadastro Curriculo" />
                         <MenuItem fx:id="menuCadastroNota" mnemonicParsing="false" onAction="#action" text="Cadastro  Notas" />
                         <MenuItem fx:id="menuCadastroMatricula" mnemonicParsing="false" onAction="#action" text="Cadastro Turma/Matricula" />
+                        <MenuItem fx:id="menuCadastroAcompanhamento" mnemonicParsing="false" onAction="#action" text="Cadastro Acompanhamento" />
                     </items>
                      <graphic>
                         <ImageView fx:id="menuIcoCad" fitHeight="68.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
