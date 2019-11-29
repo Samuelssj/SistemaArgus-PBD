@@ -18,8 +18,7 @@ public class Professor extends Usuario {
 
 	@Column(length = 50, nullable = false)
 	private String nome; // 
-	@Column(length = 11, nullable = false, unique = true)
-	private String cpf; // 
+	 // 
 
 
 	private static final long serialVersionUID = 1L;
@@ -34,13 +33,7 @@ public class Professor extends Usuario {
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 	
 	public static long getSerialversionuid() {
@@ -53,7 +46,7 @@ public class Professor extends Usuario {
 
 	@Override
 	public String toString() {
-		return "Professor [nome=" + nome + ", cpf=" + cpf + ", id_professor="  +getId() + "]";
+		return "Professor [nome=" + nome  + ", id_professor="  +getId() + "]";
 	}
 
 	

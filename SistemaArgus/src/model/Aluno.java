@@ -24,8 +24,7 @@ public class Aluno extends Usuario {
 	private String pai;
 	@Column(length = 60, nullable = false)
 	private String mãe; 
-	@Column(length = 60)
-	private String cpf; 
+
 	
 //	@Column(length = 60, nullable = true)
 //	private String responsavel; 
@@ -100,13 +99,6 @@ public class Aluno extends Usuario {
 		this.mãe = mãe;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 	public Curriculo getCurriculo() {
 		return curriculo;

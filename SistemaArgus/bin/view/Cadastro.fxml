@@ -78,6 +78,11 @@
                                                       <Insets left="60.0" />
                                                    </GridPane.margin>
                                                 </Button>
+                                                <Button fx:id="BTListarTodos" mnemonicParsing="false" onAction="#action" text="Listar Todos" visible="false" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="100.0" />
+                                                   </GridPane.margin>
+                                                </Button>
                                              </children>
                                              <BorderPane.margin>
                                                 <Insets right="5.0" />

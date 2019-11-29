@@ -122,6 +122,8 @@ public class ControleCadastroDisciplina implements Initializable{
 
 	    @FXML
 	    private DatePicker TXresponsavelDataNasc;
+	    @FXML
+	    private Button BTListarTodos;
 
 	    @FXML
 	    private Button BTvoltar;
@@ -135,17 +137,10 @@ public class ControleCadastroDisciplina implements Initializable{
 	    	
 	    	if(obj ==JBnovoCadastroDisciplina ) {
 				
-				
+				CarregarTabelas();
+				TabNovocadastro.setDisable(false);
 	    		TabListaCadastro.getTabPane().getSelectionModel().select(TabNovocadastro);
 	    		
-				try {
-
-					professorTabAdapter= Fachada.getInstance().searchAllProfessor();
-					TabelaprofessorDisciplina.getItems().setAll(professorTabAdapter);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 				
 			}
 	    	
@@ -159,8 +154,8 @@ public class ControleCadastroDisciplina implements Initializable{
 
 					try {
 
-						tabelaDisciplinas.getItems().setAll(fachada.searchAllDisciplina(TXbuscarFuncionario.getText()));
-						
+						tabelaDisciplinas.getItems().setAll(fachada.getInstance().searchAllDisciplina(TXbuscarFuncionario.getText()));
+						BTListarTodos.setVisible(true);
 					} catch (Exception e) {
 						Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro Buscar Cliente",
 								"Erro ao buscar cliente", e.getMessage());
@@ -168,19 +163,23 @@ public class ControleCadastroDisciplina implements Initializable{
 					}
 				
 	    	}
+				
+	    	}
+	    	if(obj == BTListarTodos) {
+	    		BTListarTodos.setVisible(false);
+	    		TXbuscarFuncionario.clear();
+	    		CarregarTabelas();
+	    		
 	    	}
 	    	if(obj == BTvoltarDiciplina1) {
 	    	   
+	    		CarregarTabelas();
+	    		
+	    		
 	    		TabNovocadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 	    		
 	    	}
-	    	if(obj == BTcadastrarComResponsavel) {
-	    		
-	    		Responsavel r = new Responsavel();
-	    		
 	    
-	    		
-	    	}
 	    	if(obj == BTcadastrarDisciplina) {
 	    		
 	    		try {
@@ -194,10 +193,10 @@ public class ControleCadastroDisciplina implements Initializable{
 		    		disciplina.setStatus(true);
 		    		fachada.getInstance().createOrUpdateDisciplina(disciplina);
 		    		TabNovocadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
-		    		
+		    		TabNovocadastro.setDisable(true);
 		    		
 		    		Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
-							"A disciplina foi salva com sucesso!");
+					 		"A disciplina foi salva com sucesso!");
 	    		
 	    		
 	    		} catch (Exception e) {
@@ -207,29 +206,18 @@ public class ControleCadastroDisciplina implements Initializable{
 					
 				}
 				
-	    		try {
-
-					professorTabAdapter= fachada.getInstance().searchAllProfessor();
-					TabelaprofessorDisciplina.getItems().setAll(professorTabAdapter);
-					disciplinaTabAdapter = fachada.getInstance().searchAllDisciplina();
-					tabelaDisciplinas.getItems().setAll(disciplinaTabAdapter);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+	    		CarregarTabelas();
 	    		
 	    	}
+	    	
 	    	
 	    	
 	    
 	    }
 	    
-	    
-	    
-		@Override
-		public void initialize(URL location, ResourceBundle resources) {
-			// TODO Auto-generated method stub
-			TabnomeDisciplina.setCellValueFactory(new PropertyValueFactory<>("nome"));
+	    public void CarregarTabelas() {
+	    	
+	    	TabnomeDisciplina.setCellValueFactory(new PropertyValueFactory<>("nome"));
 			TabcpfDisciplina.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 			
 			TabdisciplinaCarga.setCellValueFactory(new PropertyValueFactory<>("cargaHoraria"));
@@ -248,7 +236,14 @@ public class ControleCadastroDisciplina implements Initializable{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+	    	
+	    }
+	    
+		@Override
+		public void initialize(URL location, ResourceBundle resources) {
+			// TODO Auto-generated method stub
 			
+			CarregarTabelas();
 			
 		}
 

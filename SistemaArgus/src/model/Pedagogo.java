@@ -14,8 +14,7 @@ public class Pedagogo extends Usuario{
 
 	@Column(length = 50, nullable = false)
 	private String nome; // nome VARCHAR (50) NOT NULL,
-	@Column(length = 11, nullable = false)
-	private String cpf; // codigo VARCHAR (50) NOT NULL,
+	
 	
 	
 	
@@ -31,13 +30,6 @@ private static final long serialVersionUID = 1L;
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -49,7 +41,7 @@ private static final long serialVersionUID = 1L;
 
 	@Override
 	public String toString() {
-		return "Pedagogo [nome=" + nome + ", cpf=" + cpf + "]";
+		return "Pedagogo [nome=" + nome + "]";
 	}
 
 	

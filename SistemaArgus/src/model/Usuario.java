@@ -46,6 +46,8 @@ public class  Usuario extends Entidade {
 	private String senha;
 	@Column(length = 30 )
 	private Boolean situacao;
+	@Column(length = 11, nullable = true, unique = true)
+	private String cpf;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco")
@@ -136,6 +138,15 @@ public class  Usuario extends Entidade {
 
 	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
+	}
+	
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	@Override
