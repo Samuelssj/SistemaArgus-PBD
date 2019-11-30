@@ -26,7 +26,7 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 				
-    //samuel ssj01
+    //samuel ssj
 	launch(args);
 
 	}
