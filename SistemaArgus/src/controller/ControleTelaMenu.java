@@ -18,7 +18,7 @@ import javafx.scene.layout.Pane;
 public class ControleTelaMenu implements Initializable {
 
 	private Pane CadastroPessoa, AlunoDetalhe, CadastroDisciplina, Curriculo, CadastroNota, cadastroMatricula, CadastroAcompanhamento;
-
+   
 	@FXML
 	private AnchorPane AnchoPane;
 
@@ -112,6 +112,7 @@ public class ControleTelaMenu implements Initializable {
 		}
 		if (event.getSource() == menuCadastroDisciplina) {
 			atualizarTela("disciplina");
+			
 		}
 		if (event.getSource() == menuSair) {
 			System.exit(0);
@@ -147,8 +148,7 @@ public class ControleTelaMenu implements Initializable {
 		try {
 			CadastroPessoa = FXMLLoader.load(getClass().getClassLoader().getResource("view/Cadastro.fxml"));
 			AlunoDetalhe = FXMLLoader.load(getClass().getClassLoader().getResource("view/Aluno.fxml"));
-			CadastroDisciplina = FXMLLoader
-					.load(getClass().getClassLoader().getResource("view/CadastroDisciplina.fxml"));
+			CadastroDisciplina = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroDisciplina.fxml"));
 			Curriculo = FXMLLoader.load(getClass().getClassLoader().getResource("view/Curriculo.fxml"));
 			CadastroNota = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroNota.fxml"));
 			cadastroMatricula  = FXMLLoader.load(getClass().getClassLoader().getResource("view/CadastroMatricula.fxml"));

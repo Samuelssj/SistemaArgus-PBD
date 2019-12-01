@@ -1,10 +1,14 @@
 package controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import EntidadeEnum.Estado;
 import EntidadeEnum.TipoAnoLetivo;
+import exception.BusinessException;
+import exception.Menssagem;
+import fachada.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,11 +20,16 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Curriculo;
 import model.Disciplina;
 
 public class ControleCurriculo implements Initializable {
+private List<Disciplina> disciplinas;
+private List<Curriculo> curriculos;
+private Fachada fachada;
 
 
 
@@ -39,6 +48,9 @@ public class ControleCurriculo implements Initializable {
     @FXML
     private TextField TXBuscarDisciplina;
 
+    @FXML
+    private Button BTListar;
+    
     @FXML
     private ComboBox<TipoAnoLetivo> ComboNome;
 
@@ -78,8 +90,78 @@ public class ControleCurriculo implements Initializable {
     	Object obj = event.getSource();
     	
     	if(obj == BTcadastrarCurriculo) {
-    		System.out.println("teste");
+    		
+    		Curriculo c = new Curriculo();
+    		
+    		c.setCodigo(TXcodigo.getText().trim());
+    		c.setNome((ComboNome.getSelectionModel().getSelectedItem().toString()));
+    		
+    		try {
+				fachada.getInstance().createOrUpdateCurriculo(c);
+				CarregarTabelas();
+				TXcodigo.clear();
+				ComboNome.getSelectionModel().clearSelection();
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+						"O curriculo foi salvo com sucesso!");
+			} catch (Exception e) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Salvo",
+						"O curriculo não foi salvo!");
+			}
+    		
+    		
+    		
+    		
     	}
+    	if(obj == BTBuscar) {
+    		
+    		if (TXBuscarDisciplina.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "PREENCHA A BUSCA",
+						"Preencha a busca!");
+
+			} else {
+				try {
+					tabelaDisciplina.getItems().setAll(fachada.getInstance().searchAllDisciplina((TXBuscarDisciplina.getText())));
+					BTListar.setVisible(true);
+				} catch (Exception e) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro Buscar Cliente",
+							"Erro ao buscar cliente", e.getMessage());
+					e.printStackTrace();
+				}
+			}
+    		
+    	}
+    	if(obj == BTListar) {
+    		CarregarTabelas();
+    		TXBuscarDisciplina.clear();
+    		BTListar.setVisible(false);
+    	}
+    	
+    	
+    	if(obj == BTadcionar) {
+    		
+    		Curriculo curriculo = new Curriculo();
+    		Disciplina disciplina = new Disciplina();
+    		
+    		
+    		curriculo = tabelaCurriculo.getSelectionModel().getSelectedItem();
+    		disciplina = tabelaDisciplina.getSelectionModel().getSelectedItem();
+    		
+    		disciplina.setCurriculo(curriculo);
+    		
+    		try {
+				fachada.getInstance().createOrUpdateDisciplina(disciplina);
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Adicionado com sucesso", "",
+						"A Disciplina foi adicionada com sucesso!");
+			} catch (BusinessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
+    		
+    		
+    		
+    	}
+    	
     	
     }
 
@@ -116,10 +198,39 @@ public class ControleCurriculo implements Initializable {
     
     
     
+    
+    public void CarregarTabelas() {
+    	
+    	TabDisciplonanome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		TabDisciplonaCarga.setCellValueFactory(new PropertyValueFactory<>("cargaHoraria"));
+		TabDisciplonaCodigo.setCellValueFactory(new PropertyValueFactory<>("Codigo"));
+		
+		
+		TabCurriculoCod.setCellValueFactory(new PropertyValueFactory<>("Codigo"));
+		TabCurriculoTipo.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		
+		try {
+
+			
+			disciplinas = fachada.getInstance().searchAllDisciplina();
+			tabelaDisciplina.getItems().setAll(disciplinas);
+			
+			curriculos = fachada.getInstance().searchAllCurriculo();
+			tabelaCurriculo.getItems().setAll(curriculos);
+			
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+    	
+    }
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		init();
-		
+		CarregarTabelas();
 	}
 }

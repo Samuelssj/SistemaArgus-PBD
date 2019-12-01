@@ -121,7 +121,7 @@ public class ControleNota implements Initializable {
 	    		} catch (Exception e) {
 					e.printStackTrace();
 					Menssagem.getInstancia().exibirMensagem(AlertType.ERROR, "Erro ao salvar", "Erro",
-							"A nota não foi salva com sucesso!");
+							"A nota nï¿½o foi salva com sucesso!");
 					
 				}
 	    		
@@ -129,9 +129,9 @@ public class ControleNota implements Initializable {
 	    	}
 				
 	    }
-
-		@Override
-		public void initialize(URL location, ResourceBundle resources) {
+	    
+	   public void  CarregarTabelas(){
+		   
 			TabAlunoNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 			TabAlunoCPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 			
@@ -149,6 +149,12 @@ public class ControleNota implements Initializable {
 			} catch (BusinessException e) {
 				e.printStackTrace();
 			}
+	    }
+
+		@Override
+		public void initialize(URL location, ResourceBundle resources) {
+		
+			CarregarTabelas();
 			
 		}
 

@@ -728,9 +728,9 @@ public class ControleCadastro implements Initializable {
 		TXusuarioLogin.clear();
 		TXusuarioPaiCPF.clear();
 		TXusuarioMaeCPF.clear();
-		COMBOestadoUsuario.getSelectionModel().clearAndSelect(0);
-		COMBOusuarioNaturalidade.getSelectionModel().clearAndSelect(0);
-		COMBOusuarioTipo.getSelectionModel().clearAndSelect(0);
+		COMBOestadoUsuario.getSelectionModel().clearSelection();
+		COMBOusuarioNaturalidade.getSelectionModel().clearSelection();
+		COMBOusuarioTipo.getSelectionModel().clearSelection();
 		TXusuarioData_nasc.setValue(null);
 
 	}
