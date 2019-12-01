@@ -42,6 +42,9 @@ public class ControleMatricula implements Initializable{
     private Tab TabNota;
 
     @FXML
+    private Button BTMostrarCurriculos;
+    
+    @FXML
     private TextField TXBuscarCurriculo;
 
     @FXML
@@ -49,15 +52,18 @@ public class ControleMatricula implements Initializable{
 
     @FXML
     private TableColumn<Curriculo, String> TabCurriculoCod;
+    
+    @FXML
+    private Button BTSalvar1;
+
+    @FXML
+    private Button BTproximo;
 
     @FXML
     private TableColumn<Curriculo, String> TabCurriculoNome;
 
     @FXML
-    private Button BTSalvar;
-
-    @FXML
-    private ComboBox<?> ComboAnoLetivo;
+    private Button BTSalvar2;
 
     @FXML
     private Tab TabNota1;
@@ -92,6 +98,20 @@ public class ControleMatricula implements Initializable{
     @FXML
     void action(ActionEvent event) {
 
+    	Object obj = event.getSource();
+    	
+    	if(obj == BTMostrarCurriculos) {
+    		
+    		CarregarTabelas();
+    	}
+    	
+    	if(obj == BTSalvar1) {
+    		
+    		
+    	}
+    	
+    	
+    	
     }
 
 	

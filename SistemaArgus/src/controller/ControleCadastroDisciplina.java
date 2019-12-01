@@ -207,6 +207,7 @@ public class ControleCadastroDisciplina implements Initializable{
 				}
 				
 	    		CarregarTabelas();
+	    		LimparCampos();
 	    		
 	    	}
 	    	
@@ -214,6 +215,16 @@ public class ControleCadastroDisciplina implements Initializable{
 	    	
 	    
 	    }
+	    
+	    public void LimparCampos() {
+	    	
+	    	TXdisciplinaNome.clear();
+	    	TXdisciplinaCod.clear();
+	    	TXdisciplinaNome.clear();
+	    	TXdisciplinaCargah.clear();
+	    	
+	    }
+	    
 	    
 	    public void CarregarTabelas() {
 	    	

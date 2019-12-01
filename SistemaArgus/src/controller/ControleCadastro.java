@@ -385,7 +385,7 @@ public class ControleCadastro implements Initializable {
 			if (Radiomae.isSelected()) {
 				responsavel.setNome(TXusuarioMaeNome.getText().trim());
 				responsavel.setCpf(TXusuarioMaeCPF.getText().trim());
-//				aluno.setCpf(TXusuarioMaeCPF.getText().trim());
+				aluno.setCpf("XXX.XXX.XXX-XX");
 
 			}
 			if (RadioPai.isSelected()) {
@@ -651,9 +651,7 @@ public class ControleCadastro implements Initializable {
 			TXusuarioSenha.setDisable(false);
 			TXusuarioSenhaConfirmar.setDisable(false);
 			RadioProprioresp.setSelected(true);
-			if (COMBOusuarioTipo.getValue() == TipoUsuario.Professor) {
-				tabelaDisciplinaProfessor.setVisible(true);
-			}
+			
 
 		} else {
 			TXusuarioMaeNome.setDisable(false);
@@ -664,7 +662,6 @@ public class ControleCadastro implements Initializable {
 			TXusuarioLogin.setDisable(true);
 			TXusuarioSenha.setDisable(true);
 			TXusuarioSenhaConfirmar.setDisable(true);
-			tabelaDisciplinaProfessor.setVisible(false);
 			Radiomae.setDisable(false);
 			RadioPai.setDisable(false);
 			TXcpfUsuario.setDisable(true);

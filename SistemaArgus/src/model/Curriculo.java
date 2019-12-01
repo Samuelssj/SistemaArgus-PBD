@@ -17,7 +17,7 @@ public class Curriculo extends Entidade {
 	@Column(length = 60)
 	private String nome;
 	@Column(length = 60)
-	private boolean tipoAno;
+	private String tipoAno;
 	@Column(length = 60)
 	private String AnoLetivo;
 	@Column(length = 60)
@@ -79,13 +79,19 @@ public class Curriculo extends Entidade {
 		this.nome = nome;
 	}
 
-	public boolean isTipoAno() {
+
+
+	public String getTipoAno() {
 		return tipoAno;
 	}
 
-	public void setTipoAno(boolean tipoAno) {
+
+
+	public void setTipoAno(String tipoAno) {
 		this.tipoAno = tipoAno;
 	}
+
+
 
 	public String getAnoLetivo() {
 		return AnoLetivo;

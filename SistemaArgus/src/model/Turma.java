@@ -3,6 +3,7 @@ package model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -37,10 +38,32 @@ private static final long serialVersionUID = 1L;
 	@JoinColumn(name = "disciplina")
 	private Disciplina disciplina;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_curriculo")
+	private Curriculo curriculo;
+	
 	@Override
 	public String toString() {
 		return "Turma [situacao=" + situacao + ", vagas=" + vagas + ", nome=" + nome + ", aluno=" + aluno
 				+ ", disciplina=" + disciplina + "]";
+	}
+
+
+
+
+
+
+	public Curriculo getCurriculo() {
+		return curriculo;
+	}
+
+
+
+
+
+
+	public void setCurriculo(Curriculo curriculo) {
+		this.curriculo = curriculo;
 	}
 
 

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import EntidadeEnum.Estado;
 import EntidadeEnum.TipoAnoLetivo;
+import EntidadeEnum.TipoCurriculo;
 import exception.BusinessException;
 import exception.Menssagem;
 import fachada.Fachada;
@@ -52,7 +53,7 @@ private Fachada fachada;
     private Button BTListar;
     
     @FXML
-    private ComboBox<TipoAnoLetivo> ComboNome;
+    private ComboBox<TipoCurriculo> ComboNome;
 
     @FXML
     private TableView<Disciplina> tabelaDisciplina;
@@ -75,14 +76,26 @@ private Fachada fachada;
     @FXML
     private TableColumn<Curriculo, String> TabCurriculoTipo;
 
+   
     @FXML
     private Button BTBuscar;
 
     @FXML
     private Button BTadcionar;
-    
+
     @FXML
     private Button BTcadastrarCurriculo;
+
+ 
+    @FXML
+    private ComboBox<TipoAnoLetivo> ComboTipoAno;
+
+    @FXML
+    private Button BTmostrarDisciplinas;
+
+    @FXML
+    private TextField TXAnoLetivo;
+
 
     @FXML
     void action(ActionEvent event) {
@@ -95,6 +108,8 @@ private Fachada fachada;
     		
     		c.setCodigo(TXcodigo.getText().trim());
     		c.setNome((ComboNome.getSelectionModel().getSelectedItem().toString()));
+    		c.setAnoLetivo(TXAnoLetivo.getText().trim());
+    		c.setTipoAno((ComboTipoAno.getSelectionModel().getSelectedItem().toString()));
     		
     		try {
 				fachada.getInstance().createOrUpdateCurriculo(c);
@@ -111,6 +126,9 @@ private Fachada fachada;
     		
     		
     		
+    	}
+    	if(obj == BTmostrarDisciplinas) {
+    		CarregarTabelas();
     	}
     	if(obj == BTBuscar) {
     		
@@ -133,6 +151,7 @@ private Fachada fachada;
     	if(obj == BTListar) {
     		CarregarTabelas();
     		TXBuscarDisciplina.clear();
+    		TXAnoLetivo.clear();
     		BTListar.setVisible(false);
     	}
     	
@@ -168,26 +187,52 @@ private Fachada fachada;
     
     public void init() {
     	
-    	ComboNome.getItems().setAll(TipoAnoLetivo.values());
+    	ComboNome.getItems().setAll(TipoCurriculo.values());
 
-		ComboNome.setButtonCell(new ListCell<TipoAnoLetivo>() {
+		ComboNome.setButtonCell(new ListCell<TipoCurriculo>() {
 			@Override
-			protected void updateItem(TipoAnoLetivo item, boolean empty) {
+			protected void updateItem(TipoCurriculo item, boolean empty) {
 				super.updateItem(item, empty);
 				if (empty || item == null) {
-					setText("Naturalidade");
+					setText("Nome Curiculo");
 				} else {
 					setText(item.toString());
 				}
 			}
 		});
 
-		ComboNome.setButtonCell(new ListCell<TipoAnoLetivo>() {
+		ComboNome.setButtonCell(new ListCell<TipoCurriculo>() {
+			@Override
+			protected void updateItem(TipoCurriculo item, boolean empty) {
+				super.updateItem(item, empty);
+				if (empty || item == null) {
+					setText("Nome Curiculo");
+				} else {
+					setText(item.toString());
+				}
+			}
+		});
+		
+		ComboTipoAno.getItems().setAll(TipoAnoLetivo.values());
+
+		ComboTipoAno.setButtonCell(new ListCell<TipoAnoLetivo>() {
 			@Override
 			protected void updateItem(TipoAnoLetivo item, boolean empty) {
 				super.updateItem(item, empty);
 				if (empty || item == null) {
-					setText("Naturalidade");
+					setText("Ano Letivo");
+				} else {
+					setText(item.toString());
+				}
+			}
+		});
+
+		ComboTipoAno.setButtonCell(new ListCell<TipoAnoLetivo>() {
+			@Override
+			protected void updateItem(TipoAnoLetivo item, boolean empty) {
+				super.updateItem(item, empty);
+				if (empty || item == null) {
+					setText("Ano Letivo");
 				} else {
 					setText(item.toString());
 				}
