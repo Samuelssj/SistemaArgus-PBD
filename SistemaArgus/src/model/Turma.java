@@ -19,7 +19,7 @@ public class Turma extends Entidade {
 	@Column(length = 60, nullable = false)
 	private boolean situacao; //numero VARCHAR (50) NOT NULL,
 	@Column(length = 60,nullable = false)
-	private String vagas; //bairro VARCHAR (50) NOT NULL,
+	private int vagas; //bairro VARCHAR (50) NOT NULL,
 	@Column(length = 60, nullable = false)
 	private String nome; //cep VARCHAR (50) NOT NULL,
 	
@@ -53,19 +53,6 @@ private static final long serialVersionUID = 1L;
 
 
 
-	public Curriculo getCurriculo() {
-		return curriculo;
-	}
-
-
-
-
-
-
-	public void setCurriculo(Curriculo curriculo) {
-		this.curriculo = curriculo;
-	}
-
 
 
 
@@ -89,7 +76,13 @@ private static final long serialVersionUID = 1L;
 
 
 
-	public String getVagas() {
+
+
+
+
+
+
+	public int getVagas() {
 		return vagas;
 	}
 
@@ -98,9 +91,27 @@ private static final long serialVersionUID = 1L;
 
 
 
-	public void setVagas(String vagas) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setVagas(int vagas) {
 		this.vagas = vagas;
 	}
+
+
+
+
+
 
 
 
@@ -164,6 +175,34 @@ private static final long serialVersionUID = 1L;
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
+
+
+
+
+	public Curriculo getCurriculo() {
+		return curriculo;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	public void setCurriculo(Curriculo curriculo) {
+		this.curriculo = curriculo;
+	}
+
+
+
+
+
 
 
 

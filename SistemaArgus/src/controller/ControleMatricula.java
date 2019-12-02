@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import exception.BusinessException;
+import exception.Menssagem;
 import fachada.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Aluno;
@@ -28,13 +30,16 @@ public class ControleMatricula implements Initializable{
 	private List<Aluno> alunos;
 	private List<Turma> turmas;
 	private Fachada fachada;
-	
+	private Turma turma = new Turma();
 	
 	
 
     @FXML
     private AnchorPane AnchoPane;
 
+    @FXML
+    private TextField TXVagas; 
+    
     @FXML
     private TabPane TabPane;
 
@@ -107,10 +112,61 @@ public class ControleMatricula implements Initializable{
     	
     	if(obj == BTSalvar1) {
     		
+    		Curriculo c = new Curriculo();
     		
+    		c = tabelaCurriculo.getSelectionModel().getSelectedItem();
+    	
+    		turma.setNome(TXBuscarCurriculo.getText().trim());
+    		turma.setVagas(Integer.parseInt(TXVagas.getText().trim()));
+    		turma.setSituacao(true);
+    		
+    		turma.setCurriculo(c);
+    		
+    		try {
+    			fachada.getInstance().createOrUpdateTurma(turma);
+    			LimparCampos();
+    			CarregarTabelas();
+
+	    		Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+				 		"A Turma foi salva com sucesso!");
+    		
+			} catch (Exception e) {
+				// TODO: handle exception
+
+	    		Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+				 		"A turma não foi salva com sucesso!");
+    		
+			}
     	}
     	
-    	
+    	if(obj == BTSalvar2) {
+    		
+    		Aluno aluno = new Aluno();
+    		
+    		aluno = tabelaAluno.getSelectionModel().getSelectedItem();
+    		turma = tabelaTurma.getSelectionModel().getSelectedItem();
+    		
+    		turma.setAluno(aluno);
+    		turma.setVagas(turma.getVagas() -1);
+    		validarturma();
+    		try {
+    			
+    			fachada.getInstance().createOrUpdateTurma(turma);
+    			LimparCampos();
+    			CarregarTabelas();
+
+	    		Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+				 		"A Turma foi salva com sucesso!");
+    		
+			} catch (Exception e) {
+				// TODO: handle exception
+
+	    		Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+				 		"A turma não foi salva com sucesso!");
+    		
+			}
+    		
+    	}
     	
     }
 
@@ -119,10 +175,23 @@ public class ControleMatricula implements Initializable{
 	
 	
 	
+	public void validarturma() {
+		
+		if(turma.getVagas() <= 0 ) {
+			turma.setSituacao(false);
+		}else {
+			turma.setSituacao(true);
+		}
+		
+			
+	}
 	
 	
-	
-	
+	public void LimparCampos() {
+		
+		TXBuscarCurriculo.clear();
+		TXVagas.clear();
+	}
 	
 	
 	

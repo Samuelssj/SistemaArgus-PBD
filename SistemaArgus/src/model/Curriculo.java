@@ -26,8 +26,8 @@ public class Curriculo extends Entidade {
 	private boolean status;
 
 //	@ManyToOne
-//	@JoinColumn(name = "disciplina")
-//	private Disciplina disciplina;
+//	@JoinColumn(name = "id_turma")
+//	private Turma turma;
 
 	@ManyToOne
 	@JoinColumn(name = "parcela")
@@ -50,6 +50,10 @@ public class Curriculo extends Entidade {
 				+ ", status=" + status + ", disciplina=" +", parcela=" + parcela + ", aluno=" + aluno
 				+ "]";
 	}
+
+
+
+
 
 
 
