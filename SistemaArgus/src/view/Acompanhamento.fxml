@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -17,6 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox prefHeight="517.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControleAcompanhamento">
    <children>
@@ -24,14 +26,14 @@
          <children>
             <TabPane fx:id="TabPane" layoutX="8.0" layoutY="7.0" prefHeight="517.0" prefWidth="878.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <tabs>
-                  <Tab fx:id="Tabcurriculo" text="Curriculo">
+                  <Tab fx:id="TabAcompanhamento" text="Cadastrar Acompanhamento">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <VBox prefHeight="425.0" prefWidth="878.0" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <BorderPane prefHeight="439.0" prefWidth="878.0">
-                                       <bottom>
+                                       <top>
                                           <GridPane alignment="TOP_CENTER" prefHeight="432.0" prefWidth="878.0" BorderPane.alignment="CENTER">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="342.0" />
@@ -39,6 +41,7 @@
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="279.0" />
                                              </columnConstraints>
                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -71,23 +74,29 @@
                                                       <Insets bottom="20.0" left="10.0" right="-85.0" top="60.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Label text="Data" GridPane.rowIndex="2">
+                                                <Label text="Data" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="-130.0" />
+                                                   </GridPane.margin>
                                                 </Label>
-                                                <Label GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                <TextField fx:id="TXBuscarAluno" promptText="Busque a Disciplina" GridPane.rowIndex="6">
+                                                <Label GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                <TextField fx:id="TXBuscarAluno" promptText="Busque a Disciplina" GridPane.rowIndex="7">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <Label text="Nome" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Label text="Tipo de Relatório" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="-130.0" />
+                                                   </GridPane.margin>
                                                 </Label>
-                                                <Label prefHeight="35.0" prefWidth="354.0" text="Selecione o aluno" textFill="#5404e8" GridPane.rowIndex="5">
+                                                <Label prefHeight="35.0" prefWidth="354.0" text="Selecione o usuário" textFill="#5404e8" GridPane.rowIndex="6">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -95,13 +104,16 @@
                                                       <Insets />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <ComboBox fx:id="ComboNome" onAction="#action" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="12">
+                                                <ComboBox fx:id="ComboTipo" onAction="#action" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="-120.0" />
+                                                   </GridPane.margin></ComboBox>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="13">
                                                    <children>
-                                                      <TableView fx:id="tabelaAluno" layoutX="7.0" layoutY="-86.0" prefHeight="200.0" prefWidth="322.0">
+                                                      <TableView fx:id="tabelaUsuario" layoutX="7.0" layoutY="-86.0" prefHeight="200.0" prefWidth="322.0">
                                                         <columns>
-                                                          <TableColumn fx:id="TabAlunoNome" prefWidth="75.0" text="Nome" />
-                                                          <TableColumn fx:id="TabAlunocpf" prefWidth="75.0" text="CPF" />
+                                                          <TableColumn fx:id="TabUsuarioNome" prefWidth="75.0" text="Nome" />
+                                                          <TableColumn fx:id="TabUsuariocpf" prefWidth="75.0" text="CPF" />
                                                         </columns>
                                                          <columnResizePolicy>
                                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -109,9 +121,9 @@
                                                       </TableView>
                                                    </children>
                                                 </AnchorPane>
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="12">
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="13">
                                                    <children>
-                                                      <TableView fx:id="tabelaPedagogo" layoutX="-46.0" layoutY="-86.0" prefHeight="200.0" prefWidth="319.0">
+                                                      <TableView fx:id="tabelaPedagogo" layoutX="-167.0" layoutY="-86.0" prefHeight="200.0" prefWidth="319.0">
                                                         <columns>
                                                           <TableColumn fx:id="TabPedagogoNome" prefWidth="75.0" text="Nome" />
                                                           <TableColumn fx:id="TabPedagogocpf" prefWidth="75.0" text="CPF" />
@@ -122,44 +134,106 @@
                                                       </TableView>
                                                    </children>
                                                 </AnchorPane>
-                                                <Button fx:id="BTBuscar" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="74.0" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                <Button fx:id="BTBuscar" mnemonicParsing="false" onAction="#action" prefHeight="30.0" prefWidth="74.0" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <Label text="Selecione o Pedagogo" textFill="#5404e8" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                                <Label text="Selecione o Pedagogo" textFill="#5404e8" GridPane.columnIndex="2" GridPane.rowIndex="7">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                    <GridPane.margin>
-                                                      <Insets left="-45.0" />
+                                                      <Insets left="-90.0" />
                                                    </GridPane.margin></Label>
-                                                <Button fx:id="BTadcionar" mnemonicParsing="false" onAction="#action" prefHeight="23.0" prefWidth="134.0" text="Adicionar" GridPane.columnIndex="2" GridPane.rowIndex="13">
+                                                <Button fx:id="BTcriaracompanhamento" mnemonicParsing="false" onAction="#action" prefHeight="37.0" prefWidth="200.0" text="Criar Acompanhamento" GridPane.columnIndex="2" GridPane.rowIndex="14">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
                                                    <GridPane.margin>
-                                                      <Insets left="-50.0" top="50.0" />
+                                                      <Insets left="-110.0" top="50.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button fx:id="BTcadastrarCurriculo" mnemonicParsing="false" onAction="#action" text="Cadastrar Curriculo" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                <DatePicker fx:id="TXdata" onAction="#action" prefHeight="25.0" prefWidth="151.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <GridPane.margin>
-                                                      <Insets left="-100.0" />
+                                                      <Insets left="-120.0" />
+                                                   </GridPane.margin></DatePicker>
+                                                <TextField fx:id="TXsessão" prefHeight="25.0" prefWidth="102.0" GridPane.rowIndex="5">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="160.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <Label text="Sessão" GridPane.rowIndex="4" />
+                                                <Button fx:id="BTListartodos" mnemonicParsing="false" onAction="#action" text="Listar Todos" GridPane.rowIndex="14">
+                                                   <GridPane.margin>
+                                                      <Insets left="140.0" top="40.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <DatePicker fx:id="TXdata" onAction="#action" GridPane.rowIndex="3" />
+                                                <Button fx:id="BTproximo" mnemonicParsing="false" onAction="#action" prefHeight="39.0" prefWidth="110.0" text="Próximo" GridPane.columnIndex="2" GridPane.rowIndex="14">
+                                                   <GridPane.margin>
+                                                      <Insets left="150.0" top="130.0" />
+                                                   </GridPane.margin>
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <Label text="Nome" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <TextField fx:id="TXnome" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="160.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
                                              </children>
                                              <BorderPane.margin>
                                                 <Insets />
                                              </BorderPane.margin>
                                           </GridPane>
-                                       </bottom>
+                                       </top>
                                     </BorderPane>
                                  </children>
                               </VBox>
                            </children>
                         </AnchorPane>
                      </content>
+                  </Tab>
+                  <Tab fx:id="TabRelatorio" text=" Relatório">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane layoutY="1.0" />
+                              <Label fx:id="LBrelatorio" layoutX="14.0" layoutY="244.0" text="Relatório" visible="false" />
+                              <TextArea fx:id="TXrelatorio" layoutX="14.0" layoutY="279.0" prefHeight="157.0" prefWidth="676.0" visible="false" />
+                              <Button fx:id="BTvoltar" layoutX="765.0" layoutY="414.0" mnemonicParsing="false" onAction="#action" prefHeight="43.0" prefWidth="86.0" text="Voltar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Button>
+                              <Button fx:id="BTsalvarRelatorio" layoutX="322.0" layoutY="445.0" mnemonicParsing="false" onAction="#action" text="Salvar Relatório" />
+                              <TableView fx:id="tabelaRelatorios" layoutX="246.0" layoutY="41.0" prefHeight="200.0" prefWidth="358.0">
+                                <columns>
+                                  <TableColumn fx:id="TabNomeac" prefWidth="75.0" text="Nome" />
+                                  <TableColumn fx:id="TabPedagogoac" prefWidth="75.0" text="Tipo do Acompanhamento" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <Button fx:id="BTbuscarRelat" layoutX="57.0" layoutY="82.0" mnemonicParsing="false" onAction="#action" text="Buscar Acompanhamento" />
+                              <TextField fx:id="TXbuscarRelat" layoutX="46.0" layoutY="50.0" prefHeight="25.0" prefWidth="174.0" />
+                              <Text fill="#5404e8" layoutX="322.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acompanhamentos">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="BTselecionar" layoutX="622.0" layoutY="128.0" mnemonicParsing="false" onAction="#action" text="Selecionar" />
+                              <Button fx:id="BTlistarTodos1" layoutX="393.0" layoutY="247.0" mnemonicParsing="false" onAction="#action" text="Listar todos" visible="false" />
+                              <Button fx:id="BTeditar" layoutX="239.0" layoutY="445.0" mnemonicParsing="false" onAction="#action" text="Editar " />
+                           </children>
+                        </AnchorPane>
+                    </content>
                   </Tab>
               </tabs>
             </TabPane>

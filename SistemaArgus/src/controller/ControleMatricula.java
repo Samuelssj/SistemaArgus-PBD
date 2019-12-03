@@ -138,6 +138,12 @@ public class ControleMatricula implements Initializable{
     		
 			}
     	}
+    	if(obj == BTproximo) {
+    		TabNota.getTabPane().getSelectionModel().select(TabNota1);
+    	}
+    	if(obj == BTvoltar) {
+    		TabNota1.getTabPane().getSelectionModel().select(TabNota);
+    	}
     	
     	if(obj == BTSalvar2) {
     		

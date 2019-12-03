@@ -23,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import model.Disciplina;
 import model.Professor;
 import model.Responsavel;
+import model.Usuario;
 
 public class ControleCadastroDisciplina implements Initializable{
 	private List<Professor> professorTabAdapter;
@@ -178,6 +179,28 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		
 	    		TabNovocadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
 	    		
+	    	}
+	    	
+	    	if(obj == JBdeletar) {
+	    		
+	    		
+	    		Disciplina dis = new Disciplina();
+				dis = tabelaDisciplinas.getSelectionModel().getSelectedItem();
+				
+			
+				try {
+					fachada.getInstance().removeDisciplina(dis.getId());
+					System.out.println(dis.getId());
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "DISCIPLINA DELETADA", "Deletado",
+							"Disciplina Deletada!");
+					CarregarTabelas();
+				} catch (BusinessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "DISCIPLINA NÃO DELETADA", "Não Deletado",
+							"Disciplina não Deletada!");
+				}
+				
 	    	}
 	    
 	    	if(obj == BTcadastrarDisciplina) {

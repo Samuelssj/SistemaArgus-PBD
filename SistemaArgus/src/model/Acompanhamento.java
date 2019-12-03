@@ -1,10 +1,12 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -18,25 +20,28 @@ import javax.persistence.Table;
 public class Acompanhamento extends Entidade {
 
 	
-	@Column(length = 60, nullable = false)
-	private String nome; //rua VARCHAR (50) NOT NULL,
-	@Column(length = 60, nullable = false)
-	private Date data; //rua VARCHAR (50) NOT NULL,
-	@Column(length = 60, nullable = false)
-	private int secao; //rua VARCHAR (50) NOT NULL,
-	@Column(length = 60, nullable = false)
-	private String relatoriAcompanhamento; //rua VARCHAR (50) NOT NULL,
-	@Column(length = 60, nullable = false)
-	private String relatorioProfissional; //rua VARCHAR (50) NOT NULL,
+	@Column(length = 60, nullable = true)
+	private String nome; 
+	@Column(length = 60, nullable = true)
+	private LocalDate data;
+	@Column(length = 60, nullable = true)
+	private int secao; 
+	@Column(length = 60, nullable = true)
+	private String TipoDeAcompanhamento; 
+	@Column(length = 500, nullable = true)
+	private String relatorio; 
 	
 	
-	@OneToOne
-	@JoinColumn(name = "aluno")
-	private Aluno aluno;
+	@ManyToOne
+	@JoinColumn(name = "Id_usuario")
+	private Usuario usuario;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "pedagogo")
 	private Pedagogo pedagogo;
+	
+	
+	
 	
 private static final long serialVersionUID = 1L;
 	
@@ -48,9 +53,7 @@ private static final long serialVersionUID = 1L;
 
 	@Override
 	public String toString() {
-		return "Acompanhamento [nome=" + nome + ", data=" + data + ", secao=" + secao + ", relatoriAcompanhamento="
-				+ relatoriAcompanhamento + ", relatorioProfissional=" + relatorioProfissional + ", aluno=" + aluno
-				+ ", pedagogo=" + pedagogo + "]";
+		return relatorio;
 	}
 
 
@@ -73,21 +76,28 @@ private static final long serialVersionUID = 1L;
 
 
 
-	public Date getData() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public LocalDate getData() {
 		return data;
 	}
 
 
 
-
-
-
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
-
-
-
 
 
 
@@ -109,57 +119,46 @@ private static final long serialVersionUID = 1L;
 
 
 
-	public String getRelatoriAcompanhamento() {
-		return relatoriAcompanhamento;
+
+
+
+
+
+
+
+	public String getTipoDeAcompanhamento() {
+		return TipoDeAcompanhamento;
 	}
 
 
 
-
-
-
-	public void setRelatoriAcompanhamento(String relatoriAcompanhamento) {
-		this.relatoriAcompanhamento = relatoriAcompanhamento;
+	public void setTipoDeAcompanhamento(String tipoDeAcompanhamento) {
+		TipoDeAcompanhamento = tipoDeAcompanhamento;
 	}
 
 
 
-
-
-
-	public String getRelatorioProfissional() {
-		return relatorioProfissional;
+	public String getRelatorio() {
+		return relatorio;
 	}
 
 
 
-
-
-
-	public void setRelatorioProfissional(String relatorioProfissional) {
-		this.relatorioProfissional = relatorioProfissional;
+	public void setRelatorio(String relatorio) {
+		this.relatorio = relatorio;
 	}
 
 
 
-
-
-
-	public Aluno getAluno() {
-		return aluno;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
 
 
-
-
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
-
-
-
 
 
 

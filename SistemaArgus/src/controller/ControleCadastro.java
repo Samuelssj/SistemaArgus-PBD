@@ -407,6 +407,7 @@ public class ControleCadastro implements Initializable {
 			aluno.setPai(TXusuarioPaiNome.getText().trim());
 			aluno.setMãe(TXusuarioMaeNome.getText().trim());
 			 aluno.setCpf(TXcpfUsuario.getText());
+			 aluno.setSituacao(true);
 
 		
 			try {
@@ -448,6 +449,7 @@ public class ControleCadastro implements Initializable {
 			usuario.setLogin(TXusuarioLogin.getText().trim());
 			usuario.setSenha(TXusuarioSenha.getText().trim());
 			usuario.setSituacao(true);
+			
 			try {
 
 				fachada.createOrUpdatePessoa(usuario);
