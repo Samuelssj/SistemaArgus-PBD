@@ -211,7 +211,7 @@
                                  <font>
                                     <Font size="18.0" />
                                  </font></Button>
-                              <Button fx:id="BTsalvarRelatorio" layoutX="322.0" layoutY="445.0" mnemonicParsing="false" onAction="#action" text="Salvar Relatório" />
+                              <Button fx:id="BTsalvarRelatorio" layoutX="555.0" layoutY="445.0" mnemonicParsing="false" onAction="#action" text="Salvar Relatório" visible="false" />
                               <TableView fx:id="tabelaRelatorios" layoutX="246.0" layoutY="41.0" prefHeight="200.0" prefWidth="358.0">
                                 <columns>
                                   <TableColumn fx:id="TabNomeac" prefWidth="75.0" text="Nome" />
@@ -230,7 +230,7 @@
                               </Text>
                               <Button fx:id="BTselecionar" layoutX="622.0" layoutY="128.0" mnemonicParsing="false" onAction="#action" text="Selecionar" />
                               <Button fx:id="BTlistarTodos1" layoutX="393.0" layoutY="247.0" mnemonicParsing="false" onAction="#action" text="Listar todos" visible="false" />
-                              <Button fx:id="BTeditar" layoutX="239.0" layoutY="445.0" mnemonicParsing="false" onAction="#action" text="Editar " />
+                              <Button fx:id="BTeditar" layoutX="143.0" layoutY="445.0" mnemonicParsing="false" onAction="#action" text="Adicionar ou editar Relatório" visible="false" />
                            </children>
                         </AnchorPane>
                     </content>

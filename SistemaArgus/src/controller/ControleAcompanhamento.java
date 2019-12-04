@@ -234,8 +234,10 @@ public class ControleAcompanhamento implements Initializable {
 
 			LBrelatorio.setVisible(true);
 			TXrelatorio.setVisible(true);
+			BTeditar.setVisible(true);
 			BTsalvarRelatorio.setVisible(true);
 			TXrelatorio.setEditable(false);
+			BTsalvarRelatorio.setVisible(true);
 			TXrelatorio.setText(tabelaRelatorios.getSelectionModel().getSelectedItem().toString());
 		}
 		if (obj == BTeditar) {
@@ -248,6 +250,7 @@ public class ControleAcompanhamento implements Initializable {
 			LBrelatorio.setVisible(false);
 			TXrelatorio.setVisible(false);
 			BTsalvarRelatorio.setVisible(false);
+			BTeditar.setVisible(false);
 
 			acompanhamento = tabelaRelatorios.getSelectionModel().getSelectedItem();
 			acompanhamento.setRelatorio(TXrelatorio.getText().trim());
