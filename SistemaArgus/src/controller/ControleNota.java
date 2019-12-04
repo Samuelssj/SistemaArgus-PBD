@@ -56,10 +56,10 @@ public class ControleNota implements Initializable {
 	    
 
 	    @FXML
-	    private TableColumn<?, ?> TabDisciplinaNome;
+	    private TableColumn<Disciplina, String> TabDisciplinaNome;
 
 	    @FXML
-	    private TableColumn<?, ?> TabDisciplinaCarga;
+	    private TableColumn<Disciplina, String> TabDisciplinaCarga;
 
 	    @FXML
 	    private Button BTBuscar;
@@ -88,6 +88,17 @@ public class ControleNota implements Initializable {
 	    @FXML
 	    void action(ActionEvent event) {
 	    	Object obj = event.getSource();
+	    	
+	    	
+	    	if(obj == BTselecionar) {
+	    		
+	    		Aluno aluno = new Aluno();
+	    		
+	    		
+	    	}
+	    	
+	    	
+	    	
 	    	
 	    	
 	    	if(obj == BTSalvar) {
@@ -168,15 +179,6 @@ public class ControleNota implements Initializable {
 	   }
 	   
 	   
-	   
-	   
-	
-	   
-	   
-	   
-	   
-	   
-	   
 //	   public void CarregarTabelaDisciplina() {
 //		 List<Disciplina> alu, auxiliarD;
 //		 Aluno aluno = new Aluno();
@@ -211,7 +213,7 @@ public class ControleNota implements Initializable {
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 		
-			CarregarTabelas();
+			CarregarTabelaAluno();
 			
 		}
 
