@@ -124,12 +124,12 @@
                                                       <Insets top="50.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button fx:id="BTselecionar" mnemonicParsing="false" onAction="#action" text="Selecionar" GridPane.rowIndex="15">
+                                                <Button fx:id="BTselecionar" mnemonicParsing="false" onAction="#action" prefHeight="25.0" prefWidth="107.0" text="calcular situação" GridPane.columnIndex="2" GridPane.rowIndex="15">
                                                    <GridPane.margin>
-                                                      <Insets bottom="60.0" left="130.0" />
+                                                      <Insets bottom="50.0" left="100.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Label text="Selecione o aluno desejado" GridPane.rowIndex="15">
+                                                <Label GridPane.rowIndex="15">
                                                    <GridPane.margin>
                                                       <Insets left="100.0" />
                                                    </GridPane.margin>
@@ -190,6 +190,16 @@
                                                    </font>
                                                    <GridPane.margin>
                                                       <Insets left="20.0" top="20.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <TextField fx:id="TXSituacao" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="15">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="50.0" left="100.0" right="30.0" top="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <Label text="Situação" GridPane.columnIndex="3" GridPane.rowIndex="15">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="40.0" left="50.0" />
                                                    </GridPane.margin>
                                                 </Label>
                                              </children>

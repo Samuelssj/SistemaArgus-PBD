@@ -33,9 +33,9 @@ public class Curriculo extends Entidade {
 	@JoinColumn(name = "parcela")
 	private Parcela parcela;
 
-	@ManyToOne
-	@JoinColumn(name = "id_aluno")
-	private Aluno aluno;
+//	@ManyToOne
+//	@JoinColumn(name = "id_aluno")
+//	private Aluno aluno;
 
 	private static final long serialVersionUID = 1L;
 
@@ -47,7 +47,7 @@ public class Curriculo extends Entidade {
 	@Override
 	public String toString() {
 		return "Curriculo [nome=" + nome + ", tipoAno=" + tipoAno + ", AnoLetivo=" + AnoLetivo + ", Codigo=" + Codigo
-				+ ", status=" + status + ", disciplina=" +", parcela=" + parcela + ", aluno=" + aluno
+				+ ", status=" + status + ", disciplina=" +", parcela=" + parcela + ", aluno=" 
 				+ "]";
 	}
 
@@ -71,13 +71,7 @@ public class Curriculo extends Entidade {
 		Codigo = codigo;
 	}
 
-	public Aluno getAluno() {
-		return aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
+	
 
 	public void setNome(String nome) {
 		this.nome = nome;

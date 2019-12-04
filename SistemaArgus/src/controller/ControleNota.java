@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import EntidadeEnum.TipoAnoLetivo;
 import exception.BusinessException;
 import exception.Menssagem;
 import fachada.Fachada;
@@ -28,6 +29,8 @@ public class ControleNota implements Initializable {
 	
 	private List<Aluno> alunoAdapter;
 	private List<Disciplina> disciplinaAdapter;
+	   
+	 private List<Disciplina> auxiliarD;
 	private Fachada fachada;
 	
 	 @FXML
@@ -36,6 +39,9 @@ public class ControleNota implements Initializable {
 	    @FXML
 	    private TabPane TabPane;
 
+	    @FXML
+	    private TextField TXSituacao;
+	    
 	    @FXML
 	    private Tab TabNota;
 
@@ -91,11 +97,33 @@ public class ControleNota implements Initializable {
 	    	
 	    	
 	    	if(obj == BTselecionar) {
-	    		
-	    		Aluno aluno = new Aluno();
-	    		
+	
+//	    		//CarregarTabelaDisciplina();
+//	    		CarregarTabelas();
+//	    	
+//	    		int nota1 = Integer.parseInt(TXmedia1.getText().trim());
+//	    		int nota2 = Integer.parseInt(TXmedia1.getText().trim());
+//	    		int nota3 = Integer.parseInt(TXmedia1.getText().trim());
+//	    		int nota4 = Integer.parseInt(TXmedia1.getText().trim());
+//	    		int f =Integer.parseInt(TXfinal.getText().trim());
+//		    	int media = nota1 + nota2+ nota3+ nota4;
+//		    	int fin = media + f;
+//	    		
+//	    		if(tabelaAluno.getSelectionModel().getSelectedItem().getCurriculo().getTipoAno() == TipoAnoLetivo.Bibimestre.toString()) {
+//	    			TXmedia4.setEditable(true);
+//	    			
+//	    			
+//	    		}
+//	    		
+//	    		if(media >7) {
+//	    			TXSituacao.setText("Aprovado");
+//    				
+//    			}
+//	    		else if(media <=6)
+//	    			TXSituacao.setText("recuperação");
 	    		
 	    	}
+	    	
 	    	
 	    	
 	    	
@@ -120,6 +148,8 @@ public class ControleNota implements Initializable {
 	    		nota3.setDisciplina(tabelaCurriculo.getSelectionModel().getSelectedItem());
 	    		nota3.setNota(Double.parseDouble(TXmedia3.getText()));
 	    		nota3.setTipoNota("nota3");
+	    		
+	    		
 	    		
 	    		
 	    		try {
@@ -178,42 +208,55 @@ public class ControleNota implements Initializable {
 			}
 	   }
 	   
-	   
+//	   
 //	   public void CarregarTabelaDisciplina() {
-//		 List<Disciplina> alu, auxiliarD;
-//		 Aluno aluno = new Aluno();
-//		 Curriculo c = new Curriculo();
 //		   
+//		   Curriculo c = new Curriculo();
+//		   Disciplina disciplina = new Disciplina(); // c
+//		   List<Disciplina> disci ;  
 //		   
+//		   int idCurriculo = tabelaAluno.getSelectionModel().getSelectedItem().getCurriculo().getId();
+//	
+////		 Aluno aluno = new Aluno();  //c 
+////		 List<Aluno> alunos;
+////		 
+//		 
 //			TabDisciplinaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 //			TabDisciplinaCarga.setCellValueFactory(new PropertyValueFactory<>("cargaHoraria"));
-////			
-////			try {
-////				
-//////			alu = Fachada.getInstance().searchAllAluno();
-////			aluno = tabelaAluno.getSelectionModel().getSelectedItem();
-////			
-////
-////				
-////	//			if(alu.getClass().get) {
-////					
-////				}
-////				
+//			
+//			try {
+//		
+//				disciplinaAdapter = Fachada.getInstance().searchAllDisciplina();
+//				System.out.println(d);
+//
+//				for (Disciplina d : disciplinaAdapter) {
+//					if(d.getCurriculo().getId() == idCurriculo) {
+//						auxiliarD.add(d);
+//					}
+//				}
+////				tabelaCurriculo.getItems().setAll(auxiliarD);
+//				
+//				
+//				
+//				
+//				
 ////				tabelaCurriculo.getItems().setAll(disciplinaAdapter);
-////				
-////				
-////			} catch (BusinessException e) {
-////				e.printStackTrace();
-////			}
-//		   
-//		   
+//				
+//				
+//			} catch (BusinessException e) {
+//				e.printStackTrace();
+//			}
+//		 
+		 
+	
+		   
 //	   }
-//	   
+	   
 
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 		
-			CarregarTabelaAluno();
+			CarregarTabelas();
 			
 		}
 
