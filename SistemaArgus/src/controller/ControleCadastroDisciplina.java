@@ -44,7 +44,17 @@ public class ControleCadastroDisciplina implements Initializable{
 	    @FXML
 	    private TableColumn<Disciplina, String> TabdisciplinaSituacao;
 
+	    @FXML
+	    private TableView<Professor> tabelaprofessor1;
 
+	    @FXML
+	    private TableColumn<Professor, String> TabprofessorNome1;
+
+	    @FXML
+	    private TableColumn<Professor, String> TabprofessorCPF1;
+	    
+	    @FXML
+	    private Button BTadicionar1;
 
 	    @FXML
 	    private TableView<Professor> TabelaprofessorDisciplina;
@@ -144,6 +154,40 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		
 				
 			}
+	    	if(obj == BTadicionar1) {
+	    		
+	    		try {
+		    		
+		    		disciplina = new Disciplina();
+		    		disciplina = tabelaDisciplinas.getSelectionModel().getSelectedItem();
+		    		
+		    		Professor p = tabelaprofessor1.getSelectionModel().getSelectedItem();	    		
+		    		disciplina.setProfessor(p);
+		    		disciplina.setStatus(true);
+		    		fachada.getInstance().createOrUpdateDisciplina(disciplina);
+		    		TabNovocadastro.getTabPane().getSelectionModel().select(TabListaCadastro);
+		    		TabNovocadastro.setDisable(true);
+		    		
+		    		Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Sucesso ao salvar", "Salvo",
+					 		"A disciplina foi salva com sucesso!");
+	    		
+	    		
+	    		} catch (Exception e) {
+					e.printStackTrace();
+					Menssagem.getInstancia().exibirMensagem(AlertType.CONFIRMATION, "Erro ao salvar", "Erro",
+							"A disciplina n�o foi salva com sucesso!");
+					
+				}
+				
+	    		CarregarTabelas();
+	    		LimparCampos();
+	    		
+	    	}
+	    		
+	    		
+	    
+	    		
+	    	
 	    	
 	    	if(obj == JBbuscarCadastroDisciplina) {
 	    	
@@ -207,8 +251,9 @@ public class ControleCadastroDisciplina implements Initializable{
 	    		
 	    		try {
 	    		
+	    			Professor p = new Professor();
 		    		disciplina = new Disciplina();
-		    		Professor p = TabelaprofessorDisciplina.getSelectionModel().getSelectedItem();	    		
+		    		 p  = TabelaprofessorDisciplina.getSelectionModel().getSelectedItem();	    		
 		    		disciplina.setCargaHoraria(TXdisciplinaCargah.getText().trim());
 		    		disciplina.setNome(TXdisciplinaNome.getText().trim());	
 		    		disciplina.setCodigo(TXdisciplinaCod.getText().trim());
@@ -254,14 +299,22 @@ public class ControleCadastroDisciplina implements Initializable{
 	    	TabnomeDisciplina.setCellValueFactory(new PropertyValueFactory<>("nome"));
 			TabcpfDisciplina.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 			
+			TabprofessorNome1.setCellValueFactory(new PropertyValueFactory<>("nome"));
+			TabprofessorCPF1.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+			
 			TabdisciplinaCarga.setCellValueFactory(new PropertyValueFactory<>("cargaHoraria"));
 			TabdisciplinaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 			TabdisciplinaSituacao.setCellValueFactory(new PropertyValueFactory<>("status"));
 			TabdisciplinaCod.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+			
 			try {
 
 				professorTabAdapter= fachada.getInstance().searchAllProfessor();
 				TabelaprofessorDisciplina.getItems().setAll(professorTabAdapter);
+				
+				
+				professorTabAdapter= fachada.getInstance().searchAllProfessor();
+				tabelaprofessor1.getItems().setAll(professorTabAdapter);
 				
 				
 				disciplinaTabAdapter = fachada.getInstance().searchAllDisciplina();

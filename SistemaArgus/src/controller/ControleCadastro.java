@@ -383,16 +383,17 @@ public class ControleCadastro implements Initializable {
 			aluno.setEndereco(endereco);
 			responsavel = new Responsavel();
 			if (Radiomae.isSelected()) {
+				
 				responsavel.setNome(TXusuarioMaeNome.getText().trim());
 				responsavel.setCpf(TXusuarioMaeCPF.getText().trim());
-				aluno.setCpf("XXX.XXX.XXX-XX");
+				responsavel.setTipo(TipoUsuario.Responsável);
 
 			}
 			if (RadioPai.isSelected()) {
 				responsavel.setNome(TXusuarioPaiNome.getText().trim());
 				responsavel.setCpf(TXusuarioPaiCPF.getText().trim());
 //				aluno.setCpf(TXusuarioPaiCPF.getText().trim());
-
+				responsavel.setTipo(TipoUsuario.Responsável);
 			}
 			if (RadioProprioresp.isSelected()) {
 				aluno.setCpf(TXcpfUsuario.getText().trim());
@@ -406,7 +407,7 @@ public class ControleCadastro implements Initializable {
 			aluno.setTipo(TipoUsuario.valueOf(COMBOusuarioTipo.getSelectionModel().getSelectedItem().toString()));
 			aluno.setPai(TXusuarioPaiNome.getText().trim());
 			aluno.setMãe(TXusuarioMaeNome.getText().trim());
-			 aluno.setCpf(TXcpfUsuario.getText());
+//			aluno.setCpf(TXcpfUsuario.getText());
 			 aluno.setSituacao(true);
 
 		

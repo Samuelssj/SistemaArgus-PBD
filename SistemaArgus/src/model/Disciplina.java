@@ -23,9 +23,11 @@ public class Disciplina extends Entidade {
 	private boolean status;
 	@Column(length = 10)
 	private String Codigo;
+
 	@ManyToOne()
 	@JoinColumn(name = "id_professor")
 	private Professor professor;
+	
 	@ManyToOne()
 	@JoinColumn(name = "id_curriculo")
 	private Curriculo curriculo;

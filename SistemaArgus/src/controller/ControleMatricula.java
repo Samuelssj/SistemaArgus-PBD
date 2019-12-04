@@ -111,19 +111,17 @@ public class ControleMatricula implements Initializable{
     	}
     	
     	if(obj == BTSalvar1) {
+    		//certo
+    		Turma turma1 = new Turma();
     		
-    		Curriculo c = new Curriculo();
+    		turma1.setCurriculo(tabelaCurriculo.getSelectionModel().getSelectedItem());
+    		turma1.setNome(TXBuscarCurriculo.getText().trim());
+    		turma1.setVagas(Integer.parseInt(TXVagas.getText().trim()));
+    		turma1.setSituacao(true);
     		
-    		c = tabelaCurriculo.getSelectionModel().getSelectedItem();
-    	
-    		turma.setNome(TXBuscarCurriculo.getText().trim());
-    		turma.setVagas(Integer.parseInt(TXVagas.getText().trim()));
-    		turma.setSituacao(true);
-    		
-    		turma.setCurriculo(c);
     		
     		try {
-    			fachada.getInstance().createOrUpdateTurma(turma);
+    			fachada.getInstance().createOrUpdateTurma(turma1);
     			LimparCampos();
     			CarregarTabelas();
 
@@ -147,17 +145,18 @@ public class ControleMatricula implements Initializable{
     	
     	if(obj == BTSalvar2) {
     		
-    		Aluno aluno = new Aluno();
-    		
-    		aluno = tabelaAluno.getSelectionModel().getSelectedItem();
-    		turma = tabelaTurma.getSelectionModel().getSelectedItem();
-    		
-    		turma.setAluno(aluno);
-    		turma.setVagas(turma.getVagas() -1);
+    		Turma t = new Turma();
+    		t = tabelaTurma.getSelectionModel().getSelectedItem();
+    		t.setAluno(tabelaAluno.getSelectionModel().getSelectedItem());
+    		t.setCurriculo(tabelaTurma.getSelectionModel().getSelectedItem().getCurriculo());
+    		t.setNome(tabelaTurma.getSelectionModel().getSelectedItem().getNome());
+    		t.setVagas(t.getVagas() -1);
+    		t.setSituacao(true);
     		validarturma();
+    		
     		try {
     			
-    			fachada.getInstance().createOrUpdateTurma(turma);
+    			fachada.getInstance().createOrUpdateTurma(t);
     			LimparCampos();
     			CarregarTabelas();
 

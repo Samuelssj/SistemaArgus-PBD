@@ -88,7 +88,7 @@
                                           </GridPane>
                                        </top>
                                        <left>
-                                          <TableView fx:id="tabelaDisciplinas" fixedCellSize="0.0" onSort="#action" prefHeight="198.0" prefWidth="873.0" BorderPane.alignment="CENTER">
+                                          <TableView fx:id="tabelaDisciplinas" fixedCellSize="0.0" onSort="#action" prefHeight="198.0" prefWidth="404.0" BorderPane.alignment="CENTER">
                                             <columns>
                                               <TableColumn fx:id="TabdisciplinaNome" prefWidth="75.0" text="Nome" />
                                                 <TableColumn fx:id="TabdisciplinaCarga" prefWidth="75.0" text="Carga Horária" />
@@ -106,11 +106,27 @@
                                        <bottom>
                                           <AnchorPane prefHeight="68.0" prefWidth="878.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <Button fx:id="JBeditar" layoutX="584.0" layoutY="26.0" mnemonicParsing="false" onAction="#action" text="Editar" AnchorPane.topAnchor="26.0" />
-                                                <Button fx:id="JBdeletar" layoutX="642.0" layoutY="26.0" mnemonicParsing="false" onAction="#action" text="Deletar" />
+                                                <Button fx:id="JBeditar" layoutX="817.0" layoutY="26.0" mnemonicParsing="false" onAction="#action" text="Editar" AnchorPane.topAnchor="26.0" />
+                                                <Button fx:id="JBdeletar" layoutX="753.0" layoutY="26.0" mnemonicParsing="false" onAction="#action" text="Deletar" />
+                                                <Button fx:id="BTadicionar1" layoutX="563.0" layoutY="7.0" mnemonicParsing="false" onAction="#action" text="Adicionar">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Button>
                                              </children>
                                           </AnchorPane>
                                        </bottom>
+                                       <right>
+                                          <TableView fx:id="tabelaprofessor1" prefHeight="198.0" prefWidth="327.0" BorderPane.alignment="CENTER">
+                                            <columns>
+                                              <TableColumn fx:id="TabprofessorNome1" prefWidth="75.0" text="Nome" />
+                                              <TableColumn fx:id="TabprofessorCPF1" prefWidth="75.0" text="CPF" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </right>
                                     </BorderPane>
                                  </children>
                               </VBox>

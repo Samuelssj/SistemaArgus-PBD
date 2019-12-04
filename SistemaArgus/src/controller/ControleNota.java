@@ -20,6 +20,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Aluno;
+import model.Curriculo;
 import model.Disciplina;
 import model.Nota;
 
@@ -150,6 +151,38 @@ public class ControleNota implements Initializable {
 				e.printStackTrace();
 			}
 	    }
+	   
+	   
+//	   public void CarregarTabelaDisciplina() {
+//		 List<Disciplina> alu, auxiliarD;
+//		 Aluno aluno = new Aluno();
+//		 Curriculo c = new Curriculo();
+//		   
+//		   
+//			TabDisciplinaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+//			TabDisciplinaCarga.setCellValueFactory(new PropertyValueFactory<>("cargaHoraria"));
+////			
+////			try {
+////				
+//////			alu = Fachada.getInstance().searchAllAluno();
+////			aluno = tabelaAluno.getSelectionModel().getSelectedItem();
+////			
+////
+////				
+////	//			if(alu.getClass().get) {
+////					
+////				}
+////				
+////				tabelaCurriculo.getItems().setAll(disciplinaAdapter);
+////				
+////				
+////			} catch (BusinessException e) {
+////				e.printStackTrace();
+////			}
+//		   
+//		   
+//	   }
+//	   
 
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {

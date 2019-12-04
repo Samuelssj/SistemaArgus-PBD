@@ -157,15 +157,14 @@ private Fachada fachada;
     	
     	
     	if(obj == BTadcionar) {
-    		
-    		Curriculo curriculo = new Curriculo();
+    		//certa
     		Disciplina disciplina = new Disciplina();
-    		
-    		
-    		curriculo = tabelaCurriculo.getSelectionModel().getSelectedItem();
-    		disciplina = tabelaDisciplina.getSelectionModel().getSelectedItem();
-    		
-    		disciplina.setCurriculo(curriculo);
+    		disciplina.setCurriculo(tabelaCurriculo.getSelectionModel().getSelectedItem()); 
+    		disciplina.setCargaHoraria(tabelaDisciplina.getSelectionModel().getSelectedItem().getCargaHoraria());
+    		disciplina.setCodigo(tabelaDisciplina.getSelectionModel().getSelectedItem().getCodigo());
+    		disciplina.setNome(tabelaDisciplina.getSelectionModel().getSelectedItem().getNome());
+    		disciplina.setProfessor(tabelaDisciplina.getSelectionModel().getSelectedItem().getProfessor());
+    		disciplina.setStatus(true);
     		
     		try {
 				fachada.getInstance().createOrUpdateDisciplina(disciplina);
