@@ -112,9 +112,13 @@ public class ControleRedefinirSenha extends Controle {
 			
 			try {
 				fachada.createOrUpdateAluno(u);
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "senha trocada", "OK",
+						" A senha foi alterada");
 			} catch (BusinessException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "senha não foi trocada", "erro",
+						" A senha não foi alterada");
 			}
 			
 			limparCampos();

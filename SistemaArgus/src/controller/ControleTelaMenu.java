@@ -15,6 +15,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import model.Entidade;
+import model.Usuario;
 import util.PostgresBackup;
 
 public class ControleTelaMenu implements Initializable {
@@ -106,7 +108,7 @@ public class ControleTelaMenu implements Initializable {
 		if (event.getSource() == menuCadastroAluno) {
 
 			atualizarTela("pessoa");
-//			itemMenuCargo.setText(logi.getUsuario().getNome());
+			//itemMenuCargo.setText();
 
 		}
 		if (event.getSource() == menuAluno) {

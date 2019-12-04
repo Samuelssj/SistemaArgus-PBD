@@ -31,6 +31,8 @@ import EntidadeEnum.TipoUsuario;
 
 public class  Usuario extends Entidade {
 
+	
+	
 	@Column(length = 50)
 	private String nome;
 	@Column()
@@ -149,6 +151,8 @@ public class  Usuario extends Entidade {
 		this.cpf = cpf;
 	}
 
+	
+	
 	@Override
 	public String detalhesEntidade() {
 		// TODO Auto-generated method stub

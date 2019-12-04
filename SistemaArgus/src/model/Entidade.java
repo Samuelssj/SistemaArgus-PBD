@@ -10,6 +10,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class Entidade implements Serializable {
 
+
 	public static final long serialVersionUID = 1L;
 
 	public static final String sequence = "entidade_sequence";

@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 public class Professor extends Usuario {
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 50, nullable = true)
 	private String nome; // 
 	 // 
 

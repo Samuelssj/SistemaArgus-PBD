@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Pedagogo extends Usuario{
 	
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 50, nullable = true)
 	private String nome; // nome VARCHAR (50) NOT NULL,
 	
 	

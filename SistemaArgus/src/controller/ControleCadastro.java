@@ -257,7 +257,7 @@ public class ControleCadastro implements Initializable {
 		}
 
 		if (obj == BTcadastrarUsuario) {
-
+			verificarCampos();
 			carregar();
 			
 
@@ -488,7 +488,8 @@ public class ControleCadastro implements Initializable {
 
 			// professor.setSenha(Criptografia.criptografar((TXusuarioSenha.getText().trim().getBytes())));
 
-			professor.setSenha(functioCrip2(TXusuarioSenha.getText().trim()));
+			//professor.setSenha(functioCrip2(TXusuarioSenha.getText().trim()));
+			professor.setSenha(TXusuarioSenha.getText().trim());
 			professor.setCpf(TXcpfUsuario.getText().trim());
 			professor.setSituacao(true);
 
@@ -735,29 +736,29 @@ public class ControleCadastro implements Initializable {
 
 	}
 
-	public String functioCrip2(String senha) {
-
-		String sen = "";
-
-		MessageDigest md = null;
-
-		try {
-
-			md = MessageDigest.getInstance("MD5");
-
-		} catch (NoSuchAlgorithmException e) {
-
-			e.printStackTrace();
-
-		}
-
-		BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
-
-		sen = hash.toString(16);
-
-		return sen;
-
-	}
+//	public String functioCrip2(String senha) {
+//
+//		String sen = "";
+//
+//		MessageDigest md = null;
+//
+//		try {
+//
+//			md = MessageDigest.getInstance("MD5");
+//
+//		} catch (NoSuchAlgorithmException e) {
+//
+//			e.printStackTrace();
+//
+//		}
+//
+//		BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
+//
+//		sen = hash.toString(16);
+//
+//		return sen;
+//
+//	}
 
 	public void CarregarTabelas() {
 
@@ -782,6 +783,158 @@ public class ControleCadastro implements Initializable {
 		}
 
 	}
+	
+	
+	 public boolean verificarCampos() {
+		 
+		 if(COMBOusuarioTipo.getValue() == TipoUsuario.Aluno) {
+		 
+	    	if (TXusuarioNome.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NOME Vazio",
+						"Preencha o NOME!");
+				return false;
+			}
+	    	if (TXusuarioCidade.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CIDADE Vazia",
+						"Preencha a CIDADE!");
+				return false;
+			}
+	    	if (TXusuarioCEP.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CEP Vazio",
+						"Preencha o CEP!");
+				return false;
+			}
+	    	if (TXusuarioMaeNome.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NOME DA MÂE Vazio",
+						"Preencha o NOME DA MÃE!");
+				return false;
+			}
+	    	if (TXusuarioPaiNome.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NOME DO PAI Vazio",
+						"Preencha o NOME DO PAI!");
+				return false;
+			}
+	    	if (TXusuarioPaiCPF.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CPF DO PAI Vazio",
+						"Preencha o CPF DO PAI!");
+				return false;
+			}
+	    	if (TXusuarioMaeCPF.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CPF da Mãe Vazio",
+						"Preencha o CPF da Mãe!");
+				return false;
+			}
+	    	
+	    	if (TXusuarioNumero.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NÚMERO Vazio",
+						"Preencha o NÚMERO!");
+				return false;
+			}
+	    	if (TXusuarioRua.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "RUA Vazio",
+						"Preencha a RUA!");
+				return false;
+			}
+	    	if (TXusuarioBairro.getText().trim().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "BAIRRO Vazio",
+						"Preencha o BAIRRO!");
+				return false;
+			}
+	    	if (COMBOestadoUsuario.getSelectionModel().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "ESTADO Vazio",
+						"Preencha o ESTADO!");
+				return false;
+			}
+	    	if (COMBOusuarioNaturalidade.getSelectionModel().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NATURALIDADE Vazio",
+						"Preencha a NATURALIDADE!");
+				return false;
+			}
+	    	if (COMBOusuarioTipo.getSelectionModel().isEmpty()) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "FUNÇÂO Vazia",
+						"Preencha a FUNCÂO!");
+				return false;
+			}
+	    	if (TXusuarioData_nasc.getValue() == null) {
+				Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NASCIMENTO Vazio",
+						"Preencha o NASCIMENTO!");
+				return false;
+			}
+	    	
+		 }if(COMBOusuarioTipo.getValue() != TipoUsuario.Aluno){
+			   	if (TXusuarioNome.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NOME Vazio",
+							"Preencha o NOME!");
+					return false;
+				}
+		    	if (TXusuarioCidade.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CIDADE Vazia",
+							"Preencha a CIDADE!");
+					return false;
+				}
+		    	if (TXusuarioCEP.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CEP Vazio",
+							"Preencha o CEP!");
+					return false;
+				}
+		    	if (TXusuarioLogin.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "Login Vazio",
+							"Preencha o LOGIN DA MÃE!");
+					return false;
+				}
+		    	if (TXusuarioSenha.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "Senha Vazio",
+							"Preencha a SENHA!");
+					return false;
+				}
+		    	
+		    	if (TXcpfUsuario.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "CPF Vazio",
+							"Preencha o CPF !");
+					return false;
+				}
+		    	
+		    	if (TXusuarioNumero.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NÚMERO Vazio",
+							"Preencha o NÚMERO!");
+					return false;
+				}
+		    	if (TXusuarioRua.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "RUA Vazio",
+							"Preencha a RUA!");
+					return false;
+				}
+		    	if (TXusuarioBairro.getText().trim().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "BAIRRO Vazio",
+							"Preencha o BAIRRO!");
+					return false;
+				}
+		    	if (COMBOestadoUsuario.getSelectionModel().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "ESTADO Vazio",
+							"Preencha o ESTADO!");
+					return false;
+				}
+		    	if (COMBOusuarioNaturalidade.getSelectionModel().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NATURALIDADE Vazio",
+							"Preencha a NATURALIDADE!");
+					return false;
+				}
+		    	if (COMBOusuarioTipo.getSelectionModel().isEmpty()) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "FUNÇÂO Vazia",
+							"Preencha a FUNCÂO!");
+					return false;
+				}
+		    	if (TXusuarioData_nasc.getValue() == null) {
+					Menssagem.getInstancia().exibirMensagem(AlertType.INFORMATION, "Campo Vazio", "NASCIMENTO Vazio",
+							"Preencha o NASCIMENTO!");
+					return false;
+				}
+			 
+		 }
+		 return true;
+		 
+	    }
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

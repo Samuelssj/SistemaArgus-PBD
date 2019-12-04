@@ -13,11 +13,11 @@ import javax.persistence.Table;
 
 public class Parcela extends Entidade {
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 50, nullable = true)
 	private String nome; 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private Double valor; 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private int quantidade; 
 	
 private static final long serialVersionUID = 1L;

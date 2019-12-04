@@ -16,11 +16,11 @@ import javax.persistence.Table;
 public class Turma extends Entidade {
 
 	
-	@Column(length = 60, nullable = false)
+	@Column(length = 60, nullable = true)
 	private boolean situacao; //numero VARCHAR (50) NOT NULL,
-	@Column(length = 60,nullable = false)
+	@Column(length = 60,nullable = true)
 	private int vagas; //bairro VARCHAR (50) NOT NULL,
-	@Column(length = 60, nullable = false)
+	@Column(length = 60, nullable = true)
 	private String nome; //cep VARCHAR (50) NOT NULL,
 	
 
