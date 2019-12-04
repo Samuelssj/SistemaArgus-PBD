@@ -11,8 +11,11 @@ import org.hibernate.internal.ExceptionConverterImpl;
 
 import com.itextpdf.text.ExceptionConverter;
 
+
 import daoInterface.IDao;
 import exception.DaoException;
+import model.Aluno;
+import model.Disciplina;
 import model.Entidade;
 import util.FactoryConnection;
 import util.SqlUtil;
@@ -141,5 +144,8 @@ public class Dao<Tipo extends Entidade> implements IDao<Tipo> {
 //		}
 	
 	}
+	
+	
+	
 
 }

@@ -152,6 +152,30 @@ public class ControleNota implements Initializable {
 			}
 	    }
 	   
+	   public void CarregarTabelaAluno() {
+		   
+			TabAlunoNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+			TabAlunoCPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+			
+			try {
+				alunoAdapter = Fachada.getInstance().searchAllAluno();
+				tabelaAluno.getItems().setAll(alunoAdapter);
+				
+				
+			} catch (BusinessException e) {
+				e.printStackTrace();
+			}
+	   }
+	   
+	   
+	   
+	   
+	
+	   
+	   
+	   
+	   
+	   
 	   
 //	   public void CarregarTabelaDisciplina() {
 //		 List<Disciplina> alu, auxiliarD;

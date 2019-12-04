@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,6 +15,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import util.PostgresBackup;
 
 public class ControleTelaMenu implements Initializable {
 
@@ -99,7 +101,7 @@ public class ControleTelaMenu implements Initializable {
 	private AnchorPane pane;
 
 	@FXML
-	void action(ActionEvent event) {
+	void action(ActionEvent event) throws IOException, InterruptedException {
 
 		if (event.getSource() == menuCadastroAluno) {
 
@@ -115,6 +117,8 @@ public class ControleTelaMenu implements Initializable {
 			
 		}
 		if (event.getSource() == menuSair) {
+			 PostgresBackup b = new PostgresBackup();  
+	        b.realizaBackup(); 
 			System.exit(0);
 		}
 		if (event.getSource() == menuTrocarUser) {

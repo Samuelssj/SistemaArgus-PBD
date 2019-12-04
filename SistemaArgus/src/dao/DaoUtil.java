@@ -13,6 +13,8 @@ import org.hibernate.annotations.common.util.impl.Log;
 import EntidadeEnum.HistoricoTipo;
 import daoInterface.IDaoUtil;
 import exception.DaoException;
+import model.Aluno;
+import model.Disciplina;
 import model.Entidade;
 import util.SqlUtil;
 
@@ -80,6 +82,19 @@ public class DaoUtil implements IDaoUtil{
 
 	}
 	
+	   public static List<Aluno> listarEmpsMuitoAtrasados(){
+			
+			EntityManager em = Dao.getEntityManager();
+			em.getTransaction().begin();
+			String consulta = "select * from listar_Alunos";
+			Query query = em.createNativeQuery(consulta, Disciplina.class);
+			@SuppressWarnings("unchecked")
+			List<Aluno> Alunos = (List<Aluno>) query.getResultList();
+			em.getTransaction().commit();
+			em.close();			
+			return Alunos;	
+			
+		}
 	
 	
 	

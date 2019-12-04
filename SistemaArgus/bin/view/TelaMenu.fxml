@@ -114,7 +114,7 @@
                         </Label>
                      </graphic>
                      <items>
-                      <MenuItem fx:id="menuSair" mnemonicParsing="false" onAction="#action" text="Sair" />
+                      <MenuItem fx:id="menuSair" mnemonicParsing="false" onAction="#action" text="Sair Fazendo Backup" />
                         <MenuItem fx:id="menuSobre" mnemonicParsing="false" onAction="#action" text="Sobre o Argus" />
                         <MenuItem fx:id="menuTrocarUser" mnemonicParsing="false" onAction="#action" text="Trocar Usuário" />
                      </items>
